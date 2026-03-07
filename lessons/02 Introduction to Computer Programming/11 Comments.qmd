@@ -1,0 +1,106 @@
+---
+title: "Comments"
+---
+
+It is often useful to provide informative text in our programs.
+
+::: {.callout-tip title="Definition"}
+A **comment** is text that is not interpreted nor converted to some sort of
+executable format as typical source code may be. It simply exists to
+provide information to developers, coders, or users working on or
+inspecting source code.
+:::
+
+We often comment parts of programs to describe what something does, why
+a choice in construct was chosen, and so on. Typically, a header at the
+top of our programs is also inserted to provide information such as who
+authored the program, when it was last updated, and what it does.
+
+In Python, there are two kinds of comments: single- and multi-line
+comments. Although there are several ways of commenting, we will only
+discuss the more widely used methods.
+
+Single-line comments span a single line (or a part of a line). A single
+line comment begins with the pound or hash (for the Twitter/X crowd) sign:
+`#`. A single-line comments can take up the entire line (i.e., the line
+begins with `#`), or it can follow a valid Python statement (i.e., only
+the latter part of a line is commented). Here are sample single-line
+comments:
+
+```python
+# get the user's name
+name = input("What is your name? ")
+name = "Dr. " + name	# prepend the Dr. title
+
+# say hello!
+print(f"Hello {name}!")
+```
+
+In the snippet above, there are three single-line comments. Two each
+take up an entire line. The third takes up only part of the line. The
+text that comes before it is valid Python syntax that is interpreted.
+Note that, once a comment has been started on a line, the rest of the
+line must be a comment.
+
+Multi-line comments begin and end with three single (`'''`) or double
+quotes (`"""`)in succession. They are typically used in source code
+headers, to comment out blocks of code for reasons such as debugging,
+and so on.  Here are sample multi-line comments:
+
+```python
+"""
+Author: Manny McFarlane
+Last updated: 2023-12-19
+Description: This program is nothing but fluff.
+"""
+'''
+And
+here
+is
+another
+multi-line
+comment!
+'''
+""" This is also a valid
+multi-line comment """
+''' And so is this! '''
+```
+
+Note that single and double quotes cannot be mixed in multi-line
+comments. That is, a multi-line comment cannot start with three single
+quotes and end with three double quotes. Many Python programmers prefer
+to implement multi-line comments as a sequence of single-line comments;
+for example:
+
+```python
+# Author: Manny McFarlane
+# Last updated: 2023-12-19
+# Description: This program is nothing but fluff.
+```
+
+This often stems from the fact that, in Python, strings can be enclosed
+in single quotes (`'`), double quotes (`"`), or three successive single
+(`'''`) or double (`"""`) quotes. The latter allows strings to span
+multiple lines. For example:
+
+```python
+first_name = 'Joe'
+last_name = "Smith"
+bio = """I am a wonderful human being
+capable of truly incredible things!"""
+
+print(first_name)
+print(last_name)
+print(bio)
+```
+
+Specifically regarding program headers, many programmers choose to
+implement them as follows to make them readable and easily identifiable:
+
+```python
+#################################################
+# Author: Manny McFarlane
+# Last updated: 2023-12-19
+# Description: This program is nothing but fluff.
+#################################################
+```

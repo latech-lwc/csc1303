@@ -1,0 +1,75 @@
+---
+title: "Program Flow"
+---
+
+It is very important to be able to identify the flow of control in any
+program, particularly to understand what is going on. In Python,
+function definitions aren't executed in the order that they are written
+in the source code. Functions are only executed when they are called.
+This is perhaps best illustrated with an example:
+
+```{.python code-line-numbers="true"}
+def min(a, b):
+    if (a < b):
+        return a
+    else:
+        return b
+
+def max(a, b):
+    if (a > b):
+        return a
+    else:
+        return b
+
+num1 = int(input("Enter a number: "))
+num2 = int(input("Enter another number: "))
+print(f"The smaller number is {min(num1, num2)}")
+print(f"The larger number is {max(num1, num2)}")
+```
+
+Each Python statement is numbered for reference. Lines 1 through 5
+represent the definition of the function min. This function returns the
+minimum of two values provided as parameters. Lines 7 through 11
+represent the definition of the function max. This function returns the
+maximum of two values provided as parameters. Lines 13 through 16
+represent the main part of the program. Although the Python interpreter
+does see lines 1 through 12, those lines are not actually executed until
+the functions min and max are actually called. The first line of the
+program to actually be executed is line 13. In fact, here is the order
+of the statements executed in this program if num1 = 34 and num2 = 55:
+
+```
+13, 14, 15, 1, 2, 3, 16, 7, 8, 10, 11
+```
+
+Let's explain. Line 13 asks the user to provide some value for the first
+number (which is stored in the variable num1). Line 14 asks the user to
+provide some value for the second number (which is stored in the
+variable num2). Line 15 displays some text; however, part of the text
+must be obtained by first calling the function `min`. This transfers
+control to line 1 (where `min` is defined). The two actual parameters,
+*num1* and *num2*, are then passed in and mapped to the formal parameters
+defined in `min`, *a* and *b*. Then, line 2 is executed and performs a
+comparison of the two numbers. Since `a = 34` and `b = 55`, then the
+condition in the if-statement is true. Therefore, line 3 is executed
+before control is transferred back to the main program with the value of
+the smaller number returned (and then control continues on to line 15).
+Note that lines 4 and 5 are never executed in this case!
+
+Line 16 is then executed and displays some text. Again, part of the text
+must be obtained by first calling the function `max`. This transfers
+control to line 7 (where `max` is defined). The variables *a* and *b* take on
+the values 34 and 55 respectively. Line 8 is then executed, and the
+result of the comparison is false.  Therefore, line 9 is not executed.
+Control then goes to line 10, and then to line 11 which returns the
+larger value. The program then ends.
+
+::: {.callout-important title="Activity" collapse=true}
+See if you can figure out the *order of execution* if `num1 = 55` and
+`num2 = 34`.
+
+What about when `num1 = 100` and `num2 = 100`?
+:::
+
+Knowing the order in which statements are executed is crucial to
+debugging programs and ultimately to creating programs that work.

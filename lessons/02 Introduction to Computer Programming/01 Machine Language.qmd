@@ -1,0 +1,55 @@
+---
+title: "Machine Language"
+---
+
+::: {.callout-tip title="Definition"}
+**Machine language** is a set of specific instructions that can be executed
+directly by a computer. This language is typically made up of binary
+digits (1s and 0s).
+:::
+
+A computer can only understand machine language. Machine language
+instructions are entirely made up of binary digits and can be directly
+executed by the CPU. Since we have a particularly hard time
+understanding 1s and 0s, early programmers assigned a set of mnemonics
+to represent machine code instructions so that they would be a bit more
+readable. This mapping became known as **assembly language**. People still
+write code in assembly language, but it is not typically used to create
+large scale applications.
+
+Here is an example of a "Hello, World!" program written in x86-64
+assembly language using the NASM syntax on Linux:
+
+```asm
+; Hello World in x86-64 NASM assembly (Linux)
+section .data
+    msg     db  "Hello, World!", 0x0A   ; the message, followed by a newline
+    msglen  equ $ - msg                 ; length of the message
+
+section .text
+    global _start
+
+_start:
+    mov rax, 1          ; syscall number for sys_write
+    mov rdi, 1          ; file descriptor 1 = stdout
+    mov rsi, msg        ; address of the message
+    mov rdx, msglen     ; number of bytes to write
+    syscall             ; invoke the kernel
+
+    mov rax, 60         ; syscall number for sys_exit
+    xor rdi, rdi        ; exit code 0
+    syscall             ; invoke the kernel
+```
+
+Even this small program illustrates just how much detail the programmer
+must manage in assembly language. Each instruction corresponds directly
+to a CPU operation: loading values into registers (`mov`), making a
+kernel system call (`syscall`), and so on. Compare this to the
+equivalent Python program and we can see why it is convenient to have the **programming languages** we use.
+
+```python
+# python equivalent to the Assembly Language code above.
+print("Hello, World!")
+```
+
+

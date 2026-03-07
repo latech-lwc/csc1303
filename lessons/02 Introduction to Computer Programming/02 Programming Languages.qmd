@@ -1,0 +1,129 @@
+---
+title: "Programming Languages"
+---
+
+The kinds of languages that are widely used today are known as
+programming languages. Programming languages allow us to represent
+algorithms in a way that is similar to English but is more structured
+and much less ambiguous.
+
+::: {.callout-tip title="Definition"}
+A **programming language** is a precisely constructed language that is
+specifically used to communicate instructions to a computer.
+:::
+
+English is a spoken language. As such, it was spoken first, rules were
+later defined and written down.  Therefore, there are many exceptions
+(i.e., words and phrases that are grammatically correct but don't
+conform to the general grammar/spelling rules). Spoken languages are
+sometimes ambiguous and open to interpretation. This means that a single
+statement can have multiple meanings. For example, the statement "I made
+the robot fast" can mean several different things. Does it mean that the
+robot was built quickly? Or does it mean that the robot was modified so
+that it would move around more quickly than it did before? Perhaps it
+means that the robot is named Fast. Or maybe that we managed to make the
+robot stop eating nuts and bolts.
+
+Humans rely on external factors like context and body language to
+understand the true meaning of a statement in a spoken language. And
+even then mistakes in interpretation still happen. With computers
+however, we need a language that is so structured and unambiguous that
+every computer can understand and interpret a given statement in the
+exact same way. For example, we don't want two different computers
+giving us two completely different answers to the arithmetic expression
+$1 + 1$.  In contrast to spoken languages, programming languages are first
+defined with rules. The language itself is then derived from those
+rules. Programming languages are therefore quite structured and not
+ambiguous. They are very precise and logical.
+
+There are many different programming languages that can be used to
+describe an algorithm. One of them, for example, is called Python, and
+it is what we will be using for the majority of the Living with Cyber
+curriculum. It is the duty of the programmer to write down the tasks
+that he/she wants done in a given programming language. Since computers
+can only understand machine language, we utilize an application known as
+a compiler that translates this programming language into machine
+language.
+
+::: {.callout-tip title="Definition"}
+A **compiler** is a tool used to translate an algorithm expressed in a
+programming language to machine language. The process by which this
+conversion from programming language to machine language is done is
+called **compilation**.
+:::
+
+The compilation process takes an algorithm written in a programming
+language and translates it to assembly language. From there, a process
+known as linking converts the assembly language to machine language.
+This is illustrated by @fig-compilation below:
+
+![The compilation
+process](images/Lesson04-01.png){#fig-compilation}
+
+Once machine language is generated to match a program, the computer can
+then directly execute the program and implement the algorithm. A fully
+compiled language is only executable by a CPU with the same
+characteristics and operating system (often, including version) as that
+which it was compiled for.  A programmer who wants wide distribution of
+his software will need to compile source code to the various destination
+computing architectures and operating systems that are the most likely
+to be used by the target audience for the application. Of course, the
+programmer could simply distribute source code and let users compile
+that themselves. Often, however, programmers do not wish to distribute
+source code for a variety of reasons (e.g., intellectual property).
+@fig-compilation2 below shows how a program would need to be compiled
+numerous times to cover a range of target computing architectures and
+operating systems:
+
+![The compilation
+process needs to be done for different target
+architectures](images/Lesson04-02.png){#fig-compilation2}
+
+Not all programming languages are compiled to machine language. Some are
+never compiled and are executed, one instruction at a time, by an
+**interpreter**.
+
+::: {.callout-tip title="Definition"}
+An **interpreter** is a tool used to evaluate instructions, written in a
+programming language, as the program is executed.
+:::
+
+An interpreter can be thought of as a real time compiler that executes
+high level programming language instructions, one at a time. Interpreted
+languages are much slower to execute than compiled languages.  Examples
+of interpreted languages are Python, PHP, JavaScript, and Perl. To
+execute a program written in an interpreted language, you must have an
+appropriate interpreter installed on your computing system.  Interpreted
+languages also require programmers to distribute their source code, and
+users to have an appropriate interpreter installed on their system.
+Maintaining code privacy is therefore not possible with interpreted
+languages.
+
+Partially compiled and interpreted languages combine the convenience of
+interpreted languages (i.e., not having to compile source code to a
+large number of target machine language executables) and the privacy and
+speed of compiled languages (i.e., not having to distribute source
+code).
+
+::: {.callout-tip title="Definition"}
+A **hybrid language** is a programming language that is compiled down to an
+intermediate language, and then interpreted (while the program is
+executed) from there.
+:::
+
+Examples of partially compiled languages are Java, Python, and Lisp.
+Note that Python can be strictly interpreted or partially compiled
+depending on the programmer's preferences. The intermediate language is
+distributed and subsequently executed on any computing platform that has
+an interpreter for the intermediate language. For example, Java source
+code is typically expressed in a *.java* file and partially compiled to
+Java bytecodes (in a *.class* file) that can then be distributed. A Java
+Virtual Machine (JVM) executes the bytecodes by interpreting each
+instruction, one at a time. The benefit of this method is that a
+programmer can distribute a single file to everyone, regardless of CPU
+architecture and operating system. Anyone wanting to execute the file
+simply needs to have a version of the JVM for their computing system.
+This is illustrated in @fig-compilation3 below:
+
+![Partially compiled
+languages](images/Lesson04-03.png){#fig-compilation3}

@@ -1,0 +1,55 @@
+---
+title: "Identifiers and Reserved Words"
+---
+
+::: {.callout-tip title="Definition"}
+An **identifier** is a name used to identify a variable, function, or other
+object (note that objects will be discussed later).
+:::
+
+Variable names (such as `age` and `average`, for example) or function
+names (such as `midPoint` and `distance`, for example) are all valid
+identifiers.
+
+In Python, identifiers must begin with a letter (either lowercase `a` to
+`z` or uppercase `A` to `Z`) or an
+underscore (\_) followed by zero or more letters, underscores, and digits (0 through 9). Here are
+examples of valid identifiers:
+
+```python
+average
+Average
+average_grade
+averageScore
+_mustard
+_7a69_
+a1b2c3X7Y9Z0
+```
+
+Note that Python is a case-sensitive language. For example, the
+identifier `average` is not the same as the identifier `Average`. Take a
+look at this example:
+
+```python
+average = 100
+Average = 50
+print(f"average = {average}")
+print(f"Average = {Average}")
+```
+
+::: {.callout-tip title="Definition"}
+**Reserved words** (sometimes called **keywords**) in a programming language are
+words that are meaningful to the language and **cannot** be used as
+identifiers.
+:::
+
+Most programming languages have quite a few reserved words. Python 3.x,
+for example, has the following reserved words:
+
+
+>False, None, True, and, as, assert, async, await, break, class, continue, def,
+>del, elif, else, except, finally, for, from, global, if, import, in, is,
+>lambda, nonlocal, not, or, pass, raise, return, try, while, with, yield
+
+You are already familiar with some of these: `def`, `print`, and
+`return`.  Many of the Python reserved words will be discussed later.

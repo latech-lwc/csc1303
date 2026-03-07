@@ -1,0 +1,110 @@
+---
+title: "Operators"
+---
+
+Like Scratch, Python has a variety of operators, broken down into
+several classes: arithmetic operators, relational (comparison)
+operators, assignment operators, logical operators, bitwise operators,
+membership operators, and identity operators. Operators allow operations
+to be performed on operands.  Let's first take a look at the arithmetic
+operators since they relate directly to assignment.
+
+### Arithmetic Operators
+
+::: {.callout-tip title="Definition"}
+**Arithmetic operators** allow us to perform arithmetic operations on
+two operands.
+:::
+
+In the following table, assume that `a = 23`, `b = 17`, `c = 4.0`, and
+`d = 8.0`:
+
+| Symbol | Description | Example 1| Example 2 |
+|--|:----|:--------|:------|
+| `+`| addition | a + b = 40 | c + d = 12.0 |
+| `-`| subtraction |a - b = 6 | c - d = -4.0 |
+| `*`| multiplication | a * b = 391|c * d = 32.0 |
+| `/`| division | a / b = 1.3529411764705883 |c / d = 0.5|
+| `%`| modulus |a % b = 6 |c % d = 4.0 |
+| `**`| exponentiation |a ** b = 141050039560662968926103 |c ** d = 65536.0 |
+| `//`| floor division|a // b = 1 |c // d = 0.0|
+
+: Python Arithmetic Operators and Examples
+
+```python
+c = 4.0
+d = 8.0
+print(c + d)
+print(c - d)
+print(c * d)
+print(c / d)
+print(c % d)
+print(c ** d)
+print(c // d)
+```
+
+### Relational Operators
+
+::: {.callout-tip title="Definition"}
+**Relational operators** allow us to compare the values of two operands.
+:::
+
+The result is the relation among the operands. In the following table,
+assume that `a = 23` and `b = 17`:
+
+| Symbol | Description | Example |
+|---|:-----|:-------|
+|`==`| equality | `a == b` is `False`|
+|`!=`| inequality | `a != b` is `True`|
+|`<>`| inequality | `a <> b` is `True`|
+|`>`| greater than | `a > b` is `True`|
+|`>=`| greater than or equal to | `a >= b` is `True`|
+|`<`| less than | `a < b` is `False`|
+|`<=`| less than or equal to | `a <= b` is `False`|
+
+: Python Relational Operators and Examples
+
+Note that the capitalization of `True` and `False` is intentional. In
+Python, the boolean value *true* is expressed as `True` and *false* as
+`False`.
+Also note that the use of `<>` is mostly discouraged as this is an old
+style way of checking for inequality. It is therefore recommended to use
+`!=` instead.
+
+```python
+a = 23
+b = 17
+print(a == b)
+print(a != b)
+print(a > b)
+print(a >= b)
+print(a < b)
+print(a <= b)
+```
+
+In Python, relational operators are typically used in if-statements,
+where branching is often desired. This will be illustrated in more
+detail later.
+
+### Assignment Operators
+
+::: {.callout-tip title="Definition"}
+**Assignment operators** allow us to assign values to variables.
+:::
+
+You have already seen the most basic example of this using the equal
+assignment operator (as in the statement: `age = 19`). In the following
+table, assume that `a = 23.0` and `b = 17`:
+
+| Symbol | Expression | Description | Result |
+|-|:--|:------------|:-----|
+|`=`|`a = b`| assigns the value in `b` to `a` | a = 17 |
+|`+=`|`a += b`| increments the value in `a` by `b` (same as `a = a + b`) | a = 40.0 |
+|`-=`|`a -= b`| decrements the value in `a` by `b` (same as `a = a - b`) | a = 6.0 |
+|`*=`|`a *= b`| increases the value in `a` by a factor of `b` (same as `a = a * b`) | a = 391.0 |
+|`/=`|`a /= b`| decreases the value in `a` by a factor of `b` (same as `a = a / b`) | a = 1.3529411764705883 |
+|`%=`|`a %= b`| changes the value in `a` to the remainder of dividing `a` by `b` (same as `a = a % b`) | a = 6.0 |
+|`**=`|`a **= b`| changes the value in `a` to the exponentiation of `a` to `b` (same as `a = a ** b`) | a = 1.4105003956066297e+23 |
+|`//=`|`a //= b`| changes the value in `a` the floor of dividing `a` by `b` (same as `a = a // b`) | a = 1.0 |
+
+: Python Assignment Operators and Examples

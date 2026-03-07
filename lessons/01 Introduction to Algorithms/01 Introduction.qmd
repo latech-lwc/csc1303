@@ -1,0 +1,67 @@
+---
+title: "Introduction"
+---
+
+In this lesson, you will learn about one of the most fundamental
+concepts in computer science: algorithms.
+
+::: {.callout-tip title="Definition"}
+An **algorithm** is a detailed sequence of steps that describes how to solve
+a problem or accomplish some task.
+:::
+
+First, consider the process of identifying problems and their possible
+solutions, and breaking those solutions down into a sequence of steps.
+One way to do this is via simple to-do lists.  Consider the problem of
+getting to class in the morning.  Assume that you have just woken up
+(that is, after you hit the snooze button a good dozen or so times).
+What steps did you take to prepare and get to class?  A possible list of
+steps is:
+
+```default
+get out of bed
+brush teeth
+take shower
+get dressed
+eat breakfast
+grab book-bag
+walk/bike/drive to class
+```
+
+This to-do list is actually a useful way to tell someone who didn't know
+what to do in the morning to prepare to get to class, what to do.
+
+Another example of a problem is that of baking an apple pie.  What would
+a to-do list that would show someone who didn't know how to bake an
+apple pie look like?  Could there be multiple ways of baking apple pie?
+If so, how can we determine which one is the *best*?  Truly, this is
+subjective; however, the idea of picking a best solution is one that is
+required in computer science.
+
+A possible solution to baking an apple pie as a to-do list may look like
+this:
+
+```default
+make the dough
+make the apple goop
+combine the two
+bake the dough with the goop
+eat hot apple pie (with vanilla ice cream, of course)
+```
+
+What does an algorithm that describes how to bake apple pie in the
+*best* manner mean?  Is it the algorithm that takes the shortest time to
+produce hot apple pie?  Is it the algorithm that uses the fewest
+ingredients?  Is it the algorithm that makes less of a mess in the
+kitchen and therefore requires less cleanup?  These questions are
+designed to illustrate that the notion of best algorithm is many times
+quite subjective and does not always have a definite (or even a single)
+answer.  However, the comparison of algorithms numerically to show the
+performance of one against another is quite important in computer
+science.  This will help in determining if one is better than another,
+with the end goal being to identify a best algorithm.
+
+Does a wrong algorithm for producing apple pie exist?  What solutions or
+algorithms will not work?  What happens if a person uses blueberries
+instead of apples?  Is the original problem of baking an apple pie
+solved then?

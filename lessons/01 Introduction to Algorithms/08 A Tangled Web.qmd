@@ -1,0 +1,12 @@
+---
+title: "A Tangled Web"
+---
+
+Can you determine what the flowcharts below do?  Try them out with
+different scenarios.
+
+![Doing a programming Assignment](images/Lesson03-11.png){fig-align="center"}
+
+![Should I eat food that I dropped on the floor](images/Lesson03-12.png){fig-align="center"}
+
+![Something is not working](images/Lesson03-13.png){fig-align="center"}

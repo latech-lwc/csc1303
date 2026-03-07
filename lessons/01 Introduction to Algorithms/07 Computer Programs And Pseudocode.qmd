@@ -1,0 +1,102 @@
+---
+title: "Computer Programs and Pseudocode"
+---
+
+So far, we have discussed:
+
+1. how algorithms are step-by-step solutions to specific problems;
+
+2. that algorithms can be represented as to-do lists and flowcharts; and
+
+3. that the runtime of different algorithms for the same problem can be
+used to compare those algorithms.
+
+However, we did not discuss how algorithms are given to a computer so
+that it can execute our algorithms for us.
+
+The main benefit in using computers to execute algorithms is that,
+typically, they are much faster and can process calculations much more
+quickly than we can.  As humans, we speak and write in different
+languages (one of which is English).  On the other hand, computers can
+only understand a language that is made up of 1s and 0s.  We will
+discuss the details of this **machine language** later on.
+
+Therefore, there is a need to represent algorithms in a form (or
+language) that is easy for both a human being and a computer to
+understand.  This helps us to specify algorithms correctly while also
+allowing computers to execute them quickly.  The language that we use to
+do this is called a **programming language**.  There are many programming
+languages, some of which you will learn to use in this curriculum.
+They usually share some similarities with English, and this is what
+makes it easier to describe our algorithms instead of trying to
+speak 1s and 0s.  When we have represented our algorithm in a
+programming language, it is referred to as a **computer program**.
+
+::: {.callout-tip title="Definition"}
+A **programming language** is a language designed to communicate
+instructions to a computer.
+:::
+
+It is important to remember that a computer will only blindly follow the
+instructions that it is given by a human being.  It never actually
+understands the problem that it is solving.  It is the responsibility of
+the programmer to understand the problem and create an algorithm that
+solves that problem.  Good algorithms require creativity, imagination,
+and a lot of hard work.
+
+The computer programming process can be compared to composing a piece of
+music.  Composing a piece of music takes creativity.  The composer then
+has to transfer the music from his head to a piece of paper in a way
+that other people can understand and perform it (e.g., music scales).
+The composer imagines the piece of music and then encodes it as a series
+of symbols on paper.  This process requires skill and creativity.  The
+computer executing a program can be compared to performing the piece of
+music.  The performer goes through a series of mechanical motions as
+described by the musical scales (or instructions) that were designed by
+the composer.
+
+Our job as computer scientists is to become very good composers.  We
+will need to learn how to transfer the beautiful ideas that we have in
+our heads into a series of instructions that a computer can blindly
+follow to make our music.
+
+One more way of representing algorithms is called **pseudocode**.  This way
+of representing algorithms was actually shown earlier in this lesson
+when the tile laying algorithms were described.
+
+::: {.callout-tip title="Definition"}
+**Pseudocode** is a way of writing algorithms in a manner that shares
+similarities with programming languages.  It is a mixture of normal
+English and programming language concepts.
+:::
+
+This method of representing algorithms will be used more often than the
+others in the curriculum.  Here is an example of the pseudocode for an
+algorithm that models the *stirring of sugar into coffee*:
+
+```default
+1. put sugar into coffee
+2. repeat
+3.     stir sugar into coffee
+4. until sugar is dissolved
+5. stop
+```
+
+Here is the pseudocode for displaying all prime numbers less than 10:
+
+```default
+1. n ← 1
+2. repeat
+3.     if n is prime
+4.     then
+5.         display the value of n
+6.     end
+7.     increase n by 1
+8. until n >= 10
+9. stop
+```
+
+Indentation is used to identify grouped instructions, while the numbers
+on the left become line numbers that make it easier to refer to
+particular lines in the pseudocode.  Finally, assignment of values to
+variables is done with a left arrow.

@@ -1,0 +1,89 @@
+---
+title: "Repetition"
+---
+
+You may have observed from the eat breakfast flowchart that it is
+possible to use decision blocks to repeat a task an indefinite number of
+times.  Repetition is a feature of many algorithms.
+
+::: {.callout-tip title="Definition"}
+**Repetition** is the repeating of a task (or tasks) over and over
+again.  It is accompanied by a decision/condition that controls when the
+repetition ends.  This is sometimes referred to as **iterating**, and each
+loop that is repeated is referred to as an **iteration**.
+:::
+
+Sometimes an algorithm designer will know how many times to repeat a
+certain task (i.e., how many iterations are needed).  For this reason,
+there are many different types of repetition.  Some repeat while a
+condition exists (we formally call this a **while** loop); some repeat until
+a condition exists (we formally call this a **repeat-until** loop); some
+repeat at least once, while a condition exists (we formally call this a
+**do-while** loop); and some repeat a fixed or known number of times (we
+formally call this a **repeat-n** loop or a **for** loop, depending on the
+programming language used).  Flowcharts make the process of
+repetition easy because connecting arrows can easily be placed to go
+back to an earlier task.
+
+For the next task, let's design an algorithm that finds and displays all
+the prime numbers that are less than 10.  Listing all of the prime
+numbers that are less than 10 is a fairly easy task.  However, what
+about listing all the prime numbers that are less than 100?  What about
+those that are less than 1,000?  Or 10,000?  As the number gets larger,
+it becomes much more complicated.  This is why designing an algorithm
+that a computer could execute would be beneficial.  Such an algorithm
+would calculate all of the required prime numbers faster than we could
+calculate them on our own.
+
+::: {.callout-note title="Did you know"}
+In algorithms where a certain task is repeated, it is often necessary to
+keep track of how many times it has been completed.  This is done by
+declaring and updating what is referred to as a **variable**.  Think of a
+variable as a container with a name in which we store any piece of data,
+potentially change it, observe it, and/or compare it with another piece
+of data as the algorithm is executed.
+
+In the case of repetition, a variable is typically used to represent a
+number showing how many times a task has been completed.  The variable
+can be called any name we want (the name could be a single letter such
+as x or n, or even a long word such as
+*theVariableStoringTheValueOfOurCounter*).  The variable is typically
+initialized to 0 and is increased by 1 every time a task is completed.
+When the entire algorithm terminates, the variable will contain the
+total number of times the task was completed.
+:::
+
+The design of an algorithm that displays all of the prime numbers that
+are less than 10 requires defining what it means for a number to be
+prime.  Formally, a number is prime if it is only evenly divisible by
+one and itself.  For example, 5 is prime but 4 is not (since it is also
+evenly divisible by 2).  The only even prime number is 2.
+
+To simplify the process of designing the algorithm, let's define a
+variable, n, to be used to specify the current prime number candidate.
+Let's also define a *magic* step (called *is n prime*) that will be used to
+determine whether *n* is prime (i.e., let's not do this manually but
+assume that the question can be asked and an answer provided in a single
+step).  A possible algorithm as a flowchart is:
+
+![A flowchart for an algorithm that displays all prime numbers less than 10. Starting from a red "Start" oval, it sets n = 2, then enters a loop: a green diamond asks "Is n prime?" If Yes, a blue parallelogram displays n, then flows to "Increment n." If No, it goes directly to "Increment n." After incrementing, a second green diamond asks "Is n < 10?" If Yes, the loop repeats back to the prime check. If No, the flow ends at a red "Stop" oval.](images/Lesson03-08.png){fig-align="center"}
+
+Notice that in the algorithm above, *is n prime* is repeated for every
+number (2 through 9 – which is a total of 8 times).  If the conditions
+of the algorithm were changed to find all of the prime numbers below
+100, *is n prime* would be repeated for every number from 2 through 99 (a
+total of 98 times).  This algorithm isn't the most *efficient* algorithm,
+but it gets the job done.
+
+Sometimes the algorithm designer does not know how many times a process
+is going to be repeated.  In such cases, a condition that is needed to
+be satisfied before the repetition is ended will have to be specified.
+The statement would then be repeated until that condition is reached.
+For example, what would an algorithm for stirring sugar into a cup of
+coffee look like?  Would it require stirring five times?  10 times?  100
+times?  There is no way to tell ahead of time how many times one would
+have to stir to get the sugar dissolved.  However, we know that the
+stirring should go on while the sugar is not completely dissolved.  A
+possible solution to this is:
+
+![A flowchart for a stir-sugar-into-coffee algorithm. Starting from a red "Start" oval, it flows into "Put sugar into coffee," then "Stir sugar into coffee," then to a green diamond asking "Is sugar dissolved?" If No, the loop returns to "Stir sugar into coffee." If Yes, the flow ends at a red "Stop" oval.](images/Lesson03-09.png){fig-align="center"}

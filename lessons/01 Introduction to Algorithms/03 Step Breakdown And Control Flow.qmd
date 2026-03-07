@@ -1,0 +1,118 @@
+---
+title: "Step Breakdown and Control Flow"
+---
+
+Consider the get to class algorithm.  It consisted of steps such as
+brush teeth, get dressed, and eat breakfast.  Some of these steps can
+actually be defined as problems of their own, which themselves require
+different algorithms in order to be successfully completed.  What this
+means is that some of these steps can be broken down into their own
+algorithms with a separate to-do list.  We call these sub-steps.  A
+possible algorithm for the problem of getting dressed is:
+
+```default
+put on underwear
+put on shorts
+put on shirt
+put on socks
+put on shoes
+```
+
+This illustrates that we can zoom in to any step in an algorithm and
+break it down into a series of smaller steps.  Note that it is possible
+to arrive at a trivial step that does not require any smaller steps or
+that does not have a simpler way to describe it.
+
+So what should be done to our original get to class algorithm?  Should
+getting dressed be replaced with the five new sub-steps identified
+above?  Is the overall solution more correct or less correct if we do
+that?  In the end, both solutions work and neither is specifically
+better than the other.  It all depends on the desired level of detail.
+If the person for whom the algorithm was intended for knew how to get
+dressed, then a separate algorithm to explain that would not be needed.
+However, if the person didn't know how to get dressed, then these
+sub-steps would be very important.
+
+Let's go back to the *producing apple pie* problem.  What do you think
+would happen if the order of the steps was changed in the proposed
+solution?  What if the raw ingredients used to make the dough and goop
+were baked *before* putting them together?  In this case, there would be a
+very messy oven instead of an apple pie.  What if the apple goop was
+made before making the dough?  In this case, apple pie would still be
+the delicious result.  There are times when the order in which the steps
+of an algorithm are carried out matters a lot and other cases when it
+doesn't matter as much.
+
+Consider the *get to class* algorithm again.  What would happen if the
+order of the steps was changed?  Imagine getting dressed before taking a
+shower.  Imagine walking/biking/driving to class before getting dressed.
+Let's not.  Could a shower be taken before brushing teeth?  Could
+breakfast be eaten before brushing teeth?
+
+::: {.callout-tip title="Definition"}
+**Control flow** is the order in which the instructions in an algorithm
+are evaluated or executed.
+:::
+
+In the examples considered so far, the control flow of algorithms has
+been the order in which the steps were listed.  Each step is evaluated
+or performed until it is complete, and then we move on to the next step.
+Completing all the steps completes the to-do list, thereby completing
+the algorithm.  Numbering the items listed in a to-do lists is an easy
+way of detailing the order in which the steps should be completed.  A
+possible numbered solution to the *get to class* algorithm is:
+
+```default
+1. get out of bed
+2. brush teeth
+3. take shower
+4. get dressed
+5. eat breakfast
+6. grab backpack
+7. walk/bike/drive to class
+```
+
+We say that *flow of control* begins at step 1, flows to step 2, then to
+step 3, and so on.  This means that step 1 is completed first before
+attempting step 2.  Step 5 should not be done before step 4 is
+completed.
+
+What about the *get to class* algorithm in which separate sub-steps for
+*get dressed* were specified (step 4 in the algorithm above)?  To combine
+the two algorithms, numbers can be assigned to the steps in the *get
+dressed* algorithm to show the order in which they will be executed in
+*relation* to the *get to class* algorithm – which will now look like this:
+
+```default
+1. get out of bed
+2. brush teeth
+3. take shower
+4. get dressed
+10. eat breakfast
+11. grab backpack
+12. walk/bike/drive to class
+```
+
+The get dressed algorithm will now look like this:
+
+```default
+5. put on underwear
+6. put on shorts
+7. put on shirt
+8. put on socks
+9. put on shoes
+```
+
+Notice how steps 1 through 4 of the go to class algorithm are the same
+and done in the same order.  However, we shift the flow of control to
+the get dressed algorithm which used to be step 5 in the original.  We
+have to execute the get dressed step (meaning its sub-steps) completely
+before proceeding to the eat breakfast step.  However, the get dressed
+step consists of five sub-steps, and so we number those steps before
+continuing to the eat breakfast step.  This means that the first
+sub-step in the get dressed algorithm is step 5.  We have to complete
+the get dressed algorithm before returning to the get to class
+algorithm.  Thus, the eat breakfast step becomes step 10 since the last
+step of the get dressed algorithm is step 9.  The entire algorithm ends
+when we execute the last step of the get to class algorithm, which is
+step 12.

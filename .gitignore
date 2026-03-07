@@ -1,0 +1,47 @@
+# Quarto
+/.quarto/
+*_files/
+*_cache/
+
+# OS
+.DS_Store
+.DS_store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IDEs & editors
+.vscode/
+.idea/
+*.iml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*~
+.project
+.settings/
+.classpath
+.factorypath
+nbproject/
+.nb-gradle/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.ipynb_checkpoints/
+.env
+.venv/
+env/
+venv/
+
+# Temporary & backup files
+*.tmp
+*.bak
+*.orig
+*.log
+
+**/*.quarto_ipynb

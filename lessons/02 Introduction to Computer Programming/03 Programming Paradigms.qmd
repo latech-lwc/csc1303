@@ -1,0 +1,56 @@
+---
+title: "Programming Paradigms"
+---
+
+Over the past forty years or so, three general classes, or paradigms, of
+programming languages have emerged. These paradigms include the
+imperative paradigm, the functional paradigm, and the logical paradigm.
+In addition, during the past decade or so these paradigms have been
+extended to include object-oriented features. A language is classified
+as belonging to a particular paradigm based on the programming features
+it supports.
+
+Object-oriented imperative languages are, by far, the most popular type
+of programming language. Both Java and C++ (two of the most used
+programming languages in industry) are object-oriented imperative
+languages. Scratch and Python are imperative languages – although Python
+does contains object- oriented attributes, Scratch does not.
+
+The imperative paradigm is based on the idea that a program is a
+sequence of commands or instructions (usually called statements) that
+the computer is to follow to complete a task. The imperative style of
+programming is the oldest, and now with object-oriented extensions,
+continues to be far and away the most popular style of programming.
+
+The Living with Cyber curriculum first (and very briefly) utilizes
+Scratch as the programming language.  This is quickly followed by
+Python. Scratch is not intended to be used to create applications
+designed for production systems. That is, it is not a general purpose
+programming language. Instead, it is a teaching tool aimed at
+simplifying the process of learning to program. Scratch purposefully
+omits many features available in other popular programming languages in
+order to keep the language from becoming overly complex. This allows you
+to focus on the big picture rather than get bogged down in the
+complexities inherent in real programming languages and their
+development environments.
+
+One way of thinking about writing Scratch programs is to compare it to
+programming in a production programming language with training wheels
+on. Complex and useful programs can be written in Scratch; however,
+there are many things that programmers are allowed to do in production
+languages that are not possible (at least not straightforward) in
+Scratch. For example, Scratch does not support functions and function
+calls directly, nor does it support recursion directly. These terms may
+not be familiar right now; however, these restrictions are designed to
+help beginning programmers avoid making common mistakes.
+
+General purpose programming languages are more robust, and can (and are)
+used in more situations than educational programming languages like
+Scratch. Think of it like this: using a programming language like
+Scratch is like building a Lego house only using 2x4 Lego pieces. While
+it is possible to do so, there is a limitation on what kinds of houses
+you can build. Conversely, using more general purpose programming
+languages is like building a house with any kind of Lego piece you can
+think up in your mind. There are fewer limitations, and the kinds of
+houses that you can build are limitless. From this point, we will use
+Python as the general purpose programming language in the course.

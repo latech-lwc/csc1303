@@ -1,0 +1,131 @@
+---
+title: "Why Python?"
+---
+
+You may have heard about other general purpose programming languages:
+Java, C, C++, C#, Visual Basic, and so on. So why use Python instead of,
+say, Java? In the end, it amounts to the simple idea that, unlike all of
+the other general purpose programming languages listed above, Python
+allows us to create powerful programs with limited knowledge about
+syntax, therefore allowing us to focus on problem solving instead. In a
+sense, Python is logical. That is, nothing must be initially taken on
+faith (that will ostensibly be explained at a later time). There isn't
+any excess baggage that's required in order to begin to write even
+simple Python programs.
+
+Recall how, in geometry, the formula for calculating the volume of a
+cone was given. At that time, it was simply inexplicable. That is, you
+were most likely told to memorize it. It is not until a calculus course
+that this formula is actually derived, and how it came to be is fully
+explained. Why? Well, it is simply because it requires calculus in order
+to do so. Most students taking a geometry course have not yet had
+calculus; however, formulas for calculating the volume of various
+objects (including a cone) are typical in such a course. The problem, of
+course, is that we are told to take it on faith that it, in fact, works
+as described. We are told that, how it works and how it was derived,
+will be explained at a later time. The problem with this is that it
+forces memorization of important material as opposed to a deep
+understanding of it (which, in the end, is the goal).
+
+A similar thing actually occurs in a lot of programming languages.
+Often, we must memorize syntax that will be explained later. Python is
+unique in that it does a pretty good job of taking all of that out by
+just being simple. Programming in Python is immediately logical and
+explicable.
+
+Take the following simple example of a program that displays the text,
+"Programming rules, man!" in various general purpose programming
+languages:
+
+```java
+// Basic text display program in Java.
+public class SimpleProgram
+{
+    public static void main(String[] args)
+    {
+	    System.out.println("Programming rules, man!");
+    }
+}
+```
+
+```c
+// Basic text display program in C
+#include <stdio.h>
+int main()
+{
+    printf("Programming rules, man!\n");
+}
+```
+
+```cpp
+// Basic text display program in C++
+#include <iostream>
+using namespace std;
+int main()
+{
+    cout << "Programming rules, man!" << endl;
+}
+```
+
+```cs
+//Basic text display program in C#
+public class SimpleProgram
+{
+    public static void Main()
+    {
+	    System.Console.WriteLine("Programming rules, man!");
+    }
+}
+```
+
+```vb
+'Basic text display program in Visual Basic
+Module Hello
+    Sub Main()
+	    MsgBox("Programming rules, man!")
+    End Sub
+End Module
+```
+
+And in Python
+
+```python
+print("Programming rules, man!")
+```
+
+In all of these examples, compiling and running the programs (or
+interpreting them) produces a single line of output text: "Programming
+rules, man!" Did you notice that, in all of the examples (except for
+Python), there seems to be a good bit of seemingly extra stuff for such
+a simple program? There are a lot of words that you may not be familiar
+with or immediately understand: *class, public, static, void, main/Main,
+#include, printf, cout, namespace, String[], endl, Module, Sub, MsgBox,*
+and so on. In fact, the only readable version to a beginner is usually
+the one written in Python.  It is pretty evident that the statement
+*print("Programming rules, man!")* means to display that string of
+characters to the screen (or console).
+
+Python is extremely readable because it has very simple and consistent
+syntax. This makes it perfect for beginner programmers. It also forces
+good coding practices and style, something that is very important for
+beginners (especially when it comes to debugging and/or maintaining
+programs). Python has a large set of libraries that provide powerful
+functionality to do just about anything. Libraries allow Python
+programmers to use all kinds of things that others have created (i.e.,
+we don't have to reinvent the wheel). A huge benefit of Python is that
+it is platform independent. It doesn't matter what operating system you
+use, it is supported with minimal setup and configuration, and there is
+no need to deal with dependencies (i.e., other things that are required
+in order to just begin to code in Python).
+
+Don't think that, because of its simplicity, Python is therefore not a
+powerful language (or perhaps that it doesn't compete with Java or C++).
+Python is indeed powerful, and can do everything that other programming
+languages can do (e.g., it does support the object-oriented paradigm).
+It is based on a few profound ideas (collectively known as [The Zen of
+Python](https://peps.python.org/pep-0020/) written by Tim Peters)
+
+::: {.callout-note title="Did you know" .column-margin}
+The name of the Python programming language is taken from a television
+series called *Monty Python's Flying Circus* (and not from the snake).
+:::

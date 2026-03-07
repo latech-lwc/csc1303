@@ -1,0 +1,99 @@
+project:
+  type: website
+  output-dir: docs
+
+format:
+  html:
+    theme: 
+      light: cosmo
+      dark: darkly
+    toc: true
+
+
+website:
+  page-navigation: true
+  title: "The Science of Computing I"
+  sidebar:
+    collapsible: true
+    search: true
+    contents:      
+      - text: Home
+        href: "index.qmd"
+
+      - section: "Lessons"
+        contents:
+          - section: "01 Introduction to Algorithms"
+            href: "lessons/01 Introduction to Algorithms/index.qmd"
+            contents:
+              - text: "Introduction"
+                href: "lessons/01 Introduction to Algorithms/01 Introduction.qmd"
+              - text: "Problem Statements"
+                href: "lessons/01 Introduction to Algorithms/02 Problem Statements.qmd"
+              - text: "Step Breakdown and Control Flow"
+                href: "lessons/01 Introduction to Algorithms/03 Step Breakdown And Control Flow.qmd"
+              - text: "Flowcharts"
+                href: "lessons/01 Introduction to Algorithms/04 Flowcharts.qmd"
+              - text: "Repetition"
+                href: "lessons/01 Introduction to Algorithms/05 Repetition.qmd"
+              - text: "Efficiency and Runtime"
+                href: "lessons/01 Introduction to Algorithms/06 Efficiency And Runtime.qmd"
+              - text: "Computer Programs and Pseudocode"
+                href: "lessons/01 Introduction to Algorithms/07 Computer Programs And Pseudocode.qmd"
+              - text: "A Tangled Web"
+                href: "lessons/01 Introduction to Algorithms/08 A Tangled Web.qmd"
+
+          - section: "02 Introduction to Computer Programming"
+            href: "lessons/02 Introduction to Computer Programming/index.qmd"
+            contents:
+              - text: "Machine Language"
+                href: "lessons/02 Introduction to Computer Programming/01 Machine Language.qmd"
+              - text: "Programming Languages"
+                href: "lessons/02 Introduction to Computer Programming/02 Programming Languages.qmd"
+              - text: "Programming Paradigms"
+                href: "lessons/02 Introduction to Computer Programming/03 Programming Paradigms.qmd"
+              - text: "Why Python?"
+                href: "lessons/02 Introduction to Computer Programming/04 Why Python.qmd"
+              - text: "Integrated Development Environments (IDEs)"
+                href: "lessons/02 Introduction to Computer Programming/05 Integrated Development Environments.qmd"
+              - text: "Scratch vs. Python"
+                href: "lessons/02 Introduction to Computer Programming/06 Scratch vs Python.qmd"
+              - text: "Python Primer"
+                href: "lessons/02 Introduction to Computer Programming/07 Python Primer.qmd"
+              - text: "Subprograms"
+                href: "lessons/02 Introduction to Computer Programming/08 Subprograms.qmd"
+              - text: "Operators"
+                href: "lessons/02 Introduction to Computer Programming/09 Operators.qmd"
+              - text: "Identifiers and Reserved Words"
+                href: "lessons/02 Introduction to Computer Programming/10 Identifiers and Reserved Words.qmd"
+              - text: "Comments"
+                href: "lessons/02 Introduction to Computer Programming/11 Comments.qmd"
+              - text: "Primary Control Constructs"
+                href: "lessons/02 Introduction to Computer Programming/12 Primary Control Constructs.qmd"
+              - text: "Program Flow"
+                href: "lessons/02 Introduction to Computer Programming/13 Program Flow.qmd"
+
+          - text: "03 Introduction to Computer Architecture"
+            href: "lessons/03 Introduction to Computer Architecture/index.qmd"
+
+          - text: "04 Searching and Sorting"
+            href: "lessons/04 Searching and Sorting/index.qmd"
+
+          - text: "05 Introduction to Data Structures"
+            href: "lessons/05 Introduction to Data Structures/index.qmd"
+
+
+      - section: "Activities"
+        contents:
+          - text: "01 Getting to Know the RPi"
+            href: "activities/01 Getting to Know the RPi/index.qmd"
+
+          - text: "02 Terminal and Shell"
+            href: "activities/02 Terminal and Shell/index.qmd"
+
+          - text: "03 LED the Way"
+            href: "activities/03 LED the Way/index.qmd"
+
+          - text: "04 Ultrasonic Sort"
+            href: "activities/04 Ultrasonic Sort/index.qmd"
+
+

@@ -1,0 +1,31 @@
+---
+title: Introduction to Computer Programming
+---
+
+## Contents
+
+1. [Machine Language](01 Machine Language.qmd)
+
+2. [Programming Languages](02 Programming Languages.qmd)
+
+3. [Programming Paradigms](03 Programming Paradigms.qmd)
+
+4. [Why Python?](04 Why Python.qmd)
+
+5. [Integrated Development Environments (IDEs)](05 Integrated Development Environments.qmd)
+
+6. [Scratch vs. Python](06 Scratch vs Python.qmd)
+
+7. [Python Primer](07 Python Primer.qmd)
+
+8. [Subprograms](08 Subprograms.qmd)
+
+9. [Operators](09 Operators.qmd)
+
+10. [Identifiers and Reserved Words](10 Identifiers and Reserved Words.qmd)
+
+11. [Comments](11 Comments.qmd)
+
+12. [Primary Control Constructs](12 Primary Control Constructs.qmd)
+
+13. [Program Flow](13 Program Flow.qmd)

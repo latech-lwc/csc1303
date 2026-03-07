@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Introduction to Computer Architecture – The Science of Computing I</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../lessons/04 Searching and Sorting/index.html" rel="next">
+<link href="../../lessons/02 Introduction to Computer Programming/13 Program Flow.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-0d4a9d19931feb4fee1ddab4b2489000.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/index.html">03 Introduction to Computer Architecture</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">The Science of Computing I</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Lessons</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../lessons/01 Introduction to Algorithms/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 Introduction to Algorithms</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/01 Introduction to Algorithms/01 Introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/01 Introduction to Algorithms/02 Problem Statements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Problem Statements</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/01 Introduction to Algorithms/03 Step Breakdown And Control Flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Step Breakdown and Control Flow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/01 Introduction to Algorithms/04 Flowcharts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flowcharts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/01 Introduction to Algorithms/05 Repetition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Repetition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/01 Introduction to Algorithms/06 Efficiency And Runtime.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Efficiency and Runtime</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/01 Introduction to Algorithms/07 Computer Programs And Pseudocode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Computer Programs and Pseudocode</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/01 Introduction to Algorithms/08 A Tangled Web.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">A Tangled Web</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../lessons/02 Introduction to Computer Programming/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 Introduction to Computer Programming</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/02 Introduction to Computer Programming/01 Machine Language.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Machine Language</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/02 Introduction to Computer Programming/02 Programming Languages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Programming Languages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/02 Introduction to Computer Programming/03 Programming Paradigms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Programming Paradigms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/02 Introduction to Computer Programming/04 Why Python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Why Python?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/02 Introduction to Computer Programming/05 Integrated Development Environments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Integrated Development Environments (IDEs)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/02 Introduction to Computer Programming/06 Scratch vs Python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Scratch vs.&nbsp;Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/02 Introduction to Computer Programming/07 Python Primer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python Primer</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/02 Introduction to Computer Programming/08 Subprograms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Subprograms</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/02 Introduction to Computer Programming/09 Operators.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Operators</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/02 Introduction to Computer Programming/10 Identifiers and Reserved Words.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Identifiers and Reserved Words</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/02 Introduction to Computer Programming/11 Comments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comments</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/02 Introduction to Computer Programming/12 Primary Control Constructs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Primary Control Constructs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/02 Introduction to Computer Programming/13 Program Flow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Program Flow</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/03 Introduction to Computer Architecture/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">03 Introduction to Computer Architecture</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/04 Searching and Sorting/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 Searching and Sorting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/05 Introduction to Data Structures/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 Introduction to Data Structures</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Activities</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../activities/01 Getting to Know the RPi/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 Getting to Know the RPi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../activities/02 Terminal and Shell/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 Terminal and Shell</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../activities/03 LED the Way/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 LED the Way</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../activities/04 Ultrasonic Sort/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 Ultrasonic Sort</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-layers-of-a-computer-system" id="toc-the-layers-of-a-computer-system" class="nav-link active" data-scroll-target="#the-layers-of-a-computer-system">The layers of a computer system</a></li>
+  <li><a href="#fundamentals-of-digital-logic" id="toc-fundamentals-of-digital-logic" class="nav-link" data-scroll-target="#fundamentals-of-digital-logic">Fundamentals of digital logic</a></li>
+  <li><a href="#led-the-way-preview" id="toc-led-the-way-preview" class="nav-link" data-scroll-target="#led-the-way-preview">LED the Way (Preview)</a>
+  <ul class="collapse">
+  <li><a href="#circuit-representation" id="toc-circuit-representation" class="nav-link" data-scroll-target="#circuit-representation">Circuit Representation</a></li>
+  <li><a href="#the-components" id="toc-the-components" class="nav-link" data-scroll-target="#the-components">The Components</a></li>
+  <li><a href="#ohms-law" id="toc-ohms-law" class="nav-link" data-scroll-target="#ohms-law">Ohm’s Law</a></li>
+  </ul></li>
+  <li><a href="#logic-gates" id="toc-logic-gates" class="nav-link" data-scroll-target="#logic-gates">Logic Gates</a></li>
+  <li><a href="#combining-gates" id="toc-combining-gates" class="nav-link" data-scroll-target="#combining-gates">Combining Gates</a></li>
+  <li><a href="#boolean-algebra" id="toc-boolean-algebra" class="nav-link" data-scroll-target="#boolean-algebra">Boolean Algebra</a></li>
+  <li><a href="#other-gates" id="toc-other-gates" class="nav-link" data-scroll-target="#other-gates">Other Gates</a></li>
+  <li><a href="#combinational-circuits" id="toc-combinational-circuits" class="nav-link" data-scroll-target="#combinational-circuits">Combinational Circuits</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/index.html">03 Introduction to Computer Architecture</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Introduction to Computer Architecture</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Computer architecture is a wide branch of computer science that seeks to find answers to questions such as, “What makes up a computer?” and, “How is it that we can use a computer?” The answers to these questions are continuously changing, but we will attempt to give a simple answer in this lesson.</p>
+<p>In a previous lesson, we discussed how computer hardware works. Recall that all general-purpose computers, at a minimum, consist of the following hardware components: a central processing unit (CPU), main memory, secondary storage, various input/output (I/O) devices, and a data bus. The <strong>data bus</strong> is like a highway that the other components use to communicate with each other. <strong>Main memory</strong> is used to store data and programs that are currently being used. <strong>I/O devices</strong> allow the outside world to communicate with the computer. The <strong>CPU</strong> is the device that is responsible for actually executing the instructions that make up a program.</p>
+<p>Let’s further discuss the brains of the computer, the CPU. The operation of the CPU is governed by the instruction cycle.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Definition">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <strong>instruction cycle</strong> is a procedure that consists of three phases: instruction fetch, instruction decode, and instruction execution.</p>
+</div>
+</div>
+<p>The CPU’s task is to perform the instruction cycle over and over until explicitly instructed to halt. The <strong>fetch phase</strong> of the instruction cycle consists of retrieving an instruction from memory. The <strong>decode</strong> phase concerns determining what actions the instruction is requesting the CPU to perform. Instruction <strong>execution</strong> involves performing the operation requested by the instruction.</p>
+<section id="the-layers-of-a-computer-system" class="level2">
+<h2 class="anchored" data-anchor-id="the-layers-of-a-computer-system">The layers of a computer system</h2>
+<p>To fully understand computer architecture, it is important to understand the idea of abstraction as it is used in the field of computer science. Abstraction is an idea of dealing with complex and interconnected systems whereby a user is only interested in the operations of a certain level of complexity and suppresses more complex details. Abstraction is analogous to looking at Google map of a large country, such as the USA. We can see the individual states, large lakes, surrounding oceans, and neighboring countries. At this level of abstraction, one is unable to see the finer details within a state (such as the names of cities, towns, and major roads). However, zooming in provides an increased level of detail. The entire country is no longer visible; instead, perhaps only a single state (e.g., Louisiana) and its neighbors are visible. At this <em>zoomed in</em> level, we can now see some of the cities and major roads. However, we cannot see some of the details of the <em>zoomed out</em> level such as the states that are not immediate neighbors or the oceans. If we <em>zoom in</em> to an even lower level, we can see street names, major buildings, and so on. Again, we lose some of the details at the higher levels. Dividing a complex system (like a map) into levels that progressively abstract away detail allows users of the system to only deal with information that is relevant at a given time.</p>
+<div id="fig-complayers" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-complayers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Lesson05-01.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-complayers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The multiple layers of a computer
+</figcaption>
+</figure>
+</div>
+<p>A computer is a very complex system consisting of multiple layers (see <a href="#fig-complayers" class="quarto-xref">Figure&nbsp;1</a>). At the very top is the <strong>user</strong>. Users interact with computers in a variety of ways. That is, they can (and do) interact directly with applications (like a spreadsheet application, a game, or a Web browser). Users can also interact directly with the operating system (e.g., through its GUI or via the console) and with system utilities (think of applications that are provided by the operating system). The <strong>application layer</strong> is the next layer, immediately below the user. It is the layer that a computer user typically interacts with. For example, a user can type and send an email without needing to know how the characters on the screen are made to appear on another computer perhaps one thousand miles away. A user might double-click an audio file on the desktop without needing to know how the computer understands what a double-click is or how to “play” the audio file.</p>
+<p>The next layer is the <strong>operating system</strong> layer. This layer understands user inputs (like typing or double- clicks) and figures out ways of interpreting and executing those inputs. There are many examples of operating systems (e.g., Linux, Windows, MacOS, Unix, Solaris). Of these, Window is still the most common. What is the operating system on your Raspberry Pi? At its core, the operating system is what allows users to interact with the computer and actually make use of it.</p>
+<p><strong>System utilities</strong> are like applications, but provided directly by the operating system. In one sense, they provide an interface to certain parts of the operating system that allow users to do frequently needed things. For example, the system utility of copying or moving files is often used. Users don’t have to install an application that permits copying and moving files around. This is a system utility provided by the operating system. Since system utilities are essentially embedded in the operating system, this layer sits at the same level as the operating system layer.</p>
+<p>The layer beneath the operating system layer is the <strong>hardware abstraction</strong> layer (or HAL). Sometimes, this layer is referred to as the device driver layer. There are many different types and designs of computers, and this layer makes sure that the computer hardware acts the same regardless of the computer’s design. For example, it makes sure that the “on” button switches on the computer regardless of where it is located. It makes sure that hitting a specific button opens the CD drive. It provides the operating system with clear instructions on how it can interact with the physical hardware of the computer.</p>
+<p>The bottom layer is the <strong>hardware layer</strong>. It represents the physical, tangible stuff that you can see or touch (e.g., keyboard, monitor, mouse, case, power supply, motherboard, etc).</p>
+</section>
+<section id="fundamentals-of-digital-logic" class="level2">
+<h2 class="anchored" data-anchor-id="fundamentals-of-digital-logic">Fundamentals of digital logic</h2>
+<p>Becoming really good at computer science means having a good understanding of all of the layers, what they do, and how they are used. We will spend most of this lesson dealing with the hardware layer. A lot of devices have two states: a voltage is high or low, a switch is open or closed, a light is on or off. There are many ways of modeling these two-state systems; some are very concrete and some are more abstract. We’ll look at a number of these models, beginning with simple models that are based on mechanical switches and light bulbs.</p>
+<p>One of the most basic electrical connection is a light bulb that is either connected to a power source (or not). A slightly more complicated version of this includes a switch that can be either open or closed. These switches are similar to the electrical switches in your home. We will assume that these switches are connected to a source of power that can supply current. The potential of a power source, such as a battery, is called voltage and is measured in units called volts (V). Voltage sources typically have a positive and negative end (called a terminal), and the difference in the potential between both terminals is what we use as the measurement of voltage. Voltage sources can produce either alternating current (AC) or direct current (DC). With DC, one terminal is always positive, and the other is always negative. Examples of DC sources are batteries such as the ones you would put in a small radio, watch, or flashlight. With AC, the two terminals keep on swapping positive and negative roles very quickly (60 times per second!). Examples of AC sources are wall outlets that you would typically find in your home.</p>
+<p>The simplest circuit that can be built contains a power supply, a single switch, and a light bulb. If the switch is open, the light is off; if the switch is closed, the light is on. The following figure illustrates both of these cases:</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-02.png" class="img-fluid figure-img"></p>
+<figcaption>A Basic Electrical Circuit with the switch open</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-03.png" class="img-fluid figure-img"></p>
+<figcaption>A Basic Electrical Circuit with the switch closed</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>The state of these two circuits can be expressed in table form as follows:</p>
+<table class="caption-top table">
+<caption>State table for single switch circuit</caption>
+<thead>
+<tr class="header">
+<th>Switch</th>
+<th>Light</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Open</td>
+<td>Off</td>
+</tr>
+<tr class="even">
+<td>Closed</td>
+<td>On</td>
+</tr>
+</tbody>
+</table>
+<p>We can increase the complexity of this circuit somewhat by adding a second switch between the first switch and the light bulb. This results in four possible configurations:</p>
+<ol type="1">
+<li>both switches are open;</li>
+<li>the first switch is open and the second is closed;</li>
+<li>the first switch is closed and the second is open; and</li>
+<li>both switches are closed.</li>
+</ol>
+<p>This is illustrated in the figure below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-04.png" class="img-fluid figure-img"></p>
+<figcaption>The four states of an in-sequence 2 switch circuit</figcaption>
+</figure>
+</div>
+<p>These circuits are called <strong>series circuits</strong> since the two switches occur on the same path from the power source back to itself. In series circuits, when either one or both of the switches are open power will not flow, and the light bulb will be off. Only when both switches are closed does power flow, and the light bulb illuminates. Said another way: if both switch A <strong>and</strong> switch B are closed, then the light will turn on.</p>
+<p>The relationship between the states of the two switches (open or closed) and the state of the light bulb (on or off) is summarized in the following table:</p>
+<table class="caption-top table">
+<caption>State table for two switch in-sequence circuit</caption>
+<thead>
+<tr class="header">
+<th>Switch A</th>
+<th>Switch B</th>
+<th>Light</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Open</td>
+<td>Open</td>
+<td>Off</td>
+</tr>
+<tr class="even">
+<td>Open</td>
+<td>Closed</td>
+<td>Off</td>
+</tr>
+<tr class="odd">
+<td>Closed</td>
+<td>Open</td>
+<td>Off</td>
+</tr>
+<tr class="even">
+<td>Closed</td>
+<td>Closed</td>
+<td>On</td>
+</tr>
+</tbody>
+</table>
+<p>Another type of circuit can be designed using two switches. This second type of circuit arranges the switches in parallel rather than in series. In a two-switch <strong>parallel circuit</strong>, each of the switches is placed on a separate path between the power source and the light bulb. The figure below illustrates the four possible configurations of a two-switch parallel circuit. As was the case with the series circuits, there are four possible configurations of the circuit (in fact, they are exactly the same as before). When both switches are open power does not flow and the light bulb is off. However, whenever either or both of the switches are closed, power flows and the light will turn on. Said another way, if switch A <strong>or</strong> switch B is closed, then the light will turn on.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-05.png" class="img-fluid figure-img"></p>
+<figcaption>The four states of an in-parallel 2 switch circuit</figcaption>
+</figure>
+</div>
+<p>The relationship between the states of the two switches (open or closed) and the state of the light bulb (on or off) is summarized in the following table:</p>
+<table class="caption-top table">
+<caption>State table for two switch in-parallel circuit</caption>
+<thead>
+<tr class="header">
+<th>Switch A</th>
+<th>Switch B</th>
+<th>Light</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Open</td>
+<td>Open</td>
+<td>Off</td>
+</tr>
+<tr class="even">
+<td>Open</td>
+<td>Closed</td>
+<td>On</td>
+</tr>
+<tr class="odd">
+<td>Closed</td>
+<td>Open</td>
+<td>On</td>
+</tr>
+<tr class="even">
+<td>Closed</td>
+<td>Closed</td>
+<td>On</td>
+</tr>
+</tbody>
+</table>
+<p>More complex circuits with three or more switches are possible!</p>
+</section>
+<section id="led-the-way-preview" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="led-the-way-preview">LED the Way (Preview)</h2>
+<p>The next Raspberry Pi activity will involve implementing various circuits that illustrate some of the ones covered above. Initially, the Raspberry Pi will only be used as a power source. We will be connecting it to a circuit prototyping board called a <strong>breadboard</strong>, and the Raspberry Pi will provide power to the breadboard. A breadboard is used to simplify the process of prototyping connections between electronic components. It allows the making of secure connections between simple electronic devices by simply plugging them into appropriate rows or columns of the board. Here’s an example of a breadboard:</p>
+
+<div class="no-row-height column-margin column-container"><div class="callout callout-style-default callout-note callout-titled" title="Did you know">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Did you know
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Breadboards actually derive their name from a breadboard (i.e., a wooden board on which bread is often cut). This is because early versions of breadboards were made from the wooden bread cutting workstations.</p>
+</div>
+</div></div><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-06.png" class="img-fluid figure-img"></p>
+<figcaption>A bread board</figcaption>
+</figure>
+</div>
+<p>The holes in the breadboard allow electronic components (including wires) to be connected to each other. Note that there are internal connections within the breadboard. Each row along the top and bottom of the breadboard is connected. In addition, each column in the center portion is connected; however, there is a disconnect across the center gap:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-07.png" class="img-fluid figure-img"></p>
+<figcaption>The hidden connections within a bread board</figcaption>
+</figure>
+</div>
+<section id="circuit-representation" class="level3">
+<h3 class="anchored" data-anchor-id="circuit-representation">Circuit Representation</h3>
+<p>The first part of the Raspberry Pi activity will simply be to connect a power supply to a light. Since the Raspberry Pi provides DC, the light we will use is called an LED. We’ll explain this later; but for now, here’s an example of the connected electronic components for this part of the activity:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-08.png" class="img-fluid figure-img"></p>
+<figcaption>A layout diagram</figcaption>
+</figure>
+</div>
+<p>The image above is an example of the topological layout of a circuit. That is, it does a pretty good job of showing how the circuit looks physically when connected. Of course, there are many more ways to layout this exact circuit, and this is just one way. This method of diagramming a circuit is called a <strong>layout diagram</strong> because it shows the physical layout of the electronic (and other) components.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Definition">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>circuit diagram</strong> (also known as a <strong>schematic</strong>) is another way of representing a circuit that only shows the connections and substitutes actual electronic components with standard symbols.</p>
+</div>
+</div>
+<div id="fig-circuitdiagram" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-circuitdiagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Lesson05-09.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-circuitdiagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: A circuit diagram
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-circuitdiagram" class="quarto-xref">Figure&nbsp;2</a> is an example of a circuit diagram.</p>
+<p>A circuit diagram is a useful way to represent a circuit. Note how it can topologically be laid out in a number of ways. Various electronic components have unique symbols. For example (in the circuit diagram above), the LED has the following symbol:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-10.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%"></p>
+</figure>
+</div>
+<p>The resistor has the following symbol:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-11.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+<p>The large rectangular object with lines coming out of it is the Raspberry Pi. Technically, this represents the GPIO pins on the Raspberry Pi. We’ll discuss this more later. We will also show more electronic components and their symbols later.</p>
+</section>
+<section id="the-components" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="the-components">The Components</h3>
+<p>Let’s go through the components, one-by-one. At the bottom is the Raspberry Pi. You will notice that there are two wires connecting some pins on the RPi to the breadboard. We typically use red wires to signify positive voltage and black wires to signify negative voltage. In DC, the negative side is called ground. So red wires connect positive power to something, and black wires connect something to ground.</p>
+<p>The red “light” in the circuit is called an <strong>LED</strong> (Light Emitting Diode). An LED is more convenient than a traditional light bulb, because it does not require high voltage in order to turn it on. In fact, it consumes such a small voltage that typical higher voltage levels would render the LED unusable. Be careful when using LEDs, and never connect them directly to a voltage source.</p>
+<p>An LED allows current to flow through it in only one direction (from positive to negative). LEDs have a short leg and a long leg. The short leg is called the <strong>cathode</strong> and is the negative side. The long leg is called the <strong>anode</strong> and is the positive side. The head of an LED is also flat on one side: the negative (or cathode) side. LEDs come in various colors (the one in the circuit above is red, for example). The longer leg of an LED should <strong>always</strong> be connected to the positive side of your voltage source. If it is connected backwards (i.e., with the shorter leg connected to the positive side), the LED will not light and may even burn out. For this reason, an LED should always be connected to a DC voltage source.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-12.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>The two sides of an LED</figcaption>
+</figure>
+</div>
+<p>Since most power sources are too strong for typical LEDs, we must reduce the current somewhat so that the LED does not become damaged. <strong>Resistors</strong> are typically used to resist the flow of electricity. When using them with LEDs, we typically connect a resistor in series with the LED. It doesn’t matter if the resistor is on the positive or negative side of the LED. It works the same in either case. Resistors come in various resistances. Resistance is measured in a unit called the ohm (Ω). Here is an example of a 220Ω resistor:</p>
+
+<div class="no-row-height column-margin column-container"><div class="callout callout-style-default callout-note callout-titled" title="Did you know">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Did you know
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Resistors have different values, and the value of a resistor can be determined by looking at the colored <em>bands</em> that surround its body. Because resistors are typically small in size (any letters written on one would be too small to be easily read), engineers invented a color code that can be used to calculate the resistance of a resistor. There are multiple online resources that can teach you how to read the value of a resistor from its colors.</p>
+</div>
+</div></div><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-13.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%"></p>
+</figure>
+</div>
+</section>
+<section id="ohms-law" class="level3">
+<h3 class="anchored" data-anchor-id="ohms-law">Ohm’s Law</h3>
+<p>We can calculate the resistance required to resist the flow of electricity through the LED using Ohm’s Law. Ohm’s Law establishes a relationship between voltage, current, and resistance. Let’s first fully define each of these:</p>
+<ul>
+<li><p><strong>Voltage</strong> is the difference in electric potential energy between two points. It can be considered as electric pressure and/or the work required to move electric charge between two points. The unit used to represent voltage is the <strong>volt</strong> (V).</p></li>
+<li><p><strong>Current</strong> is the flow of electric charge (or electrons moving through a wire). The unit used to represent current is the <strong>ampere</strong> (A), or <strong>amps</strong>. We typically used the symbol I to represent current in a mathematical formula (such as Ohm’s Law).</p></li>
+<li><p><strong>Resistance</strong> is the measure of difficulty to pass an electric current through a conductor. A conductor is some material that allows the flow of electric current. The unit used to represent resistance is the ohm (Ω). We typically used the symbol R to represent resistance in a mathematical formula (such as Ohm’s Law).</p></li>
+</ul>
+<p>Ohm’s Law is defined as the following: <span class="math display">\[
+V = IR
+\]</span></p>
+<p>Stated formally, the voltage (electric potential difference) across two points on a circuit is equivalent to the product of the current between those two points and the total resistance of all electrical devices present between those two points.</p>
+<p>Consider the LED circuit above, where the red LED requires a forward voltage of 2V (i.e., the amount of voltage required across the LED to light it) and has a forward current of 20mA (i.e., the amount of current flow required through the LED to sufficiently power it on). These values are provided in the data sheet of the LED. A <strong>data sheet</strong> is a document that provides technical information about an electrical component.</p>
+<p>We can calculate the resistance required in the circuit to ensure that the LED lights up properly and is not possibly damaged by having too much current move through it or too much voltage across it. Suppose that our power source (the Raspberry Pi) provides 3.3V. The voltage difference across the source voltage and ground is 3.3V (since ground is at 0V). According to the data sheet, the LED requires 2V across its legs and requires 20mA of current through it. Using Ohm’s Law we can solve for R. The value for V is 1.3V (3.3V at the source – 2V through the LED), and the value for I is 0.02A (20mA required through the LED). And now we solve: <span class="math display">\[
+\begin{split}
+V &amp;= I * R \\
+(3.3V - 2V) &amp;= 0.02A * R \\
+1.3V &amp;= 0.02A * R \\
+65 &amp;= R
+\end{split}
+\]</span></p>
+<p>So the resistance should be 65Ω. The closest valued resistor available is 68Ω. We can therefore use a 68Ω resistor in series with the LED. This should be sufficient to turn it on brightly without damaging it.</p>
+<p>You may have noticed that resistors also have a <em>wattage</em> rating. To explain this, we must first discuss electric power. Electric power is the rate at which electric energy is transferred by a circuit. The unit used to represent power is the <strong>watt</strong> (W). Each component in a circuit dissipates power (as heat – usually through friction – as electrons move through the component). Therefore, each component has a power rating that provides a measure of how much power it can dissipate without breaking down. We can calculate the power dissipated in a circuit using a variant of Ohm’s Law:</p>
+<p><span class="math display">\[
+P=VI
+\]</span></p>
+<p>The power in a circuit is defined as the product of the voltage across two points on a circuit and the current between those two points. In the LED example above, the total power dissipated in the circuit is calculated as follows:</p>
+<p><span class="math display">\[
+\begin{split}
+P &amp;= V * I\\
+P &amp;= 3.3V * 0.02 A\\
+P &amp;= 0.066W
+\end{split}
+\]</span></p>
+<p>To calculate the power dissipated by each component, we simply need to isolate the voltage drop across each. The current is constant in the entire circuit. So for the LED, we can calculate the power dissipated as follows:</p>
+<p><span class="math display">\[
+\begin{split}
+P &amp;= V * I\\
+P &amp;= 2V * 0.02 A\\
+P &amp;= 0.04 W
+\end{split}
+\]</span></p>
+<p>So we would need an LED rated at 0.04W. And for the resistor:</p>
+<p><span class="math display">\[
+\begin{split}
+P &amp;= V * I\\
+P &amp;= ( 3.3V −2V ) * 0.02 A\\
+P &amp;= 1.3V * 0.02 A\\
+P &amp;= 0.026W
+\end{split}
+\]</span></p>
+<p>So we would need a resistor rated at 0.026W.</p>
+<p>In the end, we usually opt for a power rating that is greater than the actual power dissipated by the component (so that it can last a long time). A good target is not to exceed 60% of the wattage rating of the component. For the resistor, this means a power rating of 0.043W (<span class="math inline">\(0.026W
+/ 0.6\)</span>). Most typical resistors are rated at 0.25W (some are 0.125W and others are much higher). For the LED, this means a power rating of 0.067W (<span class="math inline">\(0.04W / 0.6\)</span>), or 67mW. Most typical LEDs are rated at approximately 120mW. For this circuit, a typical LED rated at 120mW and a resistor rated at 1/8W would work just fine.</p>
+</section>
+</section>
+<section id="logic-gates" class="level2">
+<h2 class="anchored" data-anchor-id="logic-gates">Logic Gates</h2>
+<p>Gates are electronic versions of the mechanical switches introduced earlier. Some gates have multiple inputs, but all gates have a single output. Just as the switches and light bulbs of the previous examples were always in either of two states, the inputs and outputs of gates are confined to two voltage states. The voltage of every input to the gate, as well as the output from the gate, must be either high (positive voltage) or low (0V, or ground). We use the symbol “1” to represent the high voltage state and “0” to represent the low voltage state.</p>
+<p>There are three basic kinds of logic gates: and gates, or gates, and not gates. An <strong>and</strong> gate has two inputs and one output. The output is “1” (high) only when both inputs are “1” (high). In all other cases the output of and is “0” (low). Here is the symbol for an <em>and</em> gate (where the two inputs are on the left, and the output is on the right):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-14.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>We can represent the possible states of a gate in a truth table.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Definition">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>truth table</strong> defines the meaning of a gate, or circuit, by listing every possible configuration of inputs along with the corresponding output.</p>
+</div>
+</div>
+<p>Traditionally, inputs are listed on the left side of the table with the output on the right. Each row of the truth table represents one configuration that the circuit can be in. Truth tables for circuits with n inputs will always have exactly 2<sup>n</sup> rows, one for each possible configuration of the inputs. The following is the truth table for the and gate, where the inputs have been labeled A and B, and the output has been labeled Z:</p>
+<table class="table-striped table-hover caption-top table">
+<caption>Truth table for basic AND gate</caption>
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>Z</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Since the and gate has two inputs, its truth table will contain 2<sup>2</sup> = 4 rows. The first row of the truth table represents the situation in which both inputs to the <em>and</em> gate are low. In this case the output will be low as well. The second and third rows cover the cases in which one of the inputs is high and the other is low. In line two, the first input is low and the second is high; whereas in line three, the first input is high and the second is low. In either case, the output is low. The final row of the table represents the situation in which both inputs are high. In this case, the output will be high as well.</p>
+<p>The functionality of the <em>and</em> gate can be implemented by the series circuit introduced earlier:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-04.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>If the switches represent the inputs, A and B, then this circuit correctly produces the output, Z, of an <em>and</em> gate (which is the light bulb in the circuit). In fact, compare the truth table for the and gate above with the truth table for the circuit:</p>
+<div id="tbl-andgate" class="quarto-layout-panel anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-andgate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: AND gate vs 2 switches in series
+</figcaption>
+<div aria-describedby="tbl-andgate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table-striped table-hover caption-top table">
+<caption>State table for Two Switches in Series</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Switch A</th>
+<th style="text-align: left;">Switch B</th>
+<th style="text-align: left;">Light</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Open</td>
+<td style="text-align: left;">Open</td>
+<td style="text-align: left;">Off</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Open</td>
+<td style="text-align: left;">Closed</td>
+<td style="text-align: left;">Off</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Closed</td>
+<td style="text-align: left;">Open</td>
+<td style="text-align: left;">Off</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Closed</td>
+<td style="text-align: left;">Closed</td>
+<td style="text-align: left;">On</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table-striped table-hover caption-top table">
+<caption>Truth table for basic AND gate</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">A</th>
+<th style="text-align: left;">B</th>
+<th style="text-align: left;">Z</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<p>If <em>Open</em> is replaced with 0 and <em>Closed</em> with 1, the tables are the same. The reason that truth tables are called as such is that if 1 is taken to mean <em>true</em> and 0 is taken to mean <em>false</em>, then the output of the table defines the circumstances under which the specified logical operation is true. For example, in common English usage, A <em>and</em> B will be true only when both A and B are true. The statement: “My cat is old and fat” is only true when the cat in question is both “old” and “fat.” If my pet cat were either young, or skinny, or both, then the statement would be false.</p>
+<p>The thing that is so exceedingly cool about logic gates, and the circuits that implement them, is that very simple devices can capture small parts of what humans consider logical reasoning. As you can well imagine, this idea caused great excitement when first discovered.</p>
+<p>The <strong>or</strong> gate is similar to an <em>and</em> gate, in that it has two inputs and one output. The output of the <em>or</em> gate is 1 whenever either (or both) of the inputs are 1. The only case in which the output is 0 is when both of the inputs are 0. Here is the symbol and truth table for the <em>or</em> gate:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-15.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<table class="table-striped table-hover caption-top table">
+<caption>Truth table for basic OR gate</caption>
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>Z</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Again, the two inputs of the <em>or</em> gate are labeled A and B, and its output is labeled Z. Notice that the <em>or</em> gate can be implemented by the parallel circuit introduced earlier:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-05.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div id="tbl-orgate" class="quarto-layout-panel anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-orgate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: OR gate vs 2 switches in parallel
+</figcaption>
+<div aria-describedby="tbl-orgate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table-striped table-hover caption-top table">
+<caption>State table for Two Switches in Parallel</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Switch A</th>
+<th style="text-align: left;">Switch B</th>
+<th style="text-align: left;">Light</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Open</td>
+<td style="text-align: left;">Open</td>
+<td style="text-align: left;">Off</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Open</td>
+<td style="text-align: left;">Closed</td>
+<td style="text-align: left;">On</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Closed</td>
+<td style="text-align: left;">Open</td>
+<td style="text-align: left;">On</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Closed</td>
+<td style="text-align: left;">Closed</td>
+<td style="text-align: left;">On</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<table class="table-striped table-hover caption-top table">
+<caption>Truth table for basic OR gate</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">A</th>
+<th style="text-align: left;">B</th>
+<th style="text-align: left;">Z</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<p>You should convince yourself that the behavior of the <em>or</em> gate captures the semantics of the word “or” as it is commonly used. The statement: “My cat is either on the couch or under the bed” is true if either the phrase “My cat is on the couch” is true or the phrase “my cat is under the bed” is true. The original statement is false only when neither of these phrases is true.</p>
+<p>The third basic logic gate is the <strong>not</strong> gate. The not gate has a single input and a single output. The output is the inverse of the input. Here is the symbol and truth table for the <em>not</em> gate:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-16.png" class="img-fluid figure-img"></p>
+<figcaption>A NOT gate</figcaption>
+</figure>
+</div>
+<table class="table-striped table-hover caption-top table">
+<caption>A NOT gate’s Truth table</caption>
+<thead>
+<tr class="header">
+<th>A</th>
+<th>Z</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Note that this truth table consists of only two rows rather than four (as was the case with the and and or gates). This is consistent with the claim that truth tables contain exactly 2<sup>n</sup> rows for an <em>n</em> input circuit. Since the not gate takes in only a single input, there are only two possible configurations that the gate can be in.</p>
+<p>As with the <em>and</em> and <em>or</em> gates, the behavior of the not gate captures the semantics of the word. If the sentence: “My cat is black” is true, then the sentence “My cat is not black” would be false (and vice versa).</p>
+</section>
+<section id="combining-gates" class="level2">
+<h2 class="anchored" data-anchor-id="combining-gates">Combining Gates</h2>
+<p>Consider the following circuit:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-17.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Here’s its state table:</p>
+<table class="table-striped table-hover caption-top table">
+<thead>
+<tr class="header">
+<th>Switch A</th>
+<th>Switch B</th>
+<th>Switch C</th>
+<th>Light</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Open</td>
+<td>Open</td>
+<td>Open</td>
+<td>Off</td>
+</tr>
+<tr class="even">
+<td>Open</td>
+<td>Open</td>
+<td>Closed</td>
+<td>Off</td>
+</tr>
+<tr class="odd">
+<td>Open</td>
+<td>Closed</td>
+<td>Open</td>
+<td>Off</td>
+</tr>
+<tr class="even">
+<td>Open</td>
+<td>Closed</td>
+<td>Closed</td>
+<td>On</td>
+</tr>
+<tr class="odd">
+<td>Closed</td>
+<td>Open</td>
+<td>Open</td>
+<td>Off</td>
+</tr>
+<tr class="even">
+<td>Closed</td>
+<td>Open</td>
+<td>Closed</td>
+<td>On</td>
+</tr>
+<tr class="odd">
+<td>Closed</td>
+<td>Closed</td>
+<td>Open</td>
+<td>Off</td>
+</tr>
+<tr class="even">
+<td>Closed</td>
+<td>Closed</td>
+<td>Closed</td>
+<td>On</td>
+</tr>
+</tbody>
+</table>
+<p>So long as either A <strong>or</strong> B is closed <strong>and</strong> C is closed, then the light bulb is lit. C must be closed in order for the bulb to be lit.</p>
+<p>It is natural to ask at this point what an equivalent circuit consisting of logic gates would look like. Since switches A and B are in parallel, this portion of the circuit can be represented using an <em>or</em> gate. The output of that part of the circuit is in series with C, so it can be modeled with an <em>and</em> gate. The logic gate circuit shown below is thus equivalent to the switch circuit given above.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-18.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>In fact, here is the truth table for this circuit:</p>
+<table class="table-striped table-hover caption-top table">
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>Z</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>For readability and to make it a bit easier to derive, we can expand the truth table to provide intermediate gate outputs as follows (where <em>Z</em> is the output of <em>A or B</em>, and <em>Z’</em> is the output of <em>Z and C</em>):</p>
+<table class="table-striped table-hover caption-top table">
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>Z</th>
+<th>C</th>
+<th>Z’</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled" title="Activity">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Activity
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Can you fill in the truth table for the circuit below? Let <em>Z</em> represent the output of <em>A and B</em>, and <em>Z’</em> represent the output of <em>Z or C</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-19.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="boolean-algebra" class="level2">
+<h2 class="anchored" data-anchor-id="boolean-algebra">Boolean Algebra</h2>
+<p>The arithmetic that is used to reason about two-state systems was first developed by George Boole in 1854.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Definition">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Boolean algebra</strong> is a mathematics based on three fundamental operators: and, or, and not; and the variables on which they operate.</p>
+</div>
+</div>
+<p>Boolean variables are binary, having only two valid states: 1 (representing <em>true</em>) and 0 (representing <em>false</em>).</p>
+<p>The operator <em>and</em> is written as a dot “ ⋅ ”, <em>or</em> is written as a plus “+”, and <em>not</em> is written as a horizontal bar drawn over the expression being negated. The behavior of these three Boolean operators is identical to the behavior of the corresponding logic gates. Thus, the expression <span class="math inline">\(A⋅B\)</span> , meaning <em>A and B</em>, will be 1 (true) when the variables <em>A</em> and <em>B</em> are both 1 (true). The expression <span class="math inline">\(A + B\)</span> , meaning <em>A or B</em>, will be 1 when either or both variables are 1. The expression <em>not A</em> (written <span class="math inline">\(\bar A\)</span> ), will be 0 when <em>A</em> is 1 and 1 when <em>A</em> is 0. The relationship between the Boolean operators and the fundamental logic gates is illustrated below. In the illustration, the Boolean variables <em>A</em> and <em>B</em> correspond to the inputs to the circuit, and the variable <em>Z</em> corresponds to the output.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-20.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>As in ordinary algebra, Boolean algebra uses parentheses to indicate which operands go with which operators. The Boolean expression <span class="math inline">\(A+(B⋅C)\)</span> represents a completely different circuit from <span class="math inline">\((A+B)⋅C\)</span> . In the first, B and C are fed into an and gate, with the result being sent (along with A) into an or gate. In the second, A and B are fed into an or gate, with the result being combined with C via an and gate.</p>
+<p>As you may be beginning to suspect, there is a direct correspondence between Boolean expressions and logic circuits. Every logic circuit that can ever be constructed will have a corresponding Boolean expression, and every valid Boolean expression that can ever be written maps to an equivalent logic circuit. The process of converting between the two representations is quite mechanical: simply use the substitutions above, being sure to parenthesize Boolean expressions in a manner that preserves which operators go with which operands.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Activity">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Activity
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Try to write the Boolean expression corresponding to the following circuit:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-21.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Boolean algebra provides computer scientists and engineers a powerful tool for concisely representing circuits and reasoning about their behavior. While the details are beyond the scope of this lesson, Boolean algebra allows us to do things like prove that two different circuits compute the same function; or find simpler (and thus less expensive) ways of implementing the functionality of a circuit.</p>
+</section>
+<section id="other-gates" class="level2">
+<h2 class="anchored" data-anchor-id="other-gates">Other Gates</h2>
+<p>Any device, whose operation can be defined in terms of a truth table or Boolean expression, can be implemented using only the fundamental logic gates: <em>and</em>, <em>or</em>, and <em>not</em>. However, a number of additional gates are usually defined, as they prove useful for practical purposes. For example, it is frequently the case that a not will immediately follow an <em>and</em> gate, like so:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-22.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Since this is such a common occurrence, the circuit has been given a name (<em>nand</em>) and a gate symbol (the <em>and</em> symbol combined with the bubble from the <em>not</em> symbol). Similarly, <em>not</em> often follows <em>or</em>, so there is a <em>nor</em> gate whose symbol is the bubble from the <em>not</em> attached to the <em>or</em> symbol. The following figure illustrates both the <em>nand</em> and <em>nor</em> gates. Their behavior, in terms of Boolean expressions, is provided as well. It is important to remember that these gates are simply a convenience (a kind of shorthand), in that they allow a circuit to be constructed from fewer underlying components.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-23.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>As another example, the basic <em>and</em> and <em>or</em> gates support only two inputs; however, a circuit designer will frequently need to <em>and</em> or <em>or</em> more than two inputs. For this reason multi-input and and or gates exist.</p>
+<p>The following figure presents the three and four input <em>and</em> and <em>or</em> gates along with their Boolean expressions:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-24.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>While these gates are often quite convenient, remember that it is always possible to construct equivalent circuits from the underlying two-input gates. For example, the following circuit represents one possible implementation of a four-input <em>and</em> gate:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-25.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Its Boolean expression is <span class="math inline">\(Z =(A⋅B)⋅(C⋅D)\)</span> . Note, however, that it could be designed differently (with a different Boolean expression), yet still represent a four-input and gate. For example, <span class="math inline">\(Z =((A⋅B)⋅C)⋅D\)</span> would also work. The other multi-input gates can be constructed in a similar manner.</p>
+<p>In addition to multi-input <em>and</em> and <em>or</em> gates, multi-input <em>nand</em> and <em>nor</em> gates can be constructed. The symbols for these gates are identical to the symbols for the multi-input <em>and</em> and <em>or</em> gates, with the exception of a <em>not</em> bubble attached to the output of each gate symbol. Their Boolean expressions are also identical as well, except that a <em>not</em> bar appears above the right-hand side of the expression.</p>
+</section>
+<section id="combinational-circuits" class="level2">
+<h2 class="anchored" data-anchor-id="combinational-circuits">Combinational Circuits</h2>
+<div class="callout callout-style-default callout-tip callout-titled" title="Definition">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Combinational circuits</strong> are digital circuits that do not involve any kind of feedback. In other words, the output of a combinational circuit cannot be fed back into that circuit as input.</p>
+</div>
+</div>
+<p>In this lesson, we will focus on the simplest combinational circuits. Let’s start with a relatively simple circuit, the <em>exclusive or</em>.</p>
+<p>An exclusive or, or <em>xor</em>, has two inputs and a single output. Its behavior is defined by the following truth table, where the inputs are labeled <em>A</em> and <em>B</em> and the output is labeled <em>Z</em>:</p>
+<table class="table-striped table-hover caption-top table">
+<caption>Truth table for XOR gate</caption>
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>Z</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Like the standard two-input or, the <em>xor</em> produces a 1 (true) when either of its inputs are 1, and a 0 (false) when both of its inputs are 0. The difference between <em>or</em> and <em>xor</em> appears in the case when both inputs are 1. The standard <em>or</em> produces a 1 in this case. The <em>xor</em> generates a 0. In other words, the “exclusive or” outputs a 1 when either, <em>but not both</em>, of its inputs are 1.</p>
+<p>English does not contain a unique word for expressing the idea of <em>xor</em> – the word “or” does double duty for both its “inclusive” and “exclusive” forms. However, one can usually tell from the context of a sentence which form is intended. For example, if you tell a child “you can have candy or popcorn,” the intended meaning is exclusive or – either candy or popcorn, but not both. On the other hand, if a friend says “I’d be happy winning either the Porsche or the Mercedes,” the intended meaning is inclusive or – you would certainly not expect your friend to become unhappy if he won both cars.</p>
+<p>Now that we understand the behavior of <em>xor</em> in terms of its inputs and outputs, we can turn our attention to the problem of designing a circuit with its behavior. But how are we to begin?</p>
+<p>One approach that often gets you moving in the right direction is to examine the truth table to determine the various circumstances under which the circuit must produce a 1. In the case of xor, there are two such cases: one in which input A is 0 and input B is 1, and another in which input A is 1 and input B is 0. Once these cases have been identified, we proceed by designing <em>sub-circuits</em> that will produce 1 in each of the required cases. The final step is to combine the sub-circuits together using an <em>or</em> gate. This is necessary because the main circuit would be true under any of the cases in which the sub-circuits generate a 1.</p>
+<p>The following sub-circuit will generate a 1 when input A is 0 and input B is 1. Its Boolean expression is <span class="math inline">\(Z=\bar A⋅B\)</span>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-26.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>It works by negating A and feeding that result (together with B) into an <em>and</em> gate. Since both of the inputs to an <em>and</em> must be 1 for it to produce a 1, the original value of A must be 0, while the value of B must be 1. Under all other circumstances this sub-circuit produces 0. Thus, this circuit successfully captures the meaning of line two of the <em>xor</em> truth table.</p>
+<p>A sub-circuit to implement line three of the xor truth table can be constructed similarly. Its Boolean expression is <span class="math inline">\(Z =A⋅\bar B\)</span> :</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-27.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>This circuit generates a 1 whenever input A is 1 and B is 0. Under all other circumstances, it produces a 0. The following figure illustrates a complete <em>xor</em> circuit, which contains the two sub-circuits joined together by an <em>or</em> gate. This is reasonable since the <em>xor</em> can be true either by way of the first sub-circuit or the second. Note that due to the manner in which the two sub-circuits were constructed, it is impossible for both of them to be true at the same time.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-28.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>The Boolean expression for this circuit is <span class="math inline">\(Z =(A⋅\bar B)+(\bar A⋅B)\)</span> .</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../lessons/02 Introduction to Computer Programming/13 Program Flow.html" class="pagination-link" aria-label="Program Flow">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Program Flow</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../lessons/04 Searching and Sorting/index.html" class="pagination-link" aria-label="04 Searching and Sorting">
+        <span class="nav-page-text">04 Searching and Sorting</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

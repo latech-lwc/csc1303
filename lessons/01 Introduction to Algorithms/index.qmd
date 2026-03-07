@@ -1,0 +1,21 @@
+---
+title: Introduction to Algorithms
+---
+
+## Contents
+
+1. [Introduction](01 Introduction.qmd)
+
+2. [Problem Statements](02 Problem Statements.qmd)
+
+3. [Step Breakdown And Control Flow](03 Step Breakdown And Control Flow.qmd)
+
+4. [Flowcharts](04 Flowcharts.qmd)
+
+5. [Repetition](05 Repetition.qmd)
+
+6. [Efficiency And Runtime](06 Efficiency And Runtime.qmd)
+
+7. [Computer Programs And Pseudocode](07 Computer Programs And Pseudocode.qmd)
+
+8. [A Tangled Web](08 A Tangled Web.qmd)
