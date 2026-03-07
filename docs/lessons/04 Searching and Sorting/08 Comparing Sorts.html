@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Efficiency and Runtime – The Science of Computing I</title>
+<title>Comparing Sorts – The Science of Computing I</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../lessons/01 Introduction to Algorithms/07 Computer Programs And Pseudocode.html" rel="next">
-<link href="../../lessons/01 Introduction to Algorithms/05 Repetition.html" rel="prev">
+<link href="../../lessons/05 Introduction to Data Structures/index.html" rel="next">
+<link href="../../lessons/04 Searching and Sorting/07 Insertion Sort.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -109,8 +74,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -315,7 +278,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">01 Introduction to Algorithms</a></li><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/06 Efficiency And Runtime.html">Efficiency and Runtime</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/04 Searching and Sorting/index.html">04 Searching and Sorting</a></li><li class="breadcrumb-item"><a href="../../lessons/04 Searching and Sorting/08 Comparing Sorts.html">Comparing Sorts</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -362,11 +325,11 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../lessons/01 Introduction to Algorithms/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">01 Introduction to Algorithms</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/01 Introduction to Algorithms/01 Introduction.html" class="sidebar-item-text sidebar-link">
@@ -399,7 +362,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/01 Introduction to Algorithms/06 Efficiency And Runtime.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../lessons/01 Introduction to Algorithms/06 Efficiency And Runtime.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Efficiency and Runtime</span></a>
   </div>
 </li>
@@ -516,11 +479,11 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="../../lessons/04 Searching and Sorting/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">04 Searching and Sorting</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/04 Searching and Sorting/01 Intro to Searching.html" class="sidebar-item-text sidebar-link">
@@ -565,7 +528,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/04 Searching and Sorting/08 Comparing Sorts.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/04 Searching and Sorting/08 Comparing Sorts.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Comparing Sorts</span></a>
   </div>
 </li>
@@ -626,9 +589,9 @@ window.Quarto = {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">01 Introduction to Algorithms</a></li><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/06 Efficiency And Runtime.html">Efficiency and Runtime</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/04 Searching and Sorting/index.html">04 Searching and Sorting</a></li><li class="breadcrumb-item"><a href="../../lessons/04 Searching and Sorting/08 Comparing Sorts.html">Comparing Sorts</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Efficiency and Runtime</h1>
+<h1 class="title">Comparing Sorts</h1>
 </div>
 
 
@@ -645,238 +608,18 @@ window.Quarto = {
 </header>
 
 
-<p>It is sometimes useful to measure and predict the time a computer takes to execute an algorithm. This can help us to compare several solutions to a problem and pick the fastest one, for example.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Definition">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Definition
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Runtime</strong> is the time that a computer takes to execute an algorithm.</p>
-</div>
-</div>
-<p>Most of the algorithms that we have previously considered execute all of their statements once. As a result, they would not take long to be executed by a typical computer (i.e., their runtime would be low). However, algorithms that require repetition have a longer runtime. Consider the <em>find all prime numbers</em> algorithm. If it was adjusted to find all the prime numbers below 100, it would take considerably longer than if it was set to find all the prime numbers below 10. It would take even longer to find all the prime numbers below 1,000. This is because the <em>check if prime</em> process is evaluated for every prime number candidate, and each time it is evaluated the runtime increases.</p>
-<p>It is typically desired to design algorithms that have as short of a runtime as possible. Sometimes this calls for designing more intricate or complicated ones; however, only as long as we are sure that the complicated algorithm will have a shorter runtime than the basic algorithm.</p>
-<p>Let’s take a look at an interesting problem that will help to show the differences between an algorithm that works and an algorithm that works and is <em>efficient</em>. Consider a square room and an unlimited number of identical square tiles. Can an algorithm be designed to calculate the number of tiles required to cover the entire floor of the room?</p>
-<p>There are several ways that this algorithm can be designed.</p>
-<ul>
-<li><p>One approach is to lay down tiles in the entire room and then count them.</p></li>
-<li><p>Another approach may be to lay down tiles in half of the room, count the number of tiles used, and then double that number.</p></li>
-<li><p>A third approach may be to lay tiles along one edge of the floor, and multiply the number of tiles laid by itself (i.e., squaring it to find the area of the floor).</p></li>
-</ul>
-<p>The following figure shows the three methods, side-by-side.</p>
+<p>When comparing the insertion sort to other sorts, generally the average case formula is used since this represents the expected performance of the algorithm. Occasionally, knowledge of the worst case behavior of the algorithm is also important. Understanding this behavior is useful when attempting to determine or limit the maximum amount of time a computing system will take to reach an answer, even in the worst case. Such behavior is important in real time applications such as airplane flight control systems.</p>
+<p>The bubble sort and the selection sort always require exactly <span class="math inline">\(\frac{1}{2}(n^2-n)\)</span> comparisons to sort <em>n</em> items. In the worst case, the insertion sort also requires <span class="math inline">\(\frac{1}{2}(n^2-n)\)</span> comparisons. In the average (expected) case, however, the insertion sort requires <span class="math inline">\(\frac{1}{4}(n^2-n)\)</span> comparisons, and therefore requires about one half of the comparisons needed by the bubble and selection sorts. Figure 2 shows the runtime comparison of the three sorts, considering a machine capable of performing 1 million comparisons per second. The smaller number of comparisons needed by the insertion sort means that it is generally a faster algorithm than the bubble or selection sorts, assuming a comparison takes the same amount of time in both algorithms (a reasonable assumption). The insertion sort will be expected to process a 10,000 item list in about 25 seconds (precisely 24.9975 seconds). The bubble and selection sorts are both expected to take about 50 seconds on the same problem (precisely 49.995 seconds) – or about twice as long.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/Lesson03-10.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="images/fig-001.png" class="img-fluid figure-img"></p>
+<figcaption>Figure 2: Runtime comparison of bubble, selection, and insertion sorts</figcaption>
 </figure>
-</div>
-<p>Which solution do you think is the best? What does <em>best</em> mean? Does it mean that the algorithm takes less time? Does it mean that it requires fewer tiles? Does it mean that it requires fewer calculations (and is perhaps less prone to arithmetic errors)? Is there a solution that does not require laying down any tiles at all?</p>
-<p>Having multiple solutions (or algorithms) to the same problem is a frequent scenario in computer science. We have mentioned before that best is a very subjective measure for an algorithm. However, there is still a need to compare algorithms and determine which algorithm is better. One of the ways of <strong>quantitatively</strong> (i.e., numerically) comparing is by using the algorithm’s runtime. Let’s take a closer look at some algorithms that solve the tile laying problem. For simplicity, we will assume that both the room and tiles are square in shape (i.e., the number of tiles required to cover adjacent edges is equal). Note that the algorithm steps are numbered, with sub-steps placed within a single algorithm.</p>
-<p>Algorithm 1 (this one covers the entire floor with tiles):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>1. set number of tiles currently laid to 0</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>2. repeat the following steps until the entire floor is covered</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    2.1. lay a tile on the floor</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    2.2. add one to the number of tiles currently laid</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>3. the number of tiles currently laid is the number of tiles needed</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Algorithm 2 (this one covers half of the floor with tiles):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>1. set number of tiles currently laid to 0</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>2. repeat the following steps until half of the floor is covered</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    2.1. lay a tile on the floor</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    2.2. add one to the number of tiles currently laid</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>3. multiply the number of tiles currently laid by 2</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>4. the result is the number of tiles needed</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Algorithm 3 (this one covers the length of one wall with tiles):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>1. set number of tiles currently laid to 0</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>2. repeat the following steps until one row has been laid</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    2.1. lay a tile on the floor</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    2.2. add one to the number of tiles currently laid</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>3. multiply the number of tiles currently laid by itself</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>4. the result is the number of tiles needed</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>We are now going to figure out which algorithm is better between Algorithm 1 and Algorithm 3 using their runtime. Suppose that the room is 12ft x 12ft and each tile is 1ft x 1ft. Also assume that it takes 10 seconds to lay each tile. How long will Algorithm 1 take to be completely executed? Since Algorithm 1 calls for tiles to be laid across the entire room, the 12ft x 12ft room would then require 144 tiles. Since it takes 10 seconds to lay each tile, it would then take 1,440 seconds to cover the entire room. This is 24 minutes:</p>
-<p><span class="math display">\[ 1,440 sec \times \frac{1 min}{60 sec} = 24 min\]</span></p>
-<div class="callout callout-style-default callout-note callout-titled" title="Did you know">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Did you know
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Dimensional analysis</strong> is a nice way to work through problems with different units (like minutes and seconds), and that require conversion across them. The basic idea is that values can be multiplied by conversion (or dimensional) units that are expressed as fractions. Those units can be canceled out if they appear in both the numerator and denominator. The example above can be rewritten as follows:</p>
-<p><span class="math display">\[ \frac{1,440 sec}{1} \times \frac{1 min}{60 sec} = 24 min\]</span></p>
-<p>The <em>sec</em> units in the numerator of the first fraction and the denominator of the second fraction cancel each other out, thereby leaving <em>min</em> as the final unit. Here’s another example that converts days to seconds:</p>
-<p><span class="math display">\[ \frac{1 day}{1} \times \frac{24 hr}{1 day} \times \frac{60 min}{1 hr}
-\times \frac{60 sec}{1 min} = 86,400 sec\]</span></p>
-<p>The day, hr, and min units in the numerator and denominator of the fractions cancel each other out. The only unit left is sec which, once the numerators and denominators are multiplied, represent the number of seconds in one day.</p>
-</div>
-</div>
-<p>What about Algorithm 3? This algorithm only calls for laying down tiles along one edge of the room to make one row. This means that only 12 tiles will be laid down using this algorithm, a process that would take 120 sec (2 min). But Algorithm 3 also requires a calculation. Let’s assume that this calculation takes 60 sec.&nbsp;The total runtime for Algorithm 3 is then 120 sec + 60 sec = 180 sec (3 min).</p>
-<p>So Algorithm 3 is 21 minutes faster than Algorithm 1 for a 12ft x 12ft room. But what happens if the size of the room is changed? What is the performance of both algorithms if they were used to tile a room that is 20ft x 20ft, under the same timing assumptions as before?</p>
-<p>We find that Algorithm 1 takes approximately 1 hr 7 min:</p>
-<p><span class="math display">\[ \frac{400 tiles}{1} \times \frac{10 sec}{1 tile} = 4,000 sec \]</span> <span class="math display">\[ \frac{400 sec}{1} \times \frac{1 sec}{60 sec} \times \frac{1 hr}{60
-min} = 1.11 hr \]</span> <span class="math display">\[ \frac{0.11 hr}{1} \times \frac{60 min}{1 hr} = 6.6 min \]</span> <span class="math display">\[ \frac{0.6 min}{1} \times \frac{60 sec}{1 min} = 36 sec \]</span></p>
-<p>Let’s explain the calculations above.</p>
-<ul>
-<li><p>The first calculates the number of seconds required for Algorithm 1: 4,000 sec.</p></li>
-<li><p>To represent this in hr, min, and sec, we simply need to convert 4,000 sec to hr (the second calculation): 1.11 hr.</p></li>
-<li><p>The third calculation takes the fractional portion of this (0.11 hr) and converts it to min: 6.6 min.</p></li>
-<li><p>The final calculation takes the fractional portion of this (0.6 min) and converts it to sec: 36 sec.&nbsp;The total time is then 1 hr 6 min 36 sec, or approximately 1 hr 7 min.</p></li>
-</ul>
-<p>Algorithm 3 only takes approximately 4.5 minutes:</p>
-<p><span class="math display">\[ \frac{20 tiles}{1} \times \frac{10 sec}{1 tile} = 200 sec + 60 sec =
-260 sec\]</span> <span class="math display">\[\frac{260 sec}{1} \times \frac{1 min}{60 sec} = 4.33 min\]</span> <span class="math display">\[\frac{0.33 min}{1} * \frac{60 sec}{1 min} = 19.8 sec\]</span></p>
-<p>Again,</p>
-<ul>
-<li><p>The first calculation gives us the time it takes to lay tiles across a single wall, and then do the 60 sec calculation: 260 sec.</p></li>
-<li><p>The second calculation converts sec to min.</p></li>
-<li><p>The final calculation takes the fractional portion of this (0.33 min) and converts it to sec: 19.8 sec.</p></li>
-</ul>
-<p>The total time is then 4 min 19.8 sec, or approximately 4.5 min.</p>
-<p>This means Algorithm 3 is over 15 times faster than Algorithm 1 for a 20ft x 20ft room: <span class="math display">\[ \frac{4,000 sec}{260 sec} = 15.38\]</span></p>
-<p>Does that mean that Algorithm 3 will always be faster and therefore better than Algorithm 1?</p>
-<div class="callout callout-style-default callout-important callout-titled" title="Activity">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>Activity
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Try calculating and comparing how long it will take for either algorithm to cover a very small room that is 2ft x 2ft.</p>
-</div>
-</div>
-</div>
-<p>What about if the room was 3ft x 3ft? In this case, we find that both algorithms take the same amount of time. The calculation for Algorithm 1:</p>
-<p><span class="math display">\[ \frac{9 tiles}{1} \times \frac{10 sec}{1 tile} = 90 sec\]</span></p>
-<p>The calculation for Algorithm 3:</p>
-<p><span class="math display">\[ \frac{3 tiles}{1} \times \frac{10 sec}{1 tile} = 30 sec + 60 sec = 90
-sec\]</span></p>
-<p>The question of which algorithm is better depends on the size of the room to be tiled. <a href="#fig-algorithm-runtime" class="quarto-xref">Figure&nbsp;1</a> compares the runtime of the two algorithms on differently sized rooms. It is a plot in which the horizontal axis represents the length of one wall of the room (in feet), and the vertical axis represents the amount of time that is required to tile the room (in seconds). The figure illustrates that for rooms less than 3ft x 3ft, Algorithm 1 is faster. In the case where the room is exactly 3 ft x 3 ft both algorithms require the same amount of time. For rooms greater than 3ft x 3ft, Algorithm 3 is faster.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="227" data-source-offset="-23"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 226;"><span id="cb4-227"><a href="#cb4-227" aria-hidden="true" tabindex="-1"></a>tile_time <span class="op">=</span> <span class="dv">10</span>   <span class="co">// time to lay one tile</span></span>
-<span id="cb4-228"><a href="#cb4-228" aria-hidden="true" tabindex="-1"></a>calc_time <span class="op">=</span> <span class="dv">60</span>   <span class="co">// time to make a calculation</span></span>
-<span id="cb4-229"><a href="#cb4-229" aria-hidden="true" tabindex="-1"></a>wall_length <span class="op">=</span> d3<span class="op">.</span><span class="fu">range</span>(<span class="dv">10</span>)  <span class="co">// X-axis points</span></span>
-<span id="cb4-230"><a href="#cb4-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-231"><a href="#cb4-231" aria-hidden="true" tabindex="-1"></a><span class="co">// calculate the runtime for the two algorithms (Y-axis points)</span></span>
-<span id="cb4-232"><a href="#cb4-232" aria-hidden="true" tabindex="-1"></a>alg_data <span class="op">=</span> wall_length<span class="op">.</span><span class="fu">flatMap</span>(x <span class="kw">=&gt;</span> [</span>
-<span id="cb4-233"><a href="#cb4-233" aria-hidden="true" tabindex="-1"></a>{ <span class="dt">wall</span><span class="op">:</span> x<span class="op">,</span> <span class="dt">runtime</span><span class="op">:</span> (x <span class="op">**</span> <span class="dv">2</span>) <span class="op">*</span> tile_time<span class="op">,</span> <span class="dt">algorithm</span><span class="op">:</span> <span class="st">"Algorithm 1"</span> }<span class="op">,</span></span>
-<span id="cb4-234"><a href="#cb4-234" aria-hidden="true" tabindex="-1"></a>{ <span class="dt">wall</span><span class="op">:</span> x<span class="op">,</span> <span class="dt">runtime</span><span class="op">:</span> x <span class="op">*</span> tile_time <span class="op">+</span> calc_time<span class="op">,</span> <span class="dt">algorithm</span><span class="op">:</span> <span class="st">"Algorithm 3"</span> }</span>
-<span id="cb4-235"><a href="#cb4-235" aria-hidden="true" tabindex="-1"></a>])</span>
-<span id="cb4-236"><a href="#cb4-236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-237"><a href="#cb4-237" aria-hidden="true" tabindex="-1"></a><span class="co">// Plot the two line graphs with labels</span></span>
-<span id="cb4-238"><a href="#cb4-238" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb4-239"><a href="#cb4-239" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> { <span class="dt">label</span><span class="op">:</span> <span class="st">"Wall Length in feet"</span> }<span class="op">,</span></span>
-<span id="cb4-240"><a href="#cb4-240" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> { <span class="dt">label</span><span class="op">:</span> <span class="st">"Runtime in seconds"</span> }<span class="op">,</span></span>
-<span id="cb4-241"><a href="#cb4-241" aria-hidden="true" tabindex="-1"></a>    <span class="dt">color</span><span class="op">:</span> { <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span> }<span class="op">,</span></span>
-<span id="cb4-242"><a href="#cb4-242" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb4-243"><a href="#cb4-243" aria-hidden="true" tabindex="-1"></a>        Plot<span class="op">.</span><span class="fu">line</span>(alg_data<span class="op">,</span> { <span class="dt">x</span><span class="op">:</span> <span class="st">"wall"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"runtime"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"algorithm"</span> })</span>
-<span id="cb4-244"><a href="#cb4-244" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb4-245"><a href="#cb4-245" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="fig-algorithm-runtime" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-algorithm-runtime-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display">
-<div id="fig-algorithm-runtime-1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-algorithm-runtime-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="ojs-cell-1-1" data-nodetype="declaration">
-
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-algorithm-runtime-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a)
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div id="fig-algorithm-runtime-2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-algorithm-runtime-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="ojs-cell-1-2" data-nodetype="declaration">
-
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-algorithm-runtime-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b)
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div id="fig-algorithm-runtime-3" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-algorithm-runtime-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="ojs-cell-1-3" data-nodetype="declaration">
-
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-algorithm-runtime-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(c)
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div id="fig-algorithm-runtime-4" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-algorithm-runtime-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="ojs-cell-1-4" data-nodetype="declaration">
-
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-algorithm-runtime-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(d)
-</figcaption>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div id="fig-algorithm-runtime-5" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-fig figure">
-<div aria-describedby="fig-algorithm-runtime-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="ojs-cell-1-5" data-nodetype="expression">
-
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-algorithm-runtime-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(e)
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-algorithm-runtime-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Algorithm performance on rooms of various sizes
-</figcaption>
-</figure>
-</div>
 </div>
 
 
 
 </main> <!-- /main -->
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuLy8gZGVmaW5lIGRhdGEgdmFsdWVzXG50aWxlX3RpbWUgPSAxMCAgIC8vIHRpbWUgdG8gbGF5IG9uZSB0aWxlXG5jYWxjX3RpbWUgPSA2MCAgIC8vIHRpbWUgdG8gbWFrZSBhIGNhbGN1bGF0aW9uXG53YWxsX2xlbmd0aCA9IGQzLnJhbmdlKDEwKSAgLy8gWC1heGlzIHBvaW50c1xuXG4vLyBjYWxjdWxhdGUgdGhlIHJ1bnRpbWUgZm9yIHRoZSB0d28gYWxnb3JpdGhtcyAoWS1heGlzIHBvaW50cylcbmFsZ19kYXRhID0gd2FsbF9sZW5ndGguZmxhdE1hcCh4ID0+IFtcbnsgd2FsbDogeCwgcnVudGltZTogKHggKiogMikgKiB0aWxlX3RpbWUsIGFsZ29yaXRobTogXCJBbGdvcml0aG0gMVwiIH0sXG57IHdhbGw6IHgsIHJ1bnRpbWU6IHggKiB0aWxlX3RpbWUgKyBjYWxjX3RpbWUsIGFsZ29yaXRobTogXCJBbGdvcml0aG0gM1wiIH1cbl0pXG5cbi8vIFBsb3QgdGhlIHR3byBsaW5lIGdyYXBocyB3aXRoIGxhYmVsc1xuUGxvdC5wbG90KHtcbiAgICB4OiB7IGxhYmVsOiBcIldhbGwgTGVuZ3RoIGluIGZlZXRcIiB9LFxuICAgIHk6IHsgbGFiZWw6IFwiUnVudGltZSBpbiBzZWNvbmRzXCIgfSxcbiAgICBjb2xvcjogeyBsZWdlbmQ6IHRydWUgfSxcbiAgICBtYXJrczogW1xuICAgICAgICBQbG90LmxpbmUoYWxnX2RhdGEsIHsgeDogXCJ3YWxsXCIsIHk6IFwicnVudGltZVwiLCBzdHJva2U6IFwiYWxnb3JpdGhtXCIgfSlcbiAgICBdXG59KVxuXG4ifV19
-</script>
-<script type="module">
-if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../../lessons/01 Introduction to Algorithms";
-window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "../..";
-window._ojs.selfContained = false;
-window._ojs.runtime.interpretFromScriptTags();
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1292,13 +1035,13 @@ window._ojs.runtime.interpretFromScriptTags();
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../lessons/01 Introduction to Algorithms/05 Repetition.html" class="pagination-link" aria-label="Repetition">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Repetition</span>
+      <a href="../../lessons/04 Searching and Sorting/07 Insertion Sort.html" class="pagination-link" aria-label="Insertion Sort">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Insertion Sort</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../lessons/01 Introduction to Algorithms/07 Computer Programs And Pseudocode.html" class="pagination-link" aria-label="Computer Programs and Pseudocode">
-        <span class="nav-page-text">Computer Programs and Pseudocode</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/05 Introduction to Data Structures/index.html" class="pagination-link" aria-label="05 Introduction to Data Structures">
+        <span class="nav-page-text">05 Introduction to Data Structures</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

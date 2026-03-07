@@ -1,0 +1,53 @@
+---
+title: "Intro to Searching"
+---
+
+One of the most common tasks that is undertaken in Computer Science is the task of searching. We can search for many things: a value (like a phone number), a number (like seven), a position (like who finished the race in second place), or an object (like an image of a dog). Typically, searching will require doing a specific task over and over again (i.e., searching in one position, and then searching in another position), until we find what we are looking for. This requires repetition. We have already learned how to deal with and represent repetition. Our first task is to design an algorithm that can be used to search for a given value.
+
+### Activity 1
+
+For this activity, you will participate in the demonstration of an algorithm to find some value (specifically, the maximum value) in a list of values. Approximately ten students will be asked to stand in front of the class. These will be known as **memory students**; that is, they represent a subset of a computer's memory. Each memory student will secretly write a number of their choosing on a post-it note. Collectively, this represents a list of numbers stored in the computer's memory.
+
+One other student, known as the **computer student**, will represent the computer as it executes the algorithm. This student will follow instructions (like a computer would) and keep track of a single value representing the current maximum value in the list of numbers. This student will have a few post-it notes (or a small dry-erase board) to keep up with the current maximum value. The computer student understands several instructions:
+
+- **START** – instructs the computer student to go to the beginning of the memory student line;
+- **MOVE** – instructs the computer student to move to the next memory student in the line;
+- **COMPARE** – instructs the computer student to compare the number of the current memory student to the one currently recorded and respond with *greater*, if the current memory student's number is greater, or *less*, otherwise;
+- **STORE** – instructs the computer student to record the current memory student's number; and
+- **DISPLAY** – instructs the computer student to display the currently recorded value.
+
+The suggested algorithm is described in pseudocode as follows:
+
+```
+START
+STORE
+repeat
+    MOVE
+    COMPARE
+    if the response is greater
+    then
+        STORE
+    end
+until the computer student is at the end of the memory student line
+DISPLAY
+```
+
+The suggested algorithm is described using a flowchart as follows:
+
+```
+START → STORE → [At end of memory line?] --Y--> DISPLAY → Stop
+                         |
+                         N
+                         ↓
+                      COMPARE → [Is response greater?] --Y--> STORE
+                         ↑                |
+                         |                N
+                         └────────────────┘
+                              MOVE
+```
+
+Note that the algorithm initially instructs the computer student to record the first number in the list and assume it to be the maximum value. Technically, it is the maximum value at that time, but it provides a starting point. The algorithm then proceeds to compare each of the other values in the list and replaces the recorded maximum value when a greater value is encountered in the list.
+
+At the end of the algorithm, the computer student should have the maximum value recorded on the post-it note, which is revealed to the class. For effect, the memory students should subsequently display their post-it notes to confirm the maximum value.
+
+Note that the algorithm works regardless of the arrangement of the memory students.

@@ -1,0 +1,98 @@
+---
+title: "Sequential Search"
+---
+
+The activity above was a demonstration of the sequential search. Sequential searching has a lot of applications in computer science.
+
+> **Definition:** Sequential search (also known as *linear search*) is the process of locating a value in a list of values by checking each element, one at a time, until either the value is located or the end of the list has been reached.
+
+The algorithm described in the activity above can be represented more generally in pseudocode as follows:
+
+```
+1:  i ← 1
+2:  max ← value of item i in the list
+3:  repeat
+4:      increment i
+5:      if value of item i in the list > max
+6:      then
+7:          max ← value of item i in the list
+8:      end
+9:  until i = the length of the list
+10: display max
+```
+
+This algorithm searches for (and displays) the largest value in a list of numbers. How could it be modified to search for (and display) the smallest value in a list of numbers? Try to modify the algorithm above in the space below:
+
+```
+1:
+2:
+3:
+4:
+5:
+6:
+7:
+8:
+9:
+10:
+```
+
+The sequential search can also be used to find a specific value (such as 100) instead of something more general as we did above (such as the maximum value). How could the algorithm that finds the maximum value be modified to search for a specified value and display whether it was found (or not)? Try to modify the algorithm above in the space below:
+
+```
+1:
+2:
+3:
+4:
+5:
+6:
+7:
+8:
+9:
+10:
+11:
+```
+
+Is this algorithm efficient? What happens if the value searched for is not in the list? What happens if the value searched for is near the beginning of the list? We observe that, if the value searched for is near the beginning of the list, the algorithm sets the variable `found` to true but continues to look through the remainder of the list. This is not very efficient. Consider a list of 1 million values such that the value searched for happens to be found at the beginning of the list. The algorithm above would absolutely find the value at the beginning of the list; however, it would then continue to needlessly search through the remaining 999,999 values in the list. There is no stop condition in the case that the value searched for is found. We can fix this quite easily, however, by slightly modifying the algorithm:
+
+```
+1:  n ← value to search for
+2:  i ← 1
+3:  found ← false
+4:  repeat
+5:      if value of item i in the list = n
+6:      then
+7:          found ← true
+8:      end
+9:      increment i
+10: until i > the length of the list or found = true
+11: display found
+```
+
+By adding an additional exit condition (something that terminates the repetition), we can capture the case that the value is found at any point in the list and immediately terminate the search. When designing algorithms, we must carefully examine them to find inconsistencies, problems, and to ensure that they, in fact, solve the problem. In addition, we must not forget to consider efficiency, performance, and scalability. For a very short list, efficiency may not matter; however, we don't usually deal with small amounts of data in practice.
+
+Here is an example of the sequential search for the value 80 applied to a list containing the following values: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100:
+
+| Search List | Comparison | Action |
+|---|---|---|
+| 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 | 10 ≠ 80 | Target not found; continue |
+| 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 | 20 ≠ 80 | Target not found; continue |
+| 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 | 30 ≠ 80 | Target not found; continue |
+| 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 | 40 ≠ 80 | Target not found; continue |
+| 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 | 50 ≠ 80 | Target not found; continue |
+| 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 | 60 ≠ 80 | Target not found; continue |
+| 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 | 70 ≠ 80 | Target not found; continue |
+| 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 | 80 = 80 | Target found; stop |
+
+The search begins by comparing the target value, 80, with the first value in the list, 10. Since 10 ≠ 80, then the search continues to the next value in the list. This is continued until the value is found in the eighth position. This sequential search requires a total of eight searches to find the target value. We can apply the sequential search to a number guessing problem: on average, how many tries would it take to correctly guess a number from one to 1,000? In the best case, one. In the worst case, 1,000. On average, 500.
+
+Let's generalize this for a list of *n* values and call the tries **comparisons** (since that's what is actually being done). In the best case, it takes one comparison (if the target value is at the beginning of the list). In the worst case, it takes *n* comparisons (if the target value is at the end of the list). If many searches for various target values were performed, an average number of comparisons could be calculated – and we would find that approximately half of the list would need to be searched through. This should not be surprising, since the good cases (where the target value is at the front of the list), and the bad cases (where the target value is at the end of the list) tend to cancel each other out over many searches. On average, searching for a target value in a list containing *n* items requires *n* / 2 comparisons.
+
+### Activity 2
+
+Can you come up with a better algorithm to correctly guess a randomly picked number from one to 1,000? Students will be paired up in groups of two. One student (called the **picker**) will secretly pick a number from one to 1,000; the other student (called the **guesser**) will attempt to guess the secret number under the following constraints:
+
+- The guesser submits a single number at a time;
+- The picker replies **HIGHER** if the secret number is higher than the guesser's submission, or **LOWER** otherwise; and
+- The picker replies **CORRECT** if the guesser's submission is correct.
+
+Each group of students should design an algorithm to correctly guess the number picked by the picker. Record the number of guesses that it took to guess correctly. Then switch places: the picker becomes the guesser and vice versa.

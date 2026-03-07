@@ -1,0 +1,21 @@
+---
+title: Searching and Sorting
+---
+
+## Contents
+
+1. [Intro to Searching](01 Intro to Searching.qmd)
+
+2. [Sequential Search](02 Sequential Search.qmd)
+
+3. [Binary Search](03 Binary Search.qmd)
+
+4. [Intro to Sorting](04 Intro to Sorting.qmd)
+
+5. [Bubble Sort](05 Bubble Sort.qmd)
+
+6. [Selection Sort](06 Selection Sort.qmd)
+
+7. [Insertion Sort](07 Insertion Sort.qmd)
+
+8. [Comparing Sorts](08 Comparing Sorts.qmd)

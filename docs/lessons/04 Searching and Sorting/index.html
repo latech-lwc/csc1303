@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index – The Science of Computing I</title>
+<title>Searching and Sorting – The Science of Computing I</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../lessons/05 Introduction to Data Structures/index.html" rel="next">
+<link href="../../lessons/04 Searching and Sorting/01 Intro to Searching.html" rel="next">
 <link href="../../lessons/03 Introduction to Computer Architecture/index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -446,12 +446,65 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">03 Introduction to Computer Architecture</span></a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../lessons/04 Searching and Sorting/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">04 Searching and Sorting</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/04 Searching and Sorting/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">04 Searching and Sorting</span></a>
+  <a href="../../lessons/04 Searching and Sorting/01 Intro to Searching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Intro to Searching</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/04 Searching and Sorting/02 Sequential Search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sequential Search</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/04 Searching and Sorting/03 Binary Search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Binary Search</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/04 Searching and Sorting/04 Intro to Sorting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Intro to Sorting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/04 Searching and Sorting/05 Bubble Sort.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bubble Sort</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/04 Searching and Sorting/06 Selection Sort.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Selection Sort</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/04 Searching and Sorting/07 Insertion Sort.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Insertion Sort</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../lessons/04 Searching and Sorting/08 Comparing Sorts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Sorts</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/05 Introduction to Data Structures/index.html" class="sidebar-item-text sidebar-link">
@@ -462,13 +515,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">Activities</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../activities/01 Getting to Know the RPi/index.html" class="sidebar-item-text sidebar-link">
@@ -500,18 +553,53 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#contents" id="toc-contents" class="nav-link active" data-scroll-target="#contents">Contents</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/04 Searching and Sorting/index.html">04 Searching and Sorting</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/04 Searching and Sorting/index.html">04 Searching and Sorting</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Searching and Sorting</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
 
+<section id="contents" class="level2">
+<h2 class="anchored" data-anchor-id="contents">Contents</h2>
+<ol type="1">
+<li><p><a href="../../lessons/04 Searching and Sorting/01 Intro to Searching.html">Intro to Searching</a></p></li>
+<li><p><a href="../../lessons/04 Searching and Sorting/02 Sequential Search.html">Sequential Search</a></p></li>
+<li><p><a href="../../lessons/04 Searching and Sorting/03 Binary Search.html">Binary Search</a></p></li>
+<li><p><a href="../../lessons/04 Searching and Sorting/04 Intro to Sorting.html">Intro to Sorting</a></p></li>
+<li><p><a href="../../lessons/04 Searching and Sorting/05 Bubble Sort.html">Bubble Sort</a></p></li>
+<li><p><a href="../../lessons/04 Searching and Sorting/06 Selection Sort.html">Selection Sort</a></p></li>
+<li><p><a href="../../lessons/04 Searching and Sorting/07 Insertion Sort.html">Insertion Sort</a></p></li>
+<li><p><a href="../../lessons/04 Searching and Sorting/08 Comparing Sorts.html">Comparing Sorts</a></p></li>
+</ol>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -934,8 +1022,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../lessons/05 Introduction to Data Structures/index.html" class="pagination-link" aria-label="05 Introduction to Data Structures">
-        <span class="nav-page-text">05 Introduction to Data Structures</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/04 Searching and Sorting/01 Intro to Searching.html" class="pagination-link" aria-label="Intro to Searching">
+        <span class="nav-page-text">Intro to Searching</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
