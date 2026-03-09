@@ -1,0 +1,27 @@
+---
+title: Introduction
+---
+
+In this activity, you will implement various circuits, primarily using LEDs, resistors, and push-button switches. The Raspberry Pi will initially be used solely as a power supply; however, as the activity progresses, you will use it to programmatically affect the circuits you create. You will need the following items:
+
+- Raspberry Pi with power adapter
+
+- LCD touchscreen
+
+- Keyboard and mouse
+
+- Breadboard
+
+- GPIO-to-breadboard interface board with ribbon cable
+
+- LEDs
+
+- Resistors 
+
+- Switches
+
+- Jumper wires
+
+## GPIO
+
+This is the first activity in which the GPIO (General Purpose Input and Output) pins will be used. Recall that these pins allow various inputs to and outputs from the RPi to be utilized in external circuits (typically implemented on a breadboard).

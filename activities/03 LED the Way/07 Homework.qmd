@@ -1,0 +1,61 @@
+---
+title: Homework
+---
+
+## Homework: Blink!
+
+Implement a single LED, single switch circuit and write a Python program that does the following:
+
+1. The LED should blink continuously such that it is on for 0.5s and off for 0.5s;
+2. When the switch is pressed (closed), it should change the LED's blink rate so that it is on for 0.1s and off for 0.1s (i.e., it should make the LED blink faster); and
+3. When the switch is released (open), the LED should go back to blinking at the original rate of 0.5s on and 0.5s off.
+
+Submit your Python source file (i.e., the one with a `.py` extension) through the upload facility on the web site.
+
+---
+
+# Assignment: LED the Way
+
+**Name:** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+## Calculations
+
+Suppose that a circuit has a power source voltage of 9V, and an LED with a forward voltage (i.e., voltage drop) of 2.5V that requires 25mA of current for optimum brightness.
+
+In the space below, calculate the resistance of the series resistor required. State the formula used as the basis for your answer, identify all units, and show all work!
+
+*[Student work space]*
+
+In the space below, calculate the power dissipated by the resistor. State the formula used as the basis for your answer, identify all units, and show all work!
+
+*[Student work space]*
+
+In the space below, calculate the power dissipated by the LED. State the formula used as the basis for your answer, identify all units, and show all work!
+
+*[Student work space]*
+
+## Truth Tables
+
+Fill in the truth table for the AND gate below:
+
+| A | B | Z |
+|---|---|---|
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+
+Fill in the truth table for the XOR (exclusive or) gate below:
+
+| A | B | Z |
+|---|---|---|
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+
+## Circuits
+
+Using the figure below, draw the single-switch, single-LED circuit in which the RPi was responsible for detecting the state of the switch (as input) and accordingly affecting the blink rate of the LED (as output):
+
+![Blank breadboard diagram for student circuit drawing](images/img-031.jpg)

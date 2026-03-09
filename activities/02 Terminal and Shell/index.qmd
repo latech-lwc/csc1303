@@ -1,3 +1,9 @@
 ---
 title: "Terminal and Shell"
 ---
+
+For this activity, you will complete a guided activity via a Canvas quiz where you interact with the filesystem on the Rasberry Pi using the Terminal application. 
+
+Your instructor will inform you when to complete the quiz on Canvas.
+
+

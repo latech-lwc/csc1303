@@ -1,3 +1,27 @@
 ---
 title: "LED the Way"
 ---
+
+- [01 Overview](01%20Overview.qmd)
+
+- [02 A Simple Circuit](02%20A%20Simple%20Circuit.qmd)
+
+- [03 Calculations](03%20Calculations.qmd)
+
+- [04 Replicating AND and OR](04%20Replicating%20AND%20and%20OR.qmd)
+
+- [05 Programming the Pi for Input and Output](05%20Programming%20the%20Pi%20for%20Input%20and%20Output.qmd)
+
+- [06 Programming AND and OR](06%20Programming%20AND%20and%20OR.qmd)
+
+- [07 Homework](07%20Homework.qmd)
+
+
+
+
+
+
+
+
+
+
