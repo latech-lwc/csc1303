@@ -640,12 +640,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sensing" id="toc-sensing" class="nav-link active" data-scroll-target="#sensing">Sensing</a>
-  <ul class="collapse">
+  <li><a href="#programmable-output" id="toc-programmable-output" class="nav-link active" data-scroll-target="#programmable-output">Programmable Output</a></li>
   <li><a href="#gpio-pin-numbering" id="toc-gpio-pin-numbering" class="nav-link" data-scroll-target="#gpio-pin-numbering">GPIO Pin Numbering</a></li>
-  <li><a href="#using-rpi.gpio-in-python" id="toc-using-rpi.gpio-in-python" class="nav-link" data-scroll-target="#using-rpi.gpio-in-python">Using RPi.GPIO in Python</a></li>
+  <li><a href="#using-rpi.gpio-in-python" id="toc-using-rpi.gpio-in-python" class="nav-link" data-scroll-target="#using-rpi.gpio-in-python">Using <code>RPi.GPIO</code> in Python</a></li>
   <li><a href="#blinking-the-led" id="toc-blinking-the-led" class="nav-link" data-scroll-target="#blinking-the-led">Blinking the LED</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -672,25 +670,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="sensing" class="level2">
-<h2 class="anchored" data-anchor-id="sensing">Sensing</h2>
+<section id="programmable-output" class="level2">
+<h2 class="anchored" data-anchor-id="programmable-output">Programmable Output</h2>
 <p>The previous circuits in this activity have been entirely external to the RPi. That is, the RPi was only used as a power source (basically, a battery). There are many more GPIO pins than the ones we have used so far (3.3V, 5V, and ground). In fact, many of the GPIO pins can be used to provide sensor input to the RPi. Others can be used to provide output capabilities from the RPi. For example, we can programmatically detect when a switch is closed and trigger an LED to light.</p>
-<p>But before we can get to this, we must first discuss how to access and manipulate the GPIO pins on the RPi in Python. Fortunately, Python has a library called <code>RPi.GPIO</code> that can be imported. This library is installed by default on the RPi. Let’s start with a simple example: lighting an LED. Construct the following circuit (which slightly differs from the first part of this activity):</p>
+<p>But before we can get to this, we must first discuss how to access and manipulate the GPIO pins on the RPi in Python. Fortunately, Python has a library called <code>RPi.GPIO</code> that can be imported. This library is installed by default on the RPi. Let’s start with a simple example: lighting an LED.</p>
+<p>Construct the following circuit (which slightly differs from the first part of this activity):</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-022.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-036.jpg" class="img-fluid figure-img"></p>
 <figcaption>Sensing circuit layout — green GPIO interface</figcaption>
 </figure>
 </div>
+<p>Here is one way to construct this circuit:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-021.jpg" class="img-fluid figure-img"></p>
-<figcaption>Sensing circuit layout — overview</figcaption>
+<p><img src="images/img-034.jpg" class="img-fluid figure-img"></p>
+<figcaption>A circuit that is designed to output on GP17</figcaption>
 </figure>
 </div>
 <p>Note that the yellow wire connects the positive side of the LED to a GPIO pin labeled <strong>GP17</strong> on the GPIO interface. If you have the black GPIO interface board, the yellow wire will connect to the same physical pin location, but the pin on the GPIO interface board will be labeled <strong>P0</strong> instead of GP17.</p>
-<section id="gpio-pin-numbering" class="level3">
-<h3 class="anchored" data-anchor-id="gpio-pin-numbering">GPIO Pin Numbering</h3>
+</section>
+<section id="gpio-pin-numbering" class="level2">
+<h2 class="anchored" data-anchor-id="gpio-pin-numbering">GPIO Pin Numbering</h2>
 <p>This is a good time to discuss pin numbering schemes. It turns out that there are actually three different pin numbering schemes in use with GPIO pins on the RPi:</p>
 <ol type="1">
 <li>The physical pin order on the RPi;</li>
@@ -701,11 +702,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>BCM</th>
-<th>wPi</th>
-<th>Name</th>
+<th style="text-align: right;">BCM</th>
+<th style="text-align: right;">wPi</th>
+<th style="text-align: right;">Name</th>
 <th style="text-align: center;">Physical</th>
-<th></th>
+<th style="text-align: center;">Physical</th>
 <th>Name</th>
 <th>wPi</th>
 <th>BCM</th>
@@ -713,201 +714,201 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td></td>
-<td></td>
-<td>3V3</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">3V3</td>
 <td style="text-align: center;">1</td>
-<td>2</td>
+<td style="text-align: center;">2</td>
 <td>5V</td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>2</td>
-<td>8</td>
-<td>SDA.1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">SDA.1</td>
 <td style="text-align: center;">3</td>
-<td>4</td>
+<td style="text-align: center;">4</td>
 <td>5V</td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>3</td>
-<td>9</td>
-<td>SCL.1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">SCL.1</td>
 <td style="text-align: center;">5</td>
-<td>6</td>
+<td style="text-align: center;">6</td>
 <td>GND</td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>4</td>
-<td>7</td>
-<td>GPIO.7</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">GPIO.7</td>
 <td style="text-align: center;">7</td>
-<td>8</td>
+<td style="text-align: center;">8</td>
 <td>TXD</td>
 <td>15</td>
 <td>14</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td></td>
-<td>GND</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">GND</td>
 <td style="text-align: center;">9</td>
-<td>10</td>
+<td style="text-align: center;">10</td>
 <td>RXD</td>
 <td>16</td>
 <td>15</td>
 </tr>
 <tr class="even">
-<td>17</td>
-<td>0</td>
-<td>GPIO.0</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">GPIO.0</td>
 <td style="text-align: center;">11</td>
-<td>12</td>
+<td style="text-align: center;">12</td>
 <td>GPIO.1</td>
 <td>1</td>
 <td>18</td>
 </tr>
 <tr class="odd">
-<td>27</td>
-<td>2</td>
-<td>GPIO.2</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">GPIO.2</td>
 <td style="text-align: center;">13</td>
-<td>14</td>
+<td style="text-align: center;">14</td>
 <td>GND</td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>22</td>
-<td>3</td>
-<td>GPIO.3</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">GPIO.3</td>
 <td style="text-align: center;">15</td>
-<td>16</td>
+<td style="text-align: center;">16</td>
 <td>GPIO.4</td>
 <td>4</td>
 <td>23</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td></td>
-<td>3V3</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">3V3</td>
 <td style="text-align: center;">17</td>
-<td>18</td>
+<td style="text-align: center;">18</td>
 <td>GPIO.5</td>
 <td>5</td>
 <td>24</td>
 </tr>
 <tr class="even">
-<td>10</td>
-<td>12</td>
-<td>MOSI</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">MOSI</td>
 <td style="text-align: center;">19</td>
-<td>20</td>
+<td style="text-align: center;">20</td>
 <td>GND</td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>9</td>
-<td>13</td>
-<td>MISO</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">MISO</td>
 <td style="text-align: center;">21</td>
-<td>22</td>
+<td style="text-align: center;">22</td>
 <td>GPIO.6</td>
 <td>6</td>
 <td>25</td>
 </tr>
 <tr class="even">
-<td>11</td>
-<td>14</td>
-<td>SCLK</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">SCLK</td>
 <td style="text-align: center;">23</td>
-<td>24</td>
+<td style="text-align: center;">24</td>
 <td>CE0</td>
 <td>8</td>
 <td>7</td>
 </tr>
 <tr class="odd">
-<td></td>
-<td></td>
-<td>GND</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">GND</td>
 <td style="text-align: center;">25</td>
-<td>26</td>
+<td style="text-align: center;">26</td>
 <td>CE1</td>
 <td>11</td>
 <td>7</td>
 </tr>
 <tr class="even">
-<td>0</td>
-<td>30</td>
-<td>SDA.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">SDA.0</td>
 <td style="text-align: center;">27</td>
-<td>28</td>
+<td style="text-align: center;">28</td>
 <td>SCL.0</td>
 <td>31</td>
 <td>1</td>
 </tr>
 <tr class="odd">
-<td>5</td>
-<td>21</td>
-<td>GPIO.21</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">GPIO.21</td>
 <td style="text-align: center;">29</td>
-<td>30</td>
+<td style="text-align: center;">30</td>
 <td>GND</td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>6</td>
-<td>22</td>
-<td>GPIO.22</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">GPIO.22</td>
 <td style="text-align: center;">31</td>
-<td>32</td>
+<td style="text-align: center;">32</td>
 <td>GPIO.26</td>
 <td>26</td>
 <td>12</td>
 </tr>
 <tr class="odd">
-<td>13</td>
-<td>23</td>
-<td>GPIO.23</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">GPIO.23</td>
 <td style="text-align: center;">33</td>
-<td>34</td>
+<td style="text-align: center;">34</td>
 <td>GND</td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>19</td>
-<td>24</td>
-<td>GPIO.24</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">GPIO.24</td>
 <td style="text-align: center;">35</td>
-<td>36</td>
+<td style="text-align: center;">36</td>
 <td>GPIO.27</td>
 <td>27</td>
 <td>16</td>
 </tr>
 <tr class="odd">
-<td>26</td>
-<td>25</td>
-<td>GPIO.25</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">GPIO.25</td>
 <td style="text-align: center;">37</td>
-<td>38</td>
+<td style="text-align: center;">38</td>
 <td>GPIO.28</td>
 <td>28</td>
 <td>20</td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
-<td>GND</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">GND</td>
 <td style="text-align: center;">39</td>
-<td>40</td>
+<td style="text-align: center;">40</td>
 <td>GPIO.29</td>
 <td>29</td>
 <td>21</td>
@@ -916,32 +917,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <p>Don’t worry about understanding the names of the pins for now (although you may have noticed that they somewhat correlate with the wiringPi numbering scheme). The GPIO pin in the layout diagram above that has the yellow wire connecting to the LED is labeled GP17. The labeling on the green GPIO interface in your kit uses Broadcom (BCM in the table above). GP17 is just BCM pin 17, which cross-references to wiringPi (wPi) pin 0 and physical pin 11 on the RPi. You may need this reference chart anytime you write Python programs that make use of the GPIO pins.</p>
 <p>Note that Python primarily uses the Broadcom (BCM) pin numbering scheme which, thankfully, matches the GPIO interface board! For those of you that have the black GPIO interface board, using this chart can easily provide a crossreference from a BCM pin to a wPi one. In this case, BCM pin 17 (GP17) matches wPi pin 0 (P0). In a Python program, we simply need to refer to BCM pin 17 to match wPi pin 0.</p>
-<p>For reference, here’s a comparison of the black GPIO interface boards labeled with both pin numbering schemes (wPi on the left, and BCM on the right):</p>
+<p>For reference, here’s a comparison of the black GPIO interface boards labeled with both pin numbering schemes (wPi on top, and BCM on the bottom):</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-023.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-038.jpg" class="img-fluid figure-img"></p>
+<figcaption>GPIO interface board with wPi numbering (left) and BCM numbering (right)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/img-040.jpg" class="img-fluid figure-img"></p>
 <figcaption>GPIO interface board with wPi numbering (left) and BCM numbering (right)</figcaption>
 </figure>
 </div>
 <p>Note that the green GPIO interface board is labeled directly using the BCM pin numbering scheme; therefore, no crossreference is needed.</p>
 </section>
-<section id="using-rpi.gpio-in-python" class="level3">
-<h3 class="anchored" data-anchor-id="using-rpi.gpio-in-python">Using RPi.GPIO in Python</h3>
+<section id="using-rpi.gpio-in-python" class="level2">
+<h2 class="anchored" data-anchor-id="using-rpi.gpio-in-python">Using <code>RPi.GPIO</code> in Python</h2>
 <p>Importing the <code>RPi.GPIO</code> library is as simple as including the following import statement (typically done at the beginning of a Python program):</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> RPi.GPIO <span class="im">as</span> GPIO</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>To refer to GPIO pins using the Broadcom pin layout, set the mode as follows:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>GPIO.setmode(GPIO.BCM)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> RPi.GPIO <span class="im">as</span> GPIO</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pin Setup</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>GPIO.setmode(GPIO.BCM)  <span class="co"># set the pin layout</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>To turn the LED on, we must first configure pin 17 (again, using the BCM pin layout) to be an output pin as follows:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>GPIO.setup(<span class="dv">17</span>, GPIO.OUT)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> RPi.GPIO <span class="im">as</span> GPIO</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pin Setup</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>GPIO.setmode(GPIO.BCM)  </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>GPIO.setup(<span class="dv">17</span>, GPIO.OUT)   <span class="co"># configure pin 17 for output</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>And finally, to turn on the LED:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>GPIO.output(<span class="dv">17</span>, GPIO.HIGH)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This turns the pin on by supplying it 3.3V. And that’s all there is to turning on an LED! Here’s the full program for reference:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> RPi.GPIO <span class="im">as</span> GPIO</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>GPIO.setmode(GPIO.BCM)    <span class="co"># set the pin mode</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>GPIO.setup(<span class="dv">17</span>, GPIO.OUT)  <span class="co"># setup pin 17 as an output pin</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>GPIO.output(<span class="dv">17</span>, GPIO.HIGH) <span class="co"># 3.3V to the pin (turn on the LED)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> RPi.GPIO <span class="im">as</span> GPIO</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pin Setup</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>GPIO.setmode(GPIO.BCM)  </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>GPIO.setup(<span class="dv">17</span>, GPIO.OUT)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># main</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>GPIO.output(<span class="dv">17</span>, GPIO.HIGH)  <span class="co"># output on 17 (turn LED on)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This turns the pin on by supplying it 3.3V. And that’s all there is to turning on an LED!</p>
 <p>Turning the LED off can be done as follows (which turns the pin off by supplying it with 0V):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>GPIO.output(<span class="dv">17</span>, GPIO.LOW)  <span class="co"># 0V to the pin (turn off the LED)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> RPi.GPIO <span class="im">as</span> GPIO</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pin Setup</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>GPIO.setmode(GPIO.BCM)  </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>GPIO.setup(<span class="dv">17</span>, GPIO.OUT)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># main</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>GPIO.output(<span class="dv">17</span>, GPIO.LOW)  <span class="co"># MODIFIED: stop output on 17 (turn LED off)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -953,52 +977,68 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container callout-body">
 <p>Instead of using <code>GPIO.HIGH</code> to supply 3.3V to a pin, you can use <code>1</code> or <code>True</code>. For example, the following statements are identical (i.e., they produce the same result):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>GPIO.output(<span class="dv">17</span>, GPIO.HIGH)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>GPIO.output(<span class="dv">17</span>, <span class="dv">1</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>GPIO.output(<span class="dv">17</span>, <span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Three equivalent lines of code for turning output on at pin 17</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>GPIO.output(<span class="dv">17</span>, GPIO.HIGH)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>GPIO.output(<span class="dv">17</span>, <span class="dv">1</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>GPIO.output(<span class="dv">17</span>, <span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Likewise, the following statements are identical and supply 0V to a pin:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>GPIO.output(<span class="dv">17</span>, GPIO.LOW)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>GPIO.output(<span class="dv">17</span>, <span class="dv">0</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>GPIO.output(<span class="dv">17</span>, <span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Three equivalent lines of code for stopping output at pin 17</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>GPIO.output(<span class="dv">17</span>, GPIO.LOW)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>GPIO.output(<span class="dv">17</span>, <span class="dv">0</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>GPIO.output(<span class="dv">17</span>, <span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
-<section id="blinking-the-led" class="level3">
-<h3 class="anchored" data-anchor-id="blinking-the-led">Blinking the LED</h3>
-<p>Now, let’s try to blink the LED. This will mean turning the output pin on, waiting some amount of time, turning the output pin off, waiting some amount of time, and so on. We already know how to turn an output pin high and low. We also know how to repeat a task over and over (we can use a <code>while</code> loop!). But we’ll need to introduce a small delay so that we can actually see the LED blink. To do this, we can import the <code>time</code> library and make use of its <code>sleep</code> function:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> time <span class="im">import</span> sleep</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="blinking-the-led" class="level2">
+<h2 class="anchored" data-anchor-id="blinking-the-led">Blinking the LED</h2>
+<p>Now, let’s try to blink the LED. This will mean doing the following:</p>
+<ol type="1">
+<li><p>Turning the output pin on.</p></li>
+<li><p>Waiting some amount of time.</p></li>
+<li><p>Turning the output pin off.</p></li>
+<li><p>Waiting some amount of time.</p></li>
+<li><p>Starting back at step 1.</p></li>
+</ol>
+<p>We already know how to turn an output pin high and low. We also know how to repeat a task over and over (we can use a <code>while</code> loop!). But we’ll need to introduce a small delay so that we can actually see the LED blink. To do this, we can import the <code>time</code> library and make use of its <code>sleep</code> function:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import the sleep function from the time library</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> time <span class="im">import</span> sleep </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This will allow us to introduce delays. For example, we can introduce a half second delay as follows:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sleep(<span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># An example of using sleep to wait 0.5 seconds</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sleep(<span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>To blink an LED with a half second delay in between each state of the LED (on or off) and blink the LED forever, we can modify our program as follows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> RPi.GPIO <span class="im">as</span> GPIO</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> time <span class="im">import</span> sleep</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup the pins</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>GPIO.setmode(GPIO.BCM)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>GPIO.setup(<span class="dv">17</span>, GPIO.OUT)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Blink the led at pin 17 repeatedly.</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (<span class="va">True</span>):</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    GPIO.output(<span class="dv">17</span>, GPIO.HIGH)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    sleep(<span class="fl">0.5</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    GPIO.output(<span class="dv">17</span>, GPIO.LOW)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    sleep(<span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Note that the <code>while</code> loop will go on forever (i.e., <code>while (True)</code> is never <code>False</code>!). To stop the program, we can press <strong>Ctrl+C</strong>. When doing so, you may notice warnings or errors. This is normal, because our program did not clean up before aborting.</p>
+<p>In fact, you will most likely also get errors if you try to run the program again (or another program that uses the GPIO pins). These errors are safe to ignore for now. Usually when using GPIO pins, it is recommended to clean them up so that they are reset. We won’t worry about this right now.</p>
+<p>Often, it is standard practice to assign GPIO pin numbers to meaningful variables. For example, we can assign pin 17 to the variable <code>LED</code> (since in our program it is used to control an LED). In the end, we can modify our program as follows:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> RPi.GPIO <span class="im">as</span> GPIO</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> time <span class="im">import</span> sleep</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>GPIO.setmode(GPIO.BCM)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>GPIO.setup(<span class="dv">17</span>, GPIO.OUT)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (<span class="va">True</span>):</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    GPIO.output(<span class="dv">17</span>, GPIO.HIGH)</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    sleep(<span class="fl">0.5</span>)</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    GPIO.output(<span class="dv">17</span>, GPIO.LOW)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    sleep(<span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Note that the <code>while</code> loop will go on forever (i.e., <code>while (True)</code> is never false!). To stop the program, we can press <strong>Ctrl+C</strong>. When doing so, you may notice warnings or errors. This is normal, because our program did not clean up before aborting. In fact, you will most likely also get errors if you try to run the program again (or another program that uses the GPIO pins). These errors are safe to ignore for now. Usually when using GPIO pins, it is recommended to clean them up so that they are reset. We won’t worry about this right now.</p>
-<p>Often, it is standard practice to assign GPIO pin numbers to meaningful variables. For example, we can assign pin 17 to the variable <code>led</code> (since in our program it is used to control an LED). In the end, we can modify our program as follows:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> RPi.GPIO <span class="im">as</span> GPIO</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> time <span class="im">import</span> sleep</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>led <span class="op">=</span> <span class="dv">17</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>GPIO.setmode(GPIO.BCM)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>GPIO.setup(led, GPIO.OUT)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (<span class="va">True</span>):</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    GPIO.output(led, GPIO.HIGH)</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    sleep(<span class="fl">0.5</span>)</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    GPIO.output(led, GPIO.LOW)</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    sleep(<span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># While not required, </span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># it is customary to use ALL_CAPS_SNAKE_CASE for constants</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>LED <span class="op">=</span> <span class="dv">17</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>GPIO.setmode(GPIO.BCM)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>GPIO.setup(LED, GPIO.OUT)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (<span class="va">True</span>):</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    GPIO.output(LED, GPIO.HIGH)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    sleep(<span class="fl">0.5</span>)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    GPIO.output(LED, GPIO.LOW)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    sleep(<span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

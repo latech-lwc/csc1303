@@ -668,7 +668,7 @@ window.Quarto = {
 <p>Let’s add a push-button switch to the above circuit. The switch will control the flow of electricity to the circuit. If the button is pushed, current will flow and the LED will light. A push-button switch is a tactile switch that usually has two to four legs. The switch in your kit has two legs:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-014.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-015.jpg" class="img-fluid figure-img"></p>
 <figcaption>Push-button switch</figcaption>
 </figure>
 </div>
@@ -676,49 +676,52 @@ window.Quarto = {
 <p>Modify your circuit by adding a switch as indicated below:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-013.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-020.jpg" class="img-fluid figure-img"></p>
+<figcaption>Circuit layout with push-button switch added</figcaption>
+</figure>
+</div>
+<p>Here is the layout of this circuit:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/img-018.jpg" class="img-fluid figure-img"></p>
 <figcaption>Circuit layout with push-button switch added</figcaption>
 </figure>
 </div>
 <p>Note that one pin of the switch is connected to +5V, and the other to the positive side (long lead) of the LED.</p>
 <p>An interesting experiment is to see the difference in LED brightness when connected to 5V vs.&nbsp;3.3V. We can quickly calculate the amount of current flowing through the LED in both cases, with a constant resistance of 220Ω (also assuming that the voltage drop across the LED is 2V). First, with 5V:</p>
 <p><span class="math display">\[
-V = IR
-\]</span></p>
-<p><span class="math display">\[
-5\text{V} - 2\text{V} = I(220\Omega)
-\]</span></p>
-<p><span class="math display">\[
-3\text{V} = I(220\Omega)
-\]</span></p>
-<p><span class="math display">\[
-I = \frac{3\text{V}}{220\Omega} = 0.014\text{ A} = 14\text{ mA}
+\begin{aligned}
+V &amp;= IR \\
+5\text{V} - 2\text{V} &amp;= I(220\Omega) \\
+3\text{V} &amp;= I(220\Omega) \\
+I &amp;= \frac{3\text{V}}{220\Omega} \\
+I &amp;= 0.014\text{ A} \\
+I &amp;= 14\text{ mA}
+\end{aligned}
 \]</span></p>
 <p>Now, with 3.3V:</p>
 <p><span class="math display">\[
-V = IR
-\]</span></p>
-<p><span class="math display">\[
-3.3\text{V} - 2\text{V} = I(220\Omega)
-\]</span></p>
-<p><span class="math display">\[
-1.3\text{V} = I(220\Omega)
-\]</span></p>
-<p><span class="math display">\[
-I = \frac{1.3\text{V}}{220\Omega} = 0.006\text{ A} = 6\text{ mA}
+\begin{aligned}
+V &amp;= IR \\
+3.3\text{V} - 2\text{V} &amp;= I(220\Omega) \\
+1.3\text{V} &amp;= I(220\Omega) \\
+I &amp;= \frac{1.3\text{V}}{220\Omega} \\
+I &amp;= 0.006\text{ A} \\
+I &amp;= 6\text{ mA}
+\end{aligned}
 \]</span></p>
 <p>The LED’s brightness should be noticeably different!</p>
 <p>Let’s try out another experiment to further illustrate this. Implement the following circuit:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-015.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-022.jpg" class="img-fluid figure-img"></p>
 <figcaption>Dual-switch circuit diagram</figcaption>
 </figure>
 </div>
 <p>Here’s one way to layout this circuit:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-016.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-024.jpg" class="img-fluid figure-img"></p>
 <figcaption>Dual-switch circuit layout</figcaption>
 </figure>
 </div>
@@ -727,7 +730,14 @@ I = \frac{1.3\text{V}}{220\Omega} = 0.006\text{ A} = 6\text{ mA}
 </section>
 <section id="replicating-the-and-gate" class="level2">
 <h2 class="anchored" data-anchor-id="replicating-the-and-gate">Replicating the AND Gate</h2>
-<p>Recall the following circuit: this circuit has two switches in series. Placing switches in this configuration in the circuit replicates the functionality of the AND gate. Fill in the truth table for the AND gate below:</p>
+<p>Recall the following circuit:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/img-055.png" class="img-fluid figure-img"></p>
+<figcaption>AND Gate Graphic</figcaption>
+</figure>
+</div>
+<p>This circuit has two switches in series. Placing switches in this configuration in the circuit replicates the functionality of the AND gate. Fill in the truth table for the AND gate below:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -759,11 +769,11 @@ I = \frac{1.3\text{V}}{220\Omega} = 0.006\text{ A} = 6\text{ mA}
 </tr>
 </tbody>
 </table>
-<p>The output, Z, is only 1 (true) when both inputs, A and B, are 1 (true). In the circuit above, the light bulb is on (1) when both switches are closed (1). To implement this in your LED circuit, modify it as follows:</p>
+<p>The output, <code>Z</code>, is only <code>1</code> (<code>true</code>) when both inputs, <code>A</code> and <code>B</code>, are <code>1</code> (true). In the circuit above, the light bulb is on (<code>1</code>) when both switches are closed (<code>1</code>). To implement this in your LED circuit, modify it as follows:</p>
 <p>Here’s one way to layout the circuit:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-017.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-026.jpg" class="img-fluid figure-img"></p>
 <figcaption>AND gate circuit layout</figcaption>
 </figure>
 </div>
@@ -772,7 +782,14 @@ I = \frac{1.3\text{V}}{220\Omega} = 0.006\text{ A} = 6\text{ mA}
 </section>
 <section id="replicating-the-or-gate" class="level2">
 <h2 class="anchored" data-anchor-id="replicating-the-or-gate">Replicating the OR Gate</h2>
-<p>We can also implement the functionality of the OR gate. This circuit has two switches in parallel. Placing switches in this configuration in the circuit replicates the functionality of the OR gate. Fill in the truth table for the OR gate below:</p>
+<p>We can also implement the functionality of the OR gate.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/img-056.png" class="img-fluid figure-img"></p>
+<figcaption>OR Gate Graphic</figcaption>
+</figure>
+</div>
+<p>This circuit has two switches in parallel. Placing switches in this configuration in the circuit replicates the functionality of the OR gate. Fill in the truth table for the OR gate below:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -807,21 +824,15 @@ I = \frac{1.3\text{V}}{220\Omega} = 0.006\text{ A} = 6\text{ mA}
 <p>The output, Z, is 1 (true) when any input (A, B, or both A and B) are 1 (true). In the circuit above, the light bulb is on (1) when either switch (or both) are closed (1). To implement this in your LED circuit, modify it as follows:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-018.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-032.jpg" class="img-fluid figure-img"></p>
 <figcaption>OR gate circuit diagram</figcaption>
 </figure>
 </div>
 <p>Here’s one way to layout the circuit:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-020.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-030.jpg" class="img-fluid figure-img"></p>
 <figcaption>OR gate circuit layout</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/img-019.jpg" class="img-fluid figure-img"></p>
-<figcaption>OR gate alternate layout view</figcaption>
 </figure>
 </div>
 <p>Power is extended to one pin of both switches (via the two long red wires). The second pin of both switches is connected to the positive side of the LED. Try the circuit. The LED should light when either (or both) switches are closed.</p>
