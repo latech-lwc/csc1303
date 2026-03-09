@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -74,6 +109,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -674,41 +711,132 @@ I &amp;= 5.91\text{mA}
 <p>The current through the LED will be 5.91mA. This is much less than the recommended 20mA. Note that the brightness of the LED is directly related to how much current flows through it. The more current, the brighter it will be. Of course, there is a limit (as per the data sheet).</p>
 <p>We can calculate the power dissipated by the resistor as follows:</p>
 <p><span class="math display">\[
-P = V \times I
-\]</span></p>
-<p><span class="math display">\[
-P = (3.3\text{V} - 2\text{V}) \times 0.00591\text{A}
-\]</span></p>
-<p><span class="math display">\[
-P = 1.3\text{V} \times 0.00591\text{A}
-\]</span></p>
-<p><span class="math display">\[
-P = 0.0077\text{W} = 7.7\text{mW}
+\begin{aligned}
+P &amp;= V \times I \\
+P &amp;= (3.3\text{V} - 2\text{V}) \times 0.00591\text{A} \\
+P &amp;= 1.3\text{V} \times 0.00591\text{A} \\
+P &amp;= 0.0077\text{W} \\
+P &amp;= 7.7\text{mW}
+\end{aligned}
 \]</span></p>
 <p>The resistor in your kit is a 1/4W (250mW) resistor. It is more than enough. The power dissipated by the LED can be calculated similarly:</p>
 <p><span class="math display">\[
-P = V \times I
-\]</span></p>
-<p><span class="math display">\[
-P = 2\text{V} \times 0.00591\text{A}
-\]</span></p>
-<p><span class="math display">\[
-P = 0.0118\text{W} = 11.8\text{mW}
+\begin{aligned}
+P &amp;= V \times I \\
+P &amp;= 2\text{V} \times 0.00591\text{A} \\
+P &amp;= 0.0118\text{W} \\
+P &amp;= 11.8\text{mW}
+\end{aligned}
 \]</span></p>
 <p>The LED in your kit has a forward current limit of 120mW. Again, it is more than enough.</p>
 <section id="increasing-the-voltage" class="level2">
 <h2 class="anchored" data-anchor-id="increasing-the-voltage">Increasing the Voltage</h2>
-<p>To make the LED a bit brighter, we cannot reduce the resistance in the circuit since there aren’t any lesser-valued resistors in the kit. We can, however, change the source voltage! The RPi also has a 5V power source. Suppose you were to, instead, use the 5V power source from the RPi. This would provide more voltage to the breadboard and across the circuit. According to Ohm’s Law, if we increase the voltage and keep the resistance in the circuit at 220Ω, the current has to increase. In the space below, calculate the current that would flow through the circuit with a 5V power source and a 220Ω resistor:</p>
-<p><em>[Student work space]</em></p>
+<p>To make the LED a bit brighter, we cannot reduce the resistance in the circuit since there aren’t any lesser-valued resistors in the kit. We can, however, change the source voltage!</p>
+<p>The RPi also has a 5V power source. Suppose you were to, instead, use the 5V power source from the RPi. This would provide more voltage to the breadboard and across the circuit. According to Ohm’s Law, if we increase the voltage and keep the resistance in the circuit at 220 <span class="math inline">\(\Omega\)</span>, the current has to increase.</p>
+<p>In the space below, calculate the current that would flow through the circuit with a 5V power source and a 220 <span class="math inline">\(\Omega\)</span> resistor:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="56" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 55;"><span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>viewof currentAnswer <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">text</span>({</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Current (A):"</span><span class="op">,</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  <span class="dt">placeholder</span><span class="op">:</span> <span class="st">"e.g. 0.01984"</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> correct <span class="op">=</span> <span class="dv">3</span> <span class="op">/</span> <span class="dv">220</span><span class="op">;</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> tolerance <span class="op">=</span> <span class="fl">0.001</span><span class="op">;</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> val <span class="op">=</span> <span class="pp">parseFloat</span>(currentAnswer)<span class="op">;</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="op">!</span>currentAnswer <span class="op">||</span> <span class="pp">isNaN</span>(val))</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;span&gt;&lt;/span&gt;`</span><span class="op">;</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(val <span class="op">-</span> correct) <span class="op">&lt;=</span> tolerance)</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;span style="color:green;font-weight:bold"&gt;✓ Correct!&lt;/span&gt;`</span><span class="op">;</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;span style="color:red;font-weight:bold"&gt;✗ Not quite — double-check your Ohm's Law calculation.&lt;/span&gt;`</span><span class="op">;</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
 <p>Now, calculate the power dissipated by the resistor for the 5V power source:</p>
-<p><em>[Student work space]</em></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="78" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 77;"><span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>viewof resistorPower <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">text</span>({</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Power (W):"</span><span class="op">,</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>  <span class="dt">placeholder</span><span class="op">:</span> <span class="st">"e.g. 0.01984"</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> correct <span class="op">=</span> <span class="dv">9</span> <span class="op">/</span> <span class="dv">220</span><span class="op">;</span></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> tolerance <span class="op">=</span> <span class="fl">0.002</span><span class="op">;</span></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> val <span class="op">=</span> <span class="pp">parseFloat</span>(resistorPower)<span class="op">;</span></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="op">!</span>resistorPower <span class="op">||</span> <span class="pp">isNaN</span>(val))</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;span&gt;&lt;/span&gt;`</span><span class="op">;</span></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(val <span class="op">-</span> correct) <span class="op">&lt;=</span> tolerance)</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;span style="color:green;font-weight:bold"&gt;✓ Correct!&lt;/span&gt;`</span><span class="op">;</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;span style="color:red;font-weight:bold"&gt;✗ Not quite — double-check your power calculation.&lt;/span&gt;`</span><span class="op">;</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
 <p>And finally, calculate the power dissipated by the LED for the 5V power source:</p>
-<p><em>[Student work space]</em></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="100" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 99;"><span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>viewof ledPower <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">text</span>({</span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>  <span class="dt">label</span><span class="op">:</span> <span class="st">"Power (W):"</span><span class="op">,</span></span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>  <span class="dt">placeholder</span><span class="op">:</span> <span class="st">"e.g. 0.01984"</span></span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> correct <span class="op">=</span> <span class="dv">6</span> <span class="op">/</span> <span class="dv">220</span><span class="op">;</span></span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> tolerance <span class="op">=</span> <span class="fl">0.002</span><span class="op">;</span></span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> val <span class="op">=</span> <span class="pp">parseFloat</span>(ledPower)<span class="op">;</span></span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="op">!</span>ledPower <span class="op">||</span> <span class="pp">isNaN</span>(val))</span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;span&gt;&lt;/span&gt;`</span><span class="op">;</span></span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="bu">Math</span><span class="op">.</span><span class="fu">abs</span>(val <span class="op">-</span> correct) <span class="op">&lt;=</span> tolerance)</span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;span style="color:green;font-weight:bold"&gt;✓ Correct!&lt;/span&gt;`</span><span class="op">;</span></span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span></span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="fu">html</span><span class="vs">`&lt;span style="color:red;font-weight:bold"&gt;✗ Not quite — double-check your power calculation.&lt;/span&gt;`</span><span class="op">;</span></span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-3-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
 <p>So with the 220Ω resistor and a 5V power source, we increase the current — which should make the LED appear a bit brighter when lit.</p>
 <p>Alter your circuit as in the figure below. The only difference is that the positive side of the LED should now be connected to 5V instead of 3.3V:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-012.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-016.jpg" class="img-fluid figure-img"></p>
 <figcaption>Circuit layout using 5V power source</figcaption>
 </figure>
 </div>
@@ -717,6 +845,17 @@ P = 0.0118\text{W} = 11.8\text{mW}
 </section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBjdXJyZW50QW5zd2VyID0gSW5wdXRzLnRleHQoe1xuICBsYWJlbDogXCJDdXJyZW50IChBKTpcIixcbiAgcGxhY2Vob2xkZXI6IFwiZS5nLiAwLjAxOTg0XCJcbn0pXG5cbntcbiAgY29uc3QgY29ycmVjdCA9IDMgLyAyMjA7XG4gIGNvbnN0IHRvbGVyYW5jZSA9IDAuMDAxO1xuICBjb25zdCB2YWwgPSBwYXJzZUZsb2F0KGN1cnJlbnRBbnN3ZXIpO1xuICBpZiAoIWN1cnJlbnRBbnN3ZXIgfHwgaXNOYU4odmFsKSlcbiAgICByZXR1cm4gaHRtbGA8c3Bhbj48L3NwYW4+YDtcbiAgaWYgKE1hdGguYWJzKHZhbCAtIGNvcnJlY3QpIDw9IHRvbGVyYW5jZSlcbiAgICByZXR1cm4gaHRtbGA8c3BhbiBzdHlsZT1cImNvbG9yOmdyZWVuO2ZvbnQtd2VpZ2h0OmJvbGRcIj7inJMgQ29ycmVjdCE8L3NwYW4+YDtcbiAgZWxzZVxuICAgIHJldHVybiBodG1sYDxzcGFuIHN0eWxlPVwiY29sb3I6cmVkO2ZvbnQtd2VpZ2h0OmJvbGRcIj7inJcgTm90IHF1aXRlIOKAlCBkb3VibGUtY2hlY2sgeW91ciBPaG0ncyBMYXcgY2FsY3VsYXRpb24uPC9zcGFuPmA7XG59XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJ2aWV3b2YgcmVzaXN0b3JQb3dlciA9IElucHV0cy50ZXh0KHtcbiAgbGFiZWw6IFwiUG93ZXIgKFcpOlwiLFxuICBwbGFjZWhvbGRlcjogXCJlLmcuIDAuMDE5ODRcIlxufSlcblxue1xuICBjb25zdCBjb3JyZWN0ID0gOSAvIDIyMDtcbiAgY29uc3QgdG9sZXJhbmNlID0gMC4wMDI7XG4gIGNvbnN0IHZhbCA9IHBhcnNlRmxvYXQocmVzaXN0b3JQb3dlcik7XG4gIGlmICghcmVzaXN0b3JQb3dlciB8fCBpc05hTih2YWwpKVxuICAgIHJldHVybiBodG1sYDxzcGFuPjwvc3Bhbj5gO1xuICBpZiAoTWF0aC5hYnModmFsIC0gY29ycmVjdCkgPD0gdG9sZXJhbmNlKVxuICAgIHJldHVybiBodG1sYDxzcGFuIHN0eWxlPVwiY29sb3I6Z3JlZW47Zm9udC13ZWlnaHQ6Ym9sZFwiPuKckyBDb3JyZWN0ITwvc3Bhbj5gO1xuICBlbHNlXG4gICAgcmV0dXJuIGh0bWxgPHNwYW4gc3R5bGU9XCJjb2xvcjpyZWQ7Zm9udC13ZWlnaHQ6Ym9sZFwiPuKclyBOb3QgcXVpdGUg4oCUIGRvdWJsZS1jaGVjayB5b3VyIHBvd2VyIGNhbGN1bGF0aW9uLjwvc3Bhbj5gO1xufVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoidmlld29mIGxlZFBvd2VyID0gSW5wdXRzLnRleHQoe1xuICBsYWJlbDogXCJQb3dlciAoVyk6XCIsXG4gIHBsYWNlaG9sZGVyOiBcImUuZy4gMC4wMTk4NFwiXG59KVxuXG57XG4gIGNvbnN0IGNvcnJlY3QgPSA2IC8gMjIwO1xuICBjb25zdCB0b2xlcmFuY2UgPSAwLjAwMjtcbiAgY29uc3QgdmFsID0gcGFyc2VGbG9hdChsZWRQb3dlcik7XG4gIGlmICghbGVkUG93ZXIgfHwgaXNOYU4odmFsKSlcbiAgICByZXR1cm4gaHRtbGA8c3Bhbj48L3NwYW4+YDtcbiAgaWYgKE1hdGguYWJzKHZhbCAtIGNvcnJlY3QpIDw9IHRvbGVyYW5jZSlcbiAgICByZXR1cm4gaHRtbGA8c3BhbiBzdHlsZT1cImNvbG9yOmdyZWVuO2ZvbnQtd2VpZ2h0OmJvbGRcIj7inJMgQ29ycmVjdCE8L3NwYW4+YDtcbiAgZWxzZVxuICAgIHJldHVybiBodG1sYDxzcGFuIHN0eWxlPVwiY29sb3I6cmVkO2ZvbnQtd2VpZ2h0OmJvbGRcIj7inJcgTm90IHF1aXRlIOKAlCBkb3VibGUtY2hlY2sgeW91ciBwb3dlciBjYWxjdWxhdGlvbi48L3NwYW4+YDtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnY3VycmVudEFuc3dlcicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdyZXNpc3RvclBvd2VyJykifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2xlZFBvd2VyJykifV19
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../../activities/03 LED the Way";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "../..";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

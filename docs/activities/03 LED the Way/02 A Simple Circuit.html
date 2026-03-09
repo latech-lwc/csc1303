@@ -647,7 +647,7 @@ ul.task-list li input[type="checkbox"] {
 <p>In all, the circuit requires a red LED, a 68Ω resistor, and some jumper wires (oh, plus the RPi). Here is the circuit diagram:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-001.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-002.jpg" class="img-fluid figure-img"></p>
 <figcaption>Circuit diagram of the simple LED circuit</figcaption>
 </figure>
 </div>
@@ -657,14 +657,14 @@ ul.task-list li input[type="checkbox"] {
 <p>Since the power source for the circuit will come from the RPi, we need a way to connect the GPIO pins to the breadboard. One way, as in the layout diagram above, is to connect wires to the GPIO pins and the breadboard. The problem is that the wires in your kit aren’t particularly well suited for this. Your kit does, however, include a GPIO interface board that can extend the GPIO pins to the breadboard using a ribbon cable:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-002.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-004.jpg" class="img-fluid figure-img"></p>
 <figcaption>GPIO interface board connected via ribbon cable</figcaption>
 </figure>
 </div>
 <p>The GPIO interface board extends the GPIO pins to the central holes on the breadboard. First, place the GPIO interface on the breadboard as shown below:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-003.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-005.jpg" class="img-fluid figure-img"></p>
 <figcaption>GPIO interface board placed on the breadboard</figcaption>
 </figure>
 </div>
@@ -673,7 +673,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Next, connect the ribbon cable to the GPIO interface as shown below:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-004.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-006.jpg" class="img-fluid figure-img"></p>
 <figcaption>Ribbon cable connected to GPIO interface</figcaption>
 </figure>
 </div>
@@ -681,7 +681,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Next, connect the other end of the ribbon cable to the GPIO pins on the RPi that are exposed at the rear of the stand:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-005.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-007.jpg" class="img-fluid figure-img"></p>
 <figcaption>Ribbon cable connected to RPi GPIO pins</figcaption>
 </figure>
 </div>
@@ -691,45 +691,45 @@ ul.task-list li input[type="checkbox"] {
 <p>A word of caution, however! Your breadboard may not be internally connected across the entire top and bottom rails. If not, you will need to bridge the left and right halves of the rails as shown below to ensure that power and GND are exposed across the entire length of the rails:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-006.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-008.jpg" class="img-fluid figure-img"></p>
 <figcaption>Bridging the rails on the breadboard</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-007.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-009.jpg" class="img-fluid figure-img"></p>
 <figcaption>Bridging both 5V/GND top rails and 3.3V/GND bottom rails</figcaption>
 </figure>
 </div>
 <p>This must be done for both 5V and GND in the top rails, and 3.3V and GND in the bottom rails. Here’s a layout diagram of this, and the updated circuit using the interface board:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-008.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-010.jpg" class="img-fluid figure-img"></p>
 <figcaption>Layout diagram with rail bridges</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/img-009.jpg" class="img-fluid figure-img"></p>
+<p><img src="images/img-011.jpg" class="img-fluid figure-img"></p>
 <figcaption>Updated circuit layout using the GPIO interface board</figcaption>
-</figure>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/img-010.jpg" class="img-fluid figure-img"></p>
-<figcaption>Final layout diagram of the simple LED circuit with interface board</figcaption>
 </figure>
 </div>
 <p>Note that it is assumed that a ribbon cable connects the interface board to the GPIO pins on the RPi (i.e., it is not shown in the layout diagrams).</p>
 </section>
 <section id="building-the-circuit" class="level2">
 <h2 class="anchored" data-anchor-id="building-the-circuit">Building the Circuit</h2>
-<p>Create the circuit shown in the layout diagram above <strong>without connecting the power adapter to the RPi yet</strong>. Make sure that:</p>
+<p>Create the circuit shown in the layout diagram below <strong>without connecting the power adapter to the RPi yet</strong>. Make sure that:</p>
 <ul>
 <li>The LED straddles two columns (i.e., does not have both of its legs in the same column of holes);</li>
 <li>You connect a wire from a 3.3V pin on the bottom rail to the positive side (long leg) of the LED; and</li>
 <li>You place a 220Ω resistor from the negative side (short leg) of the LED to ground (note that the GPIO interface board brings ground to both top rows of the top and bottom rails).</li>
 </ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/img-013.jpg" class="img-fluid figure-img"></p>
+<figcaption>Final layout diagram of the simple LED circuit with interface board</figcaption>
+</figure>
+</div>
 <p>To summarize, use a red (or similar) wire to connect a 3.3V power source from the interface board to the positive side of the LED. Use a 220Ω resistor to connect the negative side of the LED to GND.</p>
 <p>When you are certain that your circuit is correct, plug in the RPi. If everything is wired correctly, the LED should light.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
