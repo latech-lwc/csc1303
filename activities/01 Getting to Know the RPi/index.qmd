@@ -1,3 +1,108 @@
 ---
-title: "Getting to Know the RPi"
+title: "Getting to Know the Raspberry Pi"
 ---
+
+
+## What is a Raspberry Pi
+
+The Raspberry Pi is a small, affordable, single-board computer designed to make computing accessible and promote learning in programming, electronics, and digital projects. About the size of a credit card, it can connect to a monitor, keyboard, and mouse, and runs a full operating system (usually Raspberry Pi OS, based on Linux). 
+
+Despite its size, it can do many of the same things as a desktop computer, such as browsing the internet, creating documents, and coding. It also gives users access to its General-Purpose Input/Output pins (or GPIO pins) for interacting with electronics, sensors, and hardware. It’s widely used in education, hobby projects, and even professional applications because of its low cost, versatility, and strong community support.
+
+### History of RPi Models
+
+You have a **Raspberry Pi 400**. The 400 combines the utility of the Raspberry Pi 4 with a keyboard to make it slightly more ready to use than the Raspberry Pi 4. Some other versions of Raspberry Pis are listed below along with their release dates. 
+
+
+- Raspberry Pi 1 (2012) – The very first version, with Model A (basic) and Model B (more powerful).
+- Raspberry Pi 2 (2015) – Improved CPU and memory, better for multitasking.
+- Raspberry Pi 3 (2016–2018) – Built-in Wi-Fi and Bluetooth for the first time.
+- Raspberry Pi 4 (2019) – More RAM options (up to 8GB), dual HDMI, faster performance.
+- Raspberry Pi 5 (2023) – Latest model, significantly faster CPU/GPU, supports PCIe for expansion.
+- Raspberry Pi Zero (2015) – A tiny, ultra-low-cost version for lightweight projects.
+- Raspberry Pi Zero W (2017) – Same as Zero, but with built-in Wi-Fi and Bluetooth.
+- Raspberry Pi Zero 2 W (2021) – Faster quad-core version, still very small.
+
+## Confirming Your Components
+
+To make sure we have packed your kit with everything you need, complete the [Living with Cyber Raspberry Pi Kit Components Form](https://forms.gle/2MqJaahsn5JVc2176).
+
+## Assembling the Pi
+
+Most of the software has already been setup for you. All you need to do is connect the various components properly in order to use it. Complete the steps that follow to assemble your pi.
+
+1. Locate the following components and remove them from their packaging.
+
+    - Monitor
+    - Raspberry Pi 400
+    - HDMI to Mini HDMI to Cable
+    - Micro HDMI Adapter 
+    - USB Type C to USB Type C Cable - Power cable for Pi
+    - USB Type A to USB Type C Cable - Power cable for Monitor
+    - USB Type C and USB Type A Power Adapter Brick
+    - Micro SD (In components bag)
+    - Mouse 
+
+2. Connect the **Mouse** to the **Raspberry Pi 400** using a USB Type A port on the Raspberry Pi 400.
+
+2. In this step, we connect the **Monitor** to the **Raspberry Pi 400** using the HDMI connection.
+
+    a. Combine the **HDMI to Mini HDMI Cable** with the **Micro HDMI Adapter** to get a resulting cable with a mini hdmi connection on one end, and a micro hdmi connection on the other end. Note that micro is smaller than mini.
+
+    b. Connect the mini HDMI connection to the monitor HDMI input on the monitor.
+    
+    c. Connect the micro HDMI connection to either output on the Raspberry Pi 400.
+
+
+3. In this step, we connect Power cable to the portable monitor.
+
+    a. Connect the **USB Type C to USB Type A Cable** to the monitor via the **Type C** port on the monitor.
+    
+    b. Connect the other end of the **USB Type C to USB Type A** cable to the **Power Adapter Brick**. 
+    
+
+4. In this step, we connect power to the Raspberry Pi.
+
+    a. Connect the **USB Type C to USB Type C Cable** to the Raspberry Pi via the **Type C** port on the Raspberry Pi.
+    
+    b. Connect the other end of the **USB Type C to USB Type C** cable to the **Power Adapter Brick**. 
+
+
+5. Plug the **Power Adapter Brick** into a socket. The Pi should boot automatically. Give it time.
+
+
+## Connect to the Internet
+
+There are instructions on the Desktop on how to connect the Raspberry Pi to the LaTechWPA2 network using your credentials. Follow those instructions.
+
+## Familiarize Yourself with RPi OS 
+
+You'll be asked to complete a Canvas quiz that walks you through the following. It is recommeneded at this point that you go to Canvas to find the quiz and complete it as you perform tasks related to the following:
+
+1. The Taskbar
+
+2. Available Integrated Development Environments (IDEs)
+
+3. Available Browsers
+
+4. Available Text Editors
+
+5. File Management and the Filesystem
+
+6. Writing a "Hello, World" program
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

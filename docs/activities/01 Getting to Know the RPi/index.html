@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Getting to Know the RPi – The Science of Computing I</title>
+<title>Getting to Know the Raspberry Pi – The Science of Computing I</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -553,8 +553,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-is-a-raspberry-pi" id="toc-what-is-a-raspberry-pi" class="nav-link active" data-scroll-target="#what-is-a-raspberry-pi">What is a Raspberry Pi</a>
+  <ul class="collapse">
+  <li><a href="#history-of-rpi-models" id="toc-history-of-rpi-models" class="nav-link" data-scroll-target="#history-of-rpi-models">History of RPi Models</a></li>
+  </ul></li>
+  <li><a href="#confirming-your-components" id="toc-confirming-your-components" class="nav-link" data-scroll-target="#confirming-your-components">Confirming Your Components</a></li>
+  <li><a href="#assembling-the-pi" id="toc-assembling-the-pi" class="nav-link" data-scroll-target="#assembling-the-pi">Assembling the Pi</a></li>
+  <li><a href="#connect-to-the-internet" id="toc-connect-to-the-internet" class="nav-link" data-scroll-target="#connect-to-the-internet">Connect to the Internet</a></li>
+  <li><a href="#familiarize-yourself-with-rpi-os" id="toc-familiarize-yourself-with-rpi-os" class="nav-link" data-scroll-target="#familiarize-yourself-with-rpi-os">Familiarize Yourself with RPi OS</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -562,7 +575,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../activities/01 Getting to Know the RPi/index.html">Activities</a></li><li class="breadcrumb-item"><a href="../../activities/01 Getting to Know the RPi/index.html">01 Getting to Know the RPi</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Getting to Know the RPi</h1>
+<h1 class="title">Getting to Know the Raspberry Pi</h1>
 </div>
 
 
@@ -579,8 +592,83 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="what-is-a-raspberry-pi" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-raspberry-pi">What is a Raspberry Pi</h2>
+<p>The Raspberry Pi is a small, affordable, single-board computer designed to make computing accessible and promote learning in programming, electronics, and digital projects. About the size of a credit card, it can connect to a monitor, keyboard, and mouse, and runs a full operating system (usually Raspberry Pi OS, based on Linux).</p>
+<p>Despite its size, it can do many of the same things as a desktop computer, such as browsing the internet, creating documents, and coding. It also gives users access to its General-Purpose Input/Output pins (or GPIO pins) for interacting with electronics, sensors, and hardware. It’s widely used in education, hobby projects, and even professional applications because of its low cost, versatility, and strong community support.</p>
+<section id="history-of-rpi-models" class="level3">
+<h3 class="anchored" data-anchor-id="history-of-rpi-models">History of RPi Models</h3>
+<p>You have a <strong>Raspberry Pi 400</strong>. The 400 combines the utility of the Raspberry Pi 4 with a keyboard to make it slightly more ready to use than the Raspberry Pi 4. Some other versions of Raspberry Pis are listed below along with their release dates.</p>
+<ul>
+<li>Raspberry Pi 1 (2012) – The very first version, with Model A (basic) and Model B (more powerful).</li>
+<li>Raspberry Pi 2 (2015) – Improved CPU and memory, better for multitasking.</li>
+<li>Raspberry Pi 3 (2016–2018) – Built-in Wi-Fi and Bluetooth for the first time.</li>
+<li>Raspberry Pi 4 (2019) – More RAM options (up to 8GB), dual HDMI, faster performance.</li>
+<li>Raspberry Pi 5 (2023) – Latest model, significantly faster CPU/GPU, supports PCIe for expansion.</li>
+<li>Raspberry Pi Zero (2015) – A tiny, ultra-low-cost version for lightweight projects.</li>
+<li>Raspberry Pi Zero W (2017) – Same as Zero, but with built-in Wi-Fi and Bluetooth.</li>
+<li>Raspberry Pi Zero 2 W (2021) – Faster quad-core version, still very small.</li>
+</ul>
+</section>
+</section>
+<section id="confirming-your-components" class="level2">
+<h2 class="anchored" data-anchor-id="confirming-your-components">Confirming Your Components</h2>
+<p>To make sure we have packed your kit with everything you need, complete the <a href="https://forms.gle/2MqJaahsn5JVc2176">Living with Cyber Raspberry Pi Kit Components Form</a>.</p>
+</section>
+<section id="assembling-the-pi" class="level2">
+<h2 class="anchored" data-anchor-id="assembling-the-pi">Assembling the Pi</h2>
+<p>Most of the software has already been setup for you. All you need to do is connect the various components properly in order to use it. Complete the steps that follow to assemble your pi.</p>
+<ol type="1">
+<li><p>Locate the following components and remove them from their packaging.</p>
+<ul>
+<li>Monitor</li>
+<li>Raspberry Pi 400</li>
+<li>HDMI to Mini HDMI to Cable</li>
+<li>Micro HDMI Adapter</li>
+<li>USB Type C to USB Type C Cable - Power cable for Pi</li>
+<li>USB Type A to USB Type C Cable - Power cable for Monitor</li>
+<li>USB Type C and USB Type A Power Adapter Brick</li>
+<li>Micro SD (In components bag)</li>
+<li>Mouse</li>
+</ul></li>
+<li><p>Connect the <strong>Mouse</strong> to the <strong>Raspberry Pi 400</strong> using a USB Type A port on the Raspberry Pi 400.</p></li>
+<li><p>In this step, we connect the <strong>Monitor</strong> to the <strong>Raspberry Pi 400</strong> using the HDMI connection.</p>
+<ol type="a">
+<li><p>Combine the <strong>HDMI to Mini HDMI Cable</strong> with the <strong>Micro HDMI Adapter</strong> to get a resulting cable with a mini hdmi connection on one end, and a micro hdmi connection on the other end. Note that micro is smaller than mini.</p></li>
+<li><p>Connect the mini HDMI connection to the monitor HDMI input on the monitor.</p></li>
+<li><p>Connect the micro HDMI connection to either output on the Raspberry Pi 400.</p></li>
+</ol></li>
+<li><p>In this step, we connect Power cable to the portable monitor.</p>
+<ol type="a">
+<li><p>Connect the <strong>USB Type C to USB Type A Cable</strong> to the monitor via the <strong>Type C</strong> port on the monitor.</p></li>
+<li><p>Connect the other end of the <strong>USB Type C to USB Type A</strong> cable to the <strong>Power Adapter Brick</strong>.</p></li>
+</ol></li>
+<li><p>In this step, we connect power to the Raspberry Pi.</p>
+<ol type="a">
+<li><p>Connect the <strong>USB Type C to USB Type C Cable</strong> to the Raspberry Pi via the <strong>Type C</strong> port on the Raspberry Pi.</p></li>
+<li><p>Connect the other end of the <strong>USB Type C to USB Type C</strong> cable to the <strong>Power Adapter Brick</strong>.</p></li>
+</ol></li>
+<li><p>Plug the <strong>Power Adapter Brick</strong> into a socket. The Pi should boot automatically. Give it time.</p></li>
+</ol>
+</section>
+<section id="connect-to-the-internet" class="level2">
+<h2 class="anchored" data-anchor-id="connect-to-the-internet">Connect to the Internet</h2>
+<p>There are instructions on the Desktop on how to connect the Raspberry Pi to the LaTechWPA2 network using your credentials. Follow those instructions.</p>
+</section>
+<section id="familiarize-yourself-with-rpi-os" class="level2">
+<h2 class="anchored" data-anchor-id="familiarize-yourself-with-rpi-os">Familiarize Yourself with RPi OS</h2>
+<p>You’ll be asked to complete a Canvas quiz that walks you through the following. It is recommeneded at this point that you go to Canvas to find the quiz and complete it as you perform tasks related to the following:</p>
+<ol type="1">
+<li><p>The Taskbar</p></li>
+<li><p>Available Integrated Development Environments (IDEs)</p></li>
+<li><p>Available Browsers</p></li>
+<li><p>Available Text Editors</p></li>
+<li><p>File Management and the Filesystem</p></li>
+<li><p>Writing a “Hello, World” program</p></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
