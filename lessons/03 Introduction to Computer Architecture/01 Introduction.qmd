@@ -1,0 +1,36 @@
+---
+title: "Introduction"
+---
+
+Computer architecture is a wide branch of computer science that seeks to
+find answers to questions such as, “What makes up a computer?” and, “How
+is it that we can use a computer?” The answers to these questions are
+continuously changing, but we will attempt to give a simple answer in
+this lesson.
+
+In a previous lesson, we discussed how computer hardware works. Recall
+that all general-purpose computers, at a minimum, consist of the
+following hardware components: a central processing unit (CPU), main
+memory, secondary storage, various input/output (I/O) devices, and a
+data bus. The **data bus** is like a highway that the other components use
+to communicate with each other. **Main memory** is used to store data and
+programs that are currently being used. **I/O devices** allow the outside
+world to communicate with the computer. The **CPU** is the device that is
+responsible for actually executing the instructions that make up a
+program.
+
+Let's further discuss the brains of the computer, the CPU. The operation
+of the CPU is governed by the instruction cycle.
+
+::: {.callout-tip title="Definition"}
+The **instruction cycle** is a procedure that consists of three phases:
+instruction fetch, instruction decode, and instruction execution.
+:::
+
+The CPU’s task is to perform the instruction cycle over and over until
+explicitly instructed to halt. The **fetch phase** of the instruction cycle
+consists of retrieving an instruction from memory. The **decode** phase
+concerns determining what actions the instruction is requesting the CPU
+to perform. Instruction **execution** involves performing the operation
+requested by the instruction.
+

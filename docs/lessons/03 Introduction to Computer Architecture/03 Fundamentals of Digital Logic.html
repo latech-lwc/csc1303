@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index – The Science of Computing I</title>
+<title>Fundamentals of Digital Logic – The Science of Computing I</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../activities/01 Getting to Know the RPi/index.html" rel="next">
-<link href="../../lessons/04 Searching and Sorting/08 Comparing Sorts.html" rel="prev">
+<link href="../../lessons/03 Introduction to Computer Architecture/04 LED the Way.html" rel="next">
+<link href="../../lessons/03 Introduction to Computer Architecture/02 The Layers of a Computer System.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -249,7 +249,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/05 Introduction to Data Structures/index.html">05 Introduction to Data Structures</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/index.html">03 Introduction to Computer Architecture</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/03 Fundamentals of Digital Logic.html">Fundamentals of Digital Logic</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -444,11 +444,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../lessons/03 Introduction to Computer Architecture/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">03 Introduction to Computer Architecture</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/03 Introduction to Computer Architecture/01 Introduction.html" class="sidebar-item-text sidebar-link">
@@ -463,7 +463,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/03 Introduction to Computer Architecture/03 Fundamentals of Digital Logic.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/03 Introduction to Computer Architecture/03 Fundamentals of Digital Logic.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Fundamentals of Digital Logic</span></a>
   </div>
 </li>
@@ -566,7 +566,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/05 Introduction to Data Structures/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../lessons/05 Introduction to Data Structures/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">05 Introduction to Data Structures</span></a>
   </div>
 </li>
@@ -659,18 +659,184 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#a-simple-circuit-with-a-switch" id="toc-a-simple-circuit-with-a-switch" class="nav-link active" data-scroll-target="#a-simple-circuit-with-a-switch">A Simple Circuit with a Switch</a></li>
+  <li><a href="#two-switches-in-series" id="toc-two-switches-in-series" class="nav-link" data-scroll-target="#two-switches-in-series">Two Switches in Series</a></li>
+  <li><a href="#two-switches-in-parellel" id="toc-two-switches-in-parellel" class="nav-link" data-scroll-target="#two-switches-in-parellel">Two Switches in Parellel</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/05 Introduction to Data Structures/index.html">05 Introduction to Data Structures</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/index.html">03 Introduction to Computer Architecture</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/03 Fundamentals of Digital Logic.html">Fundamentals of Digital Logic</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Fundamentals of Digital Logic</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
 
+<p>Becoming really good at computer science means having a good understanding of all of the layers, what they do, and how they are used. We will spend most of this lesson dealing with the hardware layer. A lot of devices have two states: a voltage is high or low, a switch is open or closed, a light is on or off. There are many ways of modeling these two-state systems; some are very concrete and some are more abstract. We’ll look at a number of these models, beginning with simple models that are based on mechanical switches and light bulbs.</p>
+<p>One of the most basic electrical connection is a light bulb that is either connected to a power source (or not). A slightly more complicated version of this includes a switch that can be either open or closed. These switches are similar to the electrical switches in your home. We will assume that these switches are connected to a source of power that can supply current. The potential of a power source, such as a battery, is called <strong>voltage</strong> and is measured in units called volts (V). Voltage sources typically have a positive and negative end (called a terminal), and the difference in the potential between both terminals is what we use as the measurement of voltage.</p>
+<p>Voltage sources can produce either alternating current (AC) or direct current (DC). With DC, one terminal is always positive, and the other is always negative. Examples of DC sources are batteries such as the ones you would put in a small radio, watch, or flashlight. With AC, the two terminals keep on swapping positive and negative roles very quickly (60 times per second!). Examples of AC sources are wall outlets that you would typically find in your home.</p>
+<section id="a-simple-circuit-with-a-switch" class="level2">
+<h2 class="anchored" data-anchor-id="a-simple-circuit-with-a-switch">A Simple Circuit with a Switch</h2>
+<p>The simplest circuit that can be built contains a power supply, a single switch, and a light bulb. If the switch is open, the light is off; if the switch is closed, the light is on. The following figure illustrates both of these cases:</p>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-02.png" class="img-fluid figure-img"></p>
+<figcaption>A Basic Electrical Circuit with the switch open</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-03.png" class="img-fluid figure-img"></p>
+<figcaption>A Basic Electrical Circuit with the switch closed</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>The state of these two circuits can be expressed in table form as follows:</p>
+<table class="caption-top table">
+<caption>State table for single switch circuit</caption>
+<thead>
+<tr class="header">
+<th>Switch</th>
+<th>Light</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Open</td>
+<td>Off</td>
+</tr>
+<tr class="even">
+<td>Closed</td>
+<td>On</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="two-switches-in-series" class="level2">
+<h2 class="anchored" data-anchor-id="two-switches-in-series">Two Switches in Series</h2>
+<p>We can increase the complexity of this circuit somewhat by adding a second switch between the first switch and the light bulb. This results in four possible configurations:</p>
+<ol type="1">
+<li>both switches are open;</li>
+<li>the first switch is open and the second is closed;</li>
+<li>the first switch is closed and the second is open; and</li>
+<li>both switches are closed.</li>
+</ol>
+<p>This is illustrated in the figure below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-04.png" class="img-fluid figure-img"></p>
+<figcaption>The four states of an in-sequence 2 switch circuit</figcaption>
+</figure>
+</div>
+<p>These circuits are called <strong>series circuits</strong> since the two switches occur on the same path from the power source back to itself. In series circuits, when either one or both of the switches are open power will not flow, and the light bulb will be off. Only when both switches are closed does power flow, and the light bulb illuminates. Said another way: if both switch A <strong>and</strong> switch B are closed, then the light will turn on.</p>
+<p>The relationship between the states of the two switches (open or closed) and the state of the light bulb (on or off) is summarized in the following table:</p>
+<table class="caption-top table">
+<caption>State table for two switch in-sequence circuit</caption>
+<thead>
+<tr class="header">
+<th>Switch A</th>
+<th>Switch B</th>
+<th>Light</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Open</td>
+<td>Open</td>
+<td>Off</td>
+</tr>
+<tr class="even">
+<td>Open</td>
+<td>Closed</td>
+<td>Off</td>
+</tr>
+<tr class="odd">
+<td>Closed</td>
+<td>Open</td>
+<td>Off</td>
+</tr>
+<tr class="even">
+<td>Closed</td>
+<td>Closed</td>
+<td>On</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="two-switches-in-parellel" class="level2">
+<h2 class="anchored" data-anchor-id="two-switches-in-parellel">Two Switches in Parellel</h2>
+<p>Another type of circuit can be designed using two switches. This second type of circuit arranges the switches in parallel rather than in series. In a two-switch <strong>parallel circuit</strong>, each of the switches is placed on a separate path between the power source and the light bulb. The figure below illustrates the four possible configurations of a two-switch parallel circuit. As was the case with the series circuits, there are four possible configurations of the circuit (in fact, they are exactly the same as before). When both switches are open power does not flow and the light bulb is off. However, whenever either or both of the switches are closed, power flows and the light will turn on. Said another way, if switch A <strong>or</strong> switch B is closed, then the light will turn on.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-05.png" class="img-fluid figure-img"></p>
+<figcaption>The four states of an in-parallel 2 switch circuit</figcaption>
+</figure>
+</div>
+<p>The relationship between the states of the two switches (open or closed) and the state of the light bulb (on or off) is summarized in the following table:</p>
+<table class="caption-top table">
+<caption>State table for two switch in-parallel circuit</caption>
+<thead>
+<tr class="header">
+<th>Switch A</th>
+<th>Switch B</th>
+<th>Light</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Open</td>
+<td>Open</td>
+<td>Off</td>
+</tr>
+<tr class="even">
+<td>Open</td>
+<td>Closed</td>
+<td>On</td>
+</tr>
+<tr class="odd">
+<td>Closed</td>
+<td>Open</td>
+<td>On</td>
+</tr>
+<tr class="even">
+<td>Closed</td>
+<td>Closed</td>
+<td>On</td>
+</tr>
+</tbody>
+</table>
+<p>More complex circuits with three or more switches are possible!</p>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1088,13 +1254,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../lessons/04 Searching and Sorting/08 Comparing Sorts.html" class="pagination-link" aria-label="Comparing Sorts">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Comparing Sorts</span>
+      <a href="../../lessons/03 Introduction to Computer Architecture/02 The Layers of a Computer System.html" class="pagination-link" aria-label="The Layers of a Computer System">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">The Layers of a Computer System</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../activities/01 Getting to Know the RPi/index.html" class="pagination-link" aria-label="01 Getting to Know the RPi">
-        <span class="nav-page-text">01 Getting to Know the RPi</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/03 Introduction to Computer Architecture/04 LED the Way.html" class="pagination-link" aria-label="LED the Way (Preview)">
+        <span class="nav-page-text">LED the Way (Preview)</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

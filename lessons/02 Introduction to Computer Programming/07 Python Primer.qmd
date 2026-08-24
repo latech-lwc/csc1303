@@ -131,17 +131,23 @@ types, sequences, sets, and mappings. Although there are actually
 others, we will focus on these in the *Living with Cyber* curriculum.
 
 Numeric types include whole numbers, floating point numbers, and complex
-numbers. Python has two whole number types: `int` and `long`. The `int` data
+numbers. Older versions of python have two whole number types: `int` and `long`. The `int` data
 type is a 64-bit integer. This means that 64 bits (i.e. a bit can be
 either 0 or 1) is used to represent a single whole number. For example
 the following series of bits represent a single integer (in fact it
-represents the number 846,251,337): 0000 0000 0000 0000 0000 0000 0000
-0000 0011 0010 0111 0000 1100 0101 0100 1001. We will explore this in
-more detail at a later time. The `long` data type is an integer of
+represents the number 846,251,337): 
+
+```
+00000000 00000000 00000000 00000000 00110010 01110000 11000101 01001001
+``` 
+
+We will explore this concept in more detail at a later time. The `long` data type is an integer of
 unlimited length. This means Python will give us enough bits to store
 any number we want! Note that in Python 3.x, an `int` is an integer of
-unlimited length (there is no long data type). These integer types can
-represent negative or positive whole numbers. The `float` type is a 64-bit
+unlimited length (there is no `long` data type). These integer types can
+represent negative or positive whole numbers. 
+
+The `float` type is a 64-bit
 floating point (decimal) number. This means it can hold numbers like
 3.14 and -90.3324235. Lastly, the `complex` type represents complex
 numbers (i.e., numbers with real and imaginary parts). Most of our

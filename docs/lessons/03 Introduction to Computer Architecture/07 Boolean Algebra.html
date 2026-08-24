@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index – The Science of Computing I</title>
+<title>Boolean Algebra – The Science of Computing I</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../activities/01 Getting to Know the RPi/index.html" rel="next">
-<link href="../../lessons/04 Searching and Sorting/08 Comparing Sorts.html" rel="prev">
+<link href="../../lessons/03 Introduction to Computer Architecture/08 Other Gates.html" rel="next">
+<link href="../../lessons/03 Introduction to Computer Architecture/06 Combining Gates.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -75,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -249,7 +278,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/05 Introduction to Data Structures/index.html">05 Introduction to Data Structures</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/index.html">03 Introduction to Computer Architecture</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/07 Boolean Algebra.html">Boolean Algebra</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -444,11 +473,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../lessons/03 Introduction to Computer Architecture/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">03 Introduction to Computer Architecture</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/03 Introduction to Computer Architecture/01 Introduction.html" class="sidebar-item-text sidebar-link">
@@ -487,7 +516,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/03 Introduction to Computer Architecture/07 Boolean Algebra.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/03 Introduction to Computer Architecture/07 Boolean Algebra.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Boolean Algebra</span></a>
   </div>
 </li>
@@ -566,7 +595,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/05 Introduction to Data Structures/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../lessons/05 Introduction to Data Structures/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">05 Introduction to Data Structures</span></a>
   </div>
 </li>
@@ -663,12 +692,73 @@ ul.task-list li input[type="checkbox"] {
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/05 Introduction to Data Structures/index.html">05 Introduction to Data Structures</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/index.html">03 Introduction to Computer Architecture</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/07 Boolean Algebra.html">Boolean Algebra</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Boolean Algebra</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
+
+
+<p>The arithmetic that is used to reason about two-state systems was first developed by George Boole in 1854.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Definition">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Boolean algebra</strong> is a mathematics based on three fundamental operators: and, or, and not; and the variables on which they operate.</p>
+</div>
+</div>
+<p>Boolean variables are binary, having only two valid states: 1 (representing <em>true</em>) and 0 (representing <em>false</em>).</p>
+<p>The operator <em>and</em> is written as a dot “ ⋅ ”, <em>or</em> is written as a plus “+”, and <em>not</em> is written as a horizontal bar drawn over the expression being negated. The behavior of these three Boolean operators is identical to the behavior of the corresponding logic gates. Thus, the expression <span class="math inline">\(A⋅B\)</span> , meaning <em>A and B</em>, will be 1 (true) when the variables <em>A</em> and <em>B</em> are both 1 (true). The expression <span class="math inline">\(A + B\)</span> , meaning <em>A or B</em>, will be 1 when either or both variables are 1. The expression <em>not A</em> (written <span class="math inline">\(\bar A\)</span> ), will be 0 when <em>A</em> is 1 and 1 when <em>A</em> is 0. The relationship between the Boolean operators and the fundamental logic gates is illustrated below. In the illustration, the Boolean variables <em>A</em> and <em>B</em> correspond to the inputs to the circuit, and the variable <em>Z</em> corresponds to the output.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-20.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>As in ordinary algebra, Boolean algebra uses parentheses to indicate which operands go with which operators. The Boolean expression <span class="math inline">\(A+(B⋅C)\)</span> represents a completely different circuit from <span class="math inline">\((A+B)⋅C\)</span> . In the first, B and C are fed into an and gate, with the result being sent (along with A) into an or gate. In the second, A and B are fed into an or gate, with the result being combined with C via an and gate.</p>
+<p>As you may be beginning to suspect, there is a direct correspondence between Boolean expressions and logic circuits. Every logic circuit that can ever be constructed will have a corresponding Boolean expression, and every valid Boolean expression that can ever be written maps to an equivalent logic circuit. The process of converting between the two representations is quite mechanical: simply use the substitutions above, being sure to parenthesize Boolean expressions in a manner that preserves which operators go with which operands.</p>
+<div class="callout callout-style-default callout-important callout-titled" title="Activity">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Activity
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Try to write the Boolean expression corresponding to the following circuit:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-21.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Boolean algebra provides computer scientists and engineers a powerful tool for concisely representing circuits and reasoning about their behavior. While the details are beyond the scope of this lesson, Boolean algebra allows us to do things like prove that two different circuits compute the same function; or find simpler (and thus less expensive) ways of implementing the functionality of a circuit.</p>
 
 
 
@@ -1088,13 +1178,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../lessons/04 Searching and Sorting/08 Comparing Sorts.html" class="pagination-link" aria-label="Comparing Sorts">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Comparing Sorts</span>
+      <a href="../../lessons/03 Introduction to Computer Architecture/06 Combining Gates.html" class="pagination-link" aria-label="Combining Gates">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Combining Gates</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../activities/01 Getting to Know the RPi/index.html" class="pagination-link" aria-label="01 Getting to Know the RPi">
-        <span class="nav-page-text">01 Getting to Know the RPi</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/03 Introduction to Computer Architecture/08 Other Gates.html" class="pagination-link" aria-label="Other Gates">
+        <span class="nav-page-text">Other Gates</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

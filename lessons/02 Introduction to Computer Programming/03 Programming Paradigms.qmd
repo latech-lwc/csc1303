@@ -4,9 +4,9 @@ title: "Programming Paradigms"
 
 Over the past forty years or so, three general classes, or paradigms, of
 programming languages have emerged. These paradigms include the
-imperative paradigm, the functional paradigm, and the logical paradigm.
+**imperative paradigm**, the **functional paradigm**, and the **logical paradigm**.
 In addition, during the past decade or so these paradigms have been
-extended to include object-oriented features. A language is classified
+extended to include **object-oriented** features. A language is classified
 as belonging to a particular paradigm based on the programming features
 it supports.
 

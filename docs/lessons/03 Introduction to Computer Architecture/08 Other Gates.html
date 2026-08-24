@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index – The Science of Computing I</title>
+<title>Other Gates – The Science of Computing I</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../activities/01 Getting to Know the RPi/index.html" rel="next">
-<link href="../../lessons/04 Searching and Sorting/08 Comparing Sorts.html" rel="prev">
+<link href="../../lessons/03 Introduction to Computer Architecture/09 Combinational Circuits.html" rel="next">
+<link href="../../lessons/03 Introduction to Computer Architecture/07 Boolean Algebra.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -75,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -249,7 +278,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/05 Introduction to Data Structures/index.html">05 Introduction to Data Structures</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/index.html">03 Introduction to Computer Architecture</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/08 Other Gates.html">Other Gates</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -444,11 +473,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../lessons/03 Introduction to Computer Architecture/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">03 Introduction to Computer Architecture</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/03 Introduction to Computer Architecture/01 Introduction.html" class="sidebar-item-text sidebar-link">
@@ -493,7 +522,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/03 Introduction to Computer Architecture/08 Other Gates.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/03 Introduction to Computer Architecture/08 Other Gates.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Other Gates</span></a>
   </div>
 </li>
@@ -566,7 +595,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/05 Introduction to Data Structures/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../lessons/05 Introduction to Data Structures/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">05 Introduction to Data Structures</span></a>
   </div>
 </li>
@@ -663,12 +692,55 @@ ul.task-list li input[type="checkbox"] {
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/05 Introduction to Data Structures/index.html">05 Introduction to Data Structures</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/index.html">03 Introduction to Computer Architecture</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/08 Other Gates.html">Other Gates</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Other Gates</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
+
+
+<p>Any device, whose operation can be defined in terms of a truth table or Boolean expression, can be implemented using only the fundamental logic gates: <em>and</em>, <em>or</em>, and <em>not</em>. However, a number of additional gates are usually defined, as they prove useful for practical purposes. For example, it is frequently the case that a not will immediately follow an <em>and</em> gate, like so:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-22.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Since this is such a common occurrence, the circuit has been given a name (<em>nand</em>) and a gate symbol (the <em>and</em> symbol combined with the bubble from the <em>not</em> symbol). Similarly, <em>not</em> often follows <em>or</em>, so there is a <em>nor</em> gate whose symbol is the bubble from the <em>not</em> attached to the <em>or</em> symbol. The following figure illustrates both the <em>nand</em> and <em>nor</em> gates. Their behavior, in terms of Boolean expressions, is provided as well. It is important to remember that these gates are simply a convenience (a kind of shorthand), in that they allow a circuit to be constructed from fewer underlying components.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-23.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>As another example, the basic <em>and</em> and <em>or</em> gates support only two inputs; however, a circuit designer will frequently need to <em>and</em> or <em>or</em> more than two inputs. For this reason multi-input and and or gates exist.</p>
+<p>The following figure presents the three and four input <em>and</em> and <em>or</em> gates along with their Boolean expressions:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-24.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>While these gates are often quite convenient, remember that it is always possible to construct equivalent circuits from the underlying two-input gates. For example, the following circuit represents one possible implementation of a four-input <em>and</em> gate:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-25.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Its Boolean expression is <span class="math inline">\(Z =(A⋅B)⋅(C⋅D)\)</span> . Note, however, that it could be designed differently (with a different Boolean expression), yet still represent a four-input and gate. For example, <span class="math inline">\(Z =((A⋅B)⋅C)⋅D\)</span> would also work. The other multi-input gates can be constructed in a similar manner.</p>
+<p>In addition to multi-input <em>and</em> and <em>or</em> gates, multi-input <em>nand</em> and <em>nor</em> gates can be constructed. The symbols for these gates are identical to the symbols for the multi-input <em>and</em> and <em>or</em> gates, with the exception of a <em>not</em> bubble attached to the output of each gate symbol. Their Boolean expressions are also identical as well, except that a <em>not</em> bar appears above the right-hand side of the expression.</p>
 
 
 
@@ -1088,13 +1160,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../lessons/04 Searching and Sorting/08 Comparing Sorts.html" class="pagination-link" aria-label="Comparing Sorts">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Comparing Sorts</span>
+      <a href="../../lessons/03 Introduction to Computer Architecture/07 Boolean Algebra.html" class="pagination-link" aria-label="Boolean Algebra">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Boolean Algebra</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../activities/01 Getting to Know the RPi/index.html" class="pagination-link" aria-label="01 Getting to Know the RPi">
-        <span class="nav-page-text">01 Getting to Know the RPi</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/03 Introduction to Computer Architecture/09 Combinational Circuits.html" class="pagination-link" aria-label="Combinational Circuits">
+        <span class="nav-page-text">Combinational Circuits</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

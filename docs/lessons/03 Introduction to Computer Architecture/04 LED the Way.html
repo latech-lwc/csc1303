@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index – The Science of Computing I</title>
+<title>LED the Way (Preview) – The Science of Computing I</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../activities/01 Getting to Know the RPi/index.html" rel="next">
-<link href="../../lessons/04 Searching and Sorting/08 Comparing Sorts.html" rel="prev">
+<link href="../../lessons/03 Introduction to Computer Architecture/05 Logic Gates.html" rel="next">
+<link href="../../lessons/03 Introduction to Computer Architecture/03 Fundamentals of Digital Logic.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -75,10 +75,39 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -249,7 +278,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/05 Introduction to Data Structures/index.html">05 Introduction to Data Structures</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/index.html">03 Introduction to Computer Architecture</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/04 LED the Way.html">LED the Way (Preview)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -444,11 +473,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../lessons/03 Introduction to Computer Architecture/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">03 Introduction to Computer Architecture</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/03 Introduction to Computer Architecture/01 Introduction.html" class="sidebar-item-text sidebar-link">
@@ -469,7 +498,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/03 Introduction to Computer Architecture/04 LED the Way.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/03 Introduction to Computer Architecture/04 LED the Way.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">LED the Way (Preview)</span></a>
   </div>
 </li>
@@ -566,7 +595,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/05 Introduction to Data Structures/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../lessons/05 Introduction to Data Structures/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">05 Introduction to Data Structures</span></a>
   </div>
 </li>
@@ -659,18 +688,203 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#circuit-representation" id="toc-circuit-representation" class="nav-link active" data-scroll-target="#circuit-representation">Circuit Representation</a></li>
+  <li><a href="#the-components" id="toc-the-components" class="nav-link" data-scroll-target="#the-components">The Components</a></li>
+  <li><a href="#ohms-law" id="toc-ohms-law" class="nav-link" data-scroll-target="#ohms-law">Ohm’s Law</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/05 Introduction to Data Structures/index.html">05 Introduction to Data Structures</a></li></ol></nav></header>
+<main class="content page-columns page-full" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/index.html">03 Introduction to Computer Architecture</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/04 LED the Way.html">LED the Way (Preview)</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">LED the Way (Preview)</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
 
+<p>The next Raspberry Pi activity will involve implementing various circuits that illustrate some of the ones covered above. Initially, the Raspberry Pi will only be used as a power source. We will be connecting it to a circuit prototyping board called a <strong>breadboard</strong>, and the Raspberry Pi will provide power to the breadboard. A breadboard is used to simplify the process of prototyping connections between electronic components. It allows the making of secure connections between simple electronic devices by simply plugging them into appropriate rows or columns of the board. Here’s an example of a breadboard:</p>
+
+<div class="no-row-height column-margin column-container"><div class="callout callout-style-default callout-note callout-titled" title="Did you know">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Did you know
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Breadboards actually derive their name from a breadboard (i.e., a wooden board on which bread is often cut). This is because early versions of breadboards were made from the wooden bread cutting workstations.</p>
+</div>
+</div></div><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-06.png" class="img-fluid figure-img"></p>
+<figcaption>A bread board</figcaption>
+</figure>
+</div>
+<p>The holes in the breadboard allow electronic components (including wires) to be connected to each other. Note that there are internal connections within the breadboard. Each row along the top and bottom of the breadboard is connected. In addition, each column in the center portion is connected; however, there is a disconnect across the center gap:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-07.png" class="img-fluid figure-img"></p>
+<figcaption>The hidden connections within a bread board</figcaption>
+</figure>
+</div>
+<section id="circuit-representation" class="level3">
+<h3 class="anchored" data-anchor-id="circuit-representation">Circuit Representation</h3>
+<p>The first part of the Raspberry Pi activity will simply be to connect a power supply to a light. Since the Raspberry Pi provides DC, the light we will use is called an LED. We’ll explain this later; but for now, here’s an example of the connected electronic components for this part of the activity:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-08.png" class="img-fluid figure-img"></p>
+<figcaption>A layout diagram</figcaption>
+</figure>
+</div>
+<p>The image above is an example of the topological layout of a circuit. That is, it does a pretty good job of showing how the circuit looks physically when connected. Of course, there are many more ways to layout this exact circuit, and this is just one way. This method of diagramming a circuit is called a <strong>layout diagram</strong> because it shows the physical layout of the electronic (and other) components.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Definition">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>circuit diagram</strong> (also known as a <strong>schematic</strong>) is another way of representing a circuit that only shows the connections and substitutes actual electronic components with standard symbols.</p>
+</div>
+</div>
+<div id="fig-circuitdiagram" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-circuitdiagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Lesson05-09.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-circuitdiagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: A circuit diagram
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-circuitdiagram" class="quarto-xref">Figure&nbsp;1</a> is an example of a circuit diagram.</p>
+<p>A circuit diagram is a useful way to represent a circuit. Note how it can topologically be laid out in a number of ways. Various electronic components have unique symbols. For example (in the circuit diagram above), the LED has the following symbol:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-10.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%"></p>
+</figure>
+</div>
+<p>The resistor has the following symbol:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-11.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+<p>The large rectangular object with lines coming out of it is the Raspberry Pi. Technically, this represents the GPIO pins on the Raspberry Pi. We’ll discuss this more later. We will also show more electronic components and their symbols later.</p>
+</section>
+<section id="the-components" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="the-components">The Components</h3>
+<p>Let’s go through the components, one-by-one. At the bottom is the Raspberry Pi. You will notice that there are two wires connecting some pins on the RPi to the breadboard. We typically use red wires to signify positive voltage and black wires to signify negative voltage. In DC, the negative side is called ground. So red wires connect positive power to something, and black wires connect something to ground.</p>
+<p>The red “light” in the circuit is called an <strong>LED</strong> (Light Emitting Diode). An LED is more convenient than a traditional light bulb, because it does not require high voltage in order to turn it on. In fact, it consumes such a small voltage that typical higher voltage levels would render the LED unusable. Be careful when using LEDs, and never connect them directly to a voltage source.</p>
+<p>An LED allows current to flow through it in only one direction (from positive to negative). LEDs have a short leg and a long leg. The short leg is called the <strong>cathode</strong> and is the negative side. The long leg is called the <strong>anode</strong> and is the positive side. The head of an LED is also flat on one side: the negative (or cathode) side. LEDs come in various colors (the one in the circuit above is red, for example). The longer leg of an LED should <strong>always</strong> be connected to the positive side of your voltage source. If it is connected backwards (i.e., with the shorter leg connected to the positive side), the LED will not light and may even burn out. For this reason, an LED should always be connected to a DC voltage source.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-12.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>The two sides of an LED</figcaption>
+</figure>
+</div>
+<p>Since most power sources are too strong for typical LEDs, we must reduce the current somewhat so that the LED does not become damaged. <strong>Resistors</strong> are typically used to resist the flow of electricity. When using them with LEDs, we typically connect a resistor in series with the LED. It doesn’t matter if the resistor is on the positive or negative side of the LED. It works the same in either case. Resistors come in various resistances. Resistance is measured in a unit called the ohm (Ω). Here is an example of a 220Ω resistor:</p>
+
+<div class="no-row-height column-margin column-container"><div class="callout callout-style-default callout-note callout-titled" title="Did you know">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Did you know
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Resistors have different values, and the value of a resistor can be determined by looking at the colored <em>bands</em> that surround its body. Because resistors are typically small in size (any letters written on one would be too small to be easily read), engineers invented a color code that can be used to calculate the resistance of a resistor. There are multiple online resources that can teach you how to read the value of a resistor from its colors.</p>
+</div>
+</div></div><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-13.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%"></p>
+</figure>
+</div>
+</section>
+<section id="ohms-law" class="level3">
+<h3 class="anchored" data-anchor-id="ohms-law">Ohm’s Law</h3>
+<p>We can calculate the resistance required to resist the flow of electricity through the LED using Ohm’s Law. Ohm’s Law establishes a relationship between voltage, current, and resistance. Let’s first fully define each of these:</p>
+<ul>
+<li><p><strong>Voltage</strong> is the difference in electric potential energy between two points. It can be considered as electric pressure and/or the work required to move electric charge between two points. The unit used to represent voltage is the <strong>volt</strong> (V).</p></li>
+<li><p><strong>Current</strong> is the flow of electric charge (or electrons moving through a wire). The unit used to represent current is the <strong>ampere</strong> (A), or <strong>amps</strong>. We typically used the symbol I to represent current in a mathematical formula (such as Ohm’s Law).</p></li>
+<li><p><strong>Resistance</strong> is the measure of difficulty to pass an electric current through a conductor. A conductor is some material that allows the flow of electric current. The unit used to represent resistance is the ohm (Ω). We typically used the symbol R to represent resistance in a mathematical formula (such as Ohm’s Law).</p></li>
+</ul>
+<p>Ohm’s Law is defined as the following: <span class="math display">\[
+V = IR
+\]</span></p>
+<p>Stated formally, the voltage (electric potential difference) across two points on a circuit is equivalent to the product of the current between those two points and the total resistance of all electrical devices present between those two points.</p>
+<p>Consider the LED circuit above, where the red LED requires a forward voltage of 2V (i.e., the amount of voltage required across the LED to light it) and has a forward current of 20mA (i.e., the amount of current flow required through the LED to sufficiently power it on). These values are provided in the data sheet of the LED. A <strong>data sheet</strong> is a document that provides technical information about an electrical component.</p>
+<p>We can calculate the resistance required in the circuit to ensure that the LED lights up properly and is not possibly damaged by having too much current move through it or too much voltage across it. Suppose that our power source (the Raspberry Pi) provides 3.3V. The voltage difference across the source voltage and ground is 3.3V (since ground is at 0V). According to the data sheet, the LED requires 2V across its legs and requires 20mA of current through it. Using Ohm’s Law we can solve for R. The value for V is 1.3V (3.3V at the source – 2V through the LED), and the value for I is 0.02A (20mA required through the LED). And now we solve: <span class="math display">\[
+\begin{split}
+V &amp;= I * R \\
+(3.3V - 2V) &amp;= 0.02A * R \\
+1.3V &amp;= 0.02A * R \\
+65 &amp;= R
+\end{split}
+\]</span></p>
+<p>So the resistance should be 65Ω. The closest valued resistor available is 68Ω. We can therefore use a 68Ω resistor in series with the LED. This should be sufficient to turn it on brightly without damaging it.</p>
+<p>You may have noticed that resistors also have a <em>wattage</em> rating. To explain this, we must first discuss electric power. Electric power is the rate at which electric energy is transferred by a circuit. The unit used to represent power is the <strong>watt</strong> (W). Each component in a circuit dissipates power (as heat – usually through friction – as electrons move through the component). Therefore, each component has a power rating that provides a measure of how much power it can dissipate without breaking down. We can calculate the power dissipated in a circuit using a variant of Ohm’s Law:</p>
+<p><span class="math display">\[
+P=VI
+\]</span></p>
+<p>The power in a circuit is defined as the product of the voltage across two points on a circuit and the current between those two points. In the LED example above, the total power dissipated in the circuit is calculated as follows:</p>
+<p><span class="math display">\[
+\begin{split}
+P &amp;= V * I\\
+P &amp;= 3.3V * 0.02 A\\
+P &amp;= 0.066W
+\end{split}
+\]</span></p>
+<p>To calculate the power dissipated by each component, we simply need to isolate the voltage drop across each. The current is constant in the entire circuit. So for the LED, we can calculate the power dissipated as follows:</p>
+<p><span class="math display">\[
+\begin{split}
+P &amp;= V * I\\
+P &amp;= 2V * 0.02 A\\
+P &amp;= 0.04 W
+\end{split}
+\]</span></p>
+<p>So we would need an LED rated at 0.04W. And for the resistor:</p>
+<p><span class="math display">\[
+\begin{split}
+P &amp;= V * I\\
+P &amp;= ( 3.3V −2V ) * 0.02 A\\
+P &amp;= 1.3V * 0.02 A\\
+P &amp;= 0.026W
+\end{split}
+\]</span></p>
+<p>So we would need a resistor rated at 0.026W.</p>
+<p>In the end, we usually opt for a power rating that is greater than the actual power dissipated by the component (so that it can last a long time). A good target is not to exceed 60% of the wattage rating of the component. For the resistor, this means a power rating of 0.043W (<span class="math inline">\(0.026W
+/ 0.6\)</span>). Most typical resistors are rated at 0.25W (some are 0.125W and others are much higher). For the LED, this means a power rating of 0.067W (<span class="math inline">\(0.04W / 0.6\)</span>), or 67mW. Most typical LEDs are rated at approximately 120mW. For this circuit, a typical LED rated at 120mW and a resistor rated at 1/8W would work just fine.</p>
+
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1088,13 +1302,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../lessons/04 Searching and Sorting/08 Comparing Sorts.html" class="pagination-link" aria-label="Comparing Sorts">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Comparing Sorts</span>
+      <a href="../../lessons/03 Introduction to Computer Architecture/03 Fundamentals of Digital Logic.html" class="pagination-link" aria-label="Fundamentals of Digital Logic">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Fundamentals of Digital Logic</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../activities/01 Getting to Know the RPi/index.html" class="pagination-link" aria-label="01 Getting to Know the RPi">
-        <span class="nav-page-text">01 Getting to Know the RPi</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/03 Introduction to Computer Architecture/05 Logic Gates.html" class="pagination-link" aria-label="Logic Gates">
+        <span class="nav-page-text">Logic Gates</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index – The Science of Computing I</title>
+<title>Combining Gates – The Science of Computing I</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../activities/01 Getting to Know the RPi/index.html" rel="next">
-<link href="../../lessons/04 Searching and Sorting/08 Comparing Sorts.html" rel="prev">
+<link href="../../lessons/03 Introduction to Computer Architecture/07 Boolean Algebra.html" rel="next">
+<link href="../../lessons/03 Introduction to Computer Architecture/05 Logic Gates.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -249,7 +249,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/05 Introduction to Data Structures/index.html">05 Introduction to Data Structures</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/index.html">03 Introduction to Computer Architecture</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/06 Combining Gates.html">Combining Gates</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -444,11 +444,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../lessons/03 Introduction to Computer Architecture/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">03 Introduction to Computer Architecture</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lessons/03 Introduction to Computer Architecture/01 Introduction.html" class="sidebar-item-text sidebar-link">
@@ -481,7 +481,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/03 Introduction to Computer Architecture/06 Combining Gates.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lessons/03 Introduction to Computer Architecture/06 Combining Gates.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Combining Gates</span></a>
   </div>
 </li>
@@ -566,7 +566,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../lessons/05 Introduction to Data Structures/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../lessons/05 Introduction to Data Structures/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">05 Introduction to Data Structures</span></a>
   </div>
 </li>
@@ -663,12 +663,254 @@ ul.task-list li input[type="checkbox"] {
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/05 Introduction to Data Structures/index.html">05 Introduction to Data Structures</a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lessons/01 Introduction to Algorithms/index.html">Lessons</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/index.html">03 Introduction to Computer Architecture</a></li><li class="breadcrumb-item"><a href="../../lessons/03 Introduction to Computer Architecture/06 Combining Gates.html">Combining Gates</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Combining Gates</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
+
+
+<p>Consider the following circuit:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-17.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>Here’s its state table:</p>
+<table class="table-striped table-hover caption-top table">
+<thead>
+<tr class="header">
+<th>Switch A</th>
+<th>Switch B</th>
+<th>Switch C</th>
+<th>Light</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Open</td>
+<td>Open</td>
+<td>Open</td>
+<td>Off</td>
+</tr>
+<tr class="even">
+<td>Open</td>
+<td>Open</td>
+<td>Closed</td>
+<td>Off</td>
+</tr>
+<tr class="odd">
+<td>Open</td>
+<td>Closed</td>
+<td>Open</td>
+<td>Off</td>
+</tr>
+<tr class="even">
+<td>Open</td>
+<td>Closed</td>
+<td>Closed</td>
+<td>On</td>
+</tr>
+<tr class="odd">
+<td>Closed</td>
+<td>Open</td>
+<td>Open</td>
+<td>Off</td>
+</tr>
+<tr class="even">
+<td>Closed</td>
+<td>Open</td>
+<td>Closed</td>
+<td>On</td>
+</tr>
+<tr class="odd">
+<td>Closed</td>
+<td>Closed</td>
+<td>Open</td>
+<td>Off</td>
+</tr>
+<tr class="even">
+<td>Closed</td>
+<td>Closed</td>
+<td>Closed</td>
+<td>On</td>
+</tr>
+</tbody>
+</table>
+<p>So long as either A <strong>or</strong> B is closed <strong>and</strong> C is closed, then the light bulb is lit. C must be closed in order for the bulb to be lit.</p>
+<p>It is natural to ask at this point what an equivalent circuit consisting of logic gates would look like. Since switches A and B are in parallel, this portion of the circuit can be represented using an <em>or</em> gate. The output of that part of the circuit is in series with C, so it can be modeled with an <em>and</em> gate. The logic gate circuit shown below is thus equivalent to the switch circuit given above.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-18.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>In fact, here is the truth table for this circuit:</p>
+<table class="table-striped table-hover caption-top table">
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>Z</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>For readability and to make it a bit easier to derive, we can expand the truth table to provide intermediate gate outputs as follows (where <em>Z</em> is the output of <em>A or B</em>, and <em>Z’</em> is the output of <em>Z and C</em>):</p>
+<table class="table-striped table-hover caption-top table">
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>Z</th>
+<th>C</th>
+<th>Z’</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled" title="Activity">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Activity
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Can you fill in the truth table for the circuit below? Let <em>Z</em> represent the output of <em>A and B</em>, and <em>Z’</em> represent the output of <em>Z or C</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Lesson05-19.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 
 
 
@@ -1088,13 +1330,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../lessons/04 Searching and Sorting/08 Comparing Sorts.html" class="pagination-link" aria-label="Comparing Sorts">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Comparing Sorts</span>
+      <a href="../../lessons/03 Introduction to Computer Architecture/05 Logic Gates.html" class="pagination-link" aria-label="Logic Gates">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Logic Gates</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../activities/01 Getting to Know the RPi/index.html" class="pagination-link" aria-label="01 Getting to Know the RPi">
-        <span class="nav-page-text">01 Getting to Know the RPi</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../lessons/03 Introduction to Computer Architecture/07 Boolean Algebra.html" class="pagination-link" aria-label="Boolean Algebra">
+        <span class="nav-page-text">Boolean Algebra</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -23,13 +23,19 @@ right):
 
 ![](images/Lesson03-01.png){fig-align="center"}
 
-Consider the *producing apple pie* problem.  What would the possible
-inputs for the algorithm be?  What would its valid (or correct)
-output(s) be?  One way of telling if an algorithm is correct is whether
+Consider the *producing apple pie* problem: 
+
+- What would the possible inputs for the algorithm be?  
+
+- What would its valid (or correct) output(s) be?  
+
+One way of telling if an algorithm is correct is whether
 or not it produces the valid output defined in the problem statement.
 If an algorithm produces blueberry pie when the output statement stated
 that it was required to produce apple pie, then that algorithm is a
-wrong solution.  On the other hand, if the output is an apple pie (even
+wrong solution.  
+
+On the other hand, if the output is an apple pie (even
 if the algorithm instructs you to throw away your ingredients and then
 buy an apple pie from the grocery store), then that algorithm is
 technically correct (even though it may not be very *efficient*).
