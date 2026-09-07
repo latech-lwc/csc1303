@@ -1,0 +1,16 @@
+---
+title: Hands-On Practice
+---
+
+Work through the following tasks in order, using only the terminal (no file manager).
+
+1. Open a terminal and run `pwd` to confirm you're in your home directory.
+2. Create a new folder called `terminal_practice`.
+3. Move into that folder using `cd`.
+4. Create three empty files named `file1.txt`, `file2.txt`, and `file3.txt`.
+5. List the contents of the folder to confirm all three files exist.
+6. Create a subfolder called `backups`.
+7. Copy `file1.txt` into the `backups` folder.
+8. Rename `file2.txt` to `renamed_file2.txt`.
+9. Delete `file3.txt`.
+10. Run `ls -l` and take a screenshot showing your final folder contents.

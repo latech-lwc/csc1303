@@ -1,0 +1,17 @@
+---
+title: Familiarize Yourself with RPi OS
+---
+
+You'll be asked to complete a Canvas quiz that walks you through the following. It is recommended at this point that you go to Canvas to find the quiz and complete it as you perform tasks related to the following:
+
+1. The Taskbar
+
+2. Available Integrated Development Environments (IDEs)
+
+3. Available Browsers
+
+4. Available Text Editors
+
+5. File Management and the Filesystem
+
+6. Writing a "Hello, World" program

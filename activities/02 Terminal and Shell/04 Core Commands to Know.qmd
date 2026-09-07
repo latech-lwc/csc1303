@@ -1,0 +1,39 @@
+---
+title: Core Commands to Know
+---
+
+Complete each command below in your terminal as you read about it.
+
+1. **`pwd`** (print working directory) – Shows the full path of the folder you're currently in.
+
+2. **`ls`** (list) – Lists the files and folders in your current directory.
+    - `ls -l` – shows details like size, permissions, and modification date.
+    - `ls -a` – shows hidden files (those starting with a `.`).
+
+3. **`cd`** (change directory) – Moves you to a different folder.
+    - `cd Documents` – moves into a subfolder called Documents.
+    - `cd ..` – moves up one level to the parent folder.
+    - `cd ~` or just `cd` – jumps back to your home directory.
+    - `cd /` – jumps to the root directory.
+
+4. **`mkdir`** (make directory) – Creates a new folder.
+    - Example: `mkdir Project1`
+
+5. **`touch`** – Creates a new, empty file.
+    - Example: `touch notes.txt`
+
+6. **`cat`** (concatenate) – Displays the contents of a file directly in the terminal.
+    - Example: `cat notes.txt`
+
+7. **`cp`** (copy) – Copies a file or folder.
+    - Example: `cp notes.txt notes_backup.txt`
+
+8. **`mv`** (move/rename) – Moves a file to a new location, or renames it.
+    - Example: `mv notes.txt Documents/notes.txt`
+    - Example: `mv notes.txt final_notes.txt` (renames in place)
+
+9. **`rm`** (remove) – Deletes a file. Use carefully, since there is no Recycle Bin in the terminal.
+    - Example: `rm notes_backup.txt`
+    - `rm -r FolderName` – deletes a folder and everything inside it.
+
+10. **`clear`** – Clears the terminal screen so you can start fresh.

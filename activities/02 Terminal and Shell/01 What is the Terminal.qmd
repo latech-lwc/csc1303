@@ -1,0 +1,14 @@
+---
+title: What is the Terminal
+---
+
+The terminal (also called the command line or shell) is a text-based way to interact with your computer. Instead of clicking icons and windows, you type commands and the computer executes them directly. On your Raspberry Pi, the terminal gives you access to Bash, the default shell for Raspberry Pi OS (and most other Linux distributions).
+
+While it can look intimidating at first, the terminal is often faster and more powerful than clicking through menus, especially for tasks like moving files, running programs, and managing your system. It's also the primary way that programmers, system administrators, and engineers interact with computers, so getting comfortable with it now will pay off throughout your coursework and career.
+
+## Why Learn the Terminal
+
+- **Speed** – Many tasks (renaming a batch of files, searching text, installing software) are faster typed than clicked.
+- **Precision** – Commands do exactly what you tell them, with no ambiguity about which button you meant to press.
+- **Universality** – The same core commands work on Linux servers, Raspberry Pis, and even macOS, since both are Unix-based.
+- **Foundation for Programming** – Compiling code, running scripts, and using version control (like Git) all happen in the terminal.

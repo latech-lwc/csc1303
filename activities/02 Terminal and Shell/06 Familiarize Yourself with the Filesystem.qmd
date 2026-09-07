@@ -1,0 +1,17 @@
+---
+title: Familiarize Yourself with the Filesystem
+---
+
+You'll be asked to complete a Canvas quiz that walks you through the following. It is recommended that you go to Canvas to find the quiz and complete it as you perform the tasks above:
+
+1. Navigating directories with `cd`, `pwd`, and `ls`
+
+2. Creating and deleting files and folders
+
+3. Absolute vs. relative paths
+
+4. Copying, moving, and renaming files
+
+5. Viewing file contents with `cat`
+
+6. Understanding the home directory (`~`) and root directory (`/`)

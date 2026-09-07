@@ -1,0 +1,10 @@
+---
+title: Opening a Terminal
+---
+
+1. Locate the terminal icon in the taskbar (it typically looks like a small dark screen with a `>_` prompt) and click it.
+2. You should see a prompt similar to `pi@raspberrypi:~ $`. This tells you:
+    - `pi` – the username you're logged in as
+    - `raspberrypi` – the name of the computer
+    - `~` – your current location (more on this below)
+    - `$` – waiting for you to type a command

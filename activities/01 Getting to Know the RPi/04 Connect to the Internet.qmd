@@ -1,0 +1,5 @@
+---
+title: Connect to the Internet
+---
+
+There are instructions on the Desktop on how to connect the Raspberry Pi to the LaTechWPA2 network using your credentials. Follow those instructions.

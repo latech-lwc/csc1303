@@ -1,0 +1,41 @@
+---
+title: Assembling the Pi
+---
+
+Most of the software has already been setup for you. All you need to do is connect the various components properly in order to use it. Complete the steps that follow to assemble your pi.
+
+1. Locate the following components and remove them from their packaging.
+
+    - Monitor
+    - Raspberry Pi 400
+    - HDMI to Mini HDMI to Cable
+    - Micro HDMI Adapter
+    - USB Type C to USB Type C Cable - Power cable for Pi
+    - USB Type A to USB Type C Cable - Power cable for Monitor
+    - USB Type C and USB Type A Power Adapter Brick
+    - Micro SD (In components bag)
+    - Mouse
+
+2. Connect the **Mouse** to the **Raspberry Pi 400** using a USB Type A port on the Raspberry Pi 400.
+
+2. In this step, we connect the **Monitor** to the **Raspberry Pi 400** using the HDMI connection.
+
+    a. Combine the **HDMI to Mini HDMI Cable** with the **Micro HDMI Adapter** to get a resulting cable with a mini hdmi connection on one end, and a micro hdmi connection on the other end. Note that micro is smaller than mini.
+
+    b. Connect the mini HDMI connection to the monitor HDMI input on the monitor.
+
+    c. Connect the micro HDMI connection to either output on the Raspberry Pi 400.
+
+3. In this step, we connect Power cable to the portable monitor.
+
+    a. Connect the **USB Type C to USB Type A Cable** to the monitor via the **Type C** port on the monitor.
+
+    b. Connect the other end of the **USB Type C to USB Type A** cable to the **Power Adapter Brick**.
+
+4. In this step, we connect power to the Raspberry Pi.
+
+    a. Connect the **USB Type C to USB Type C Cable** to the Raspberry Pi via the **Type C** port on the Raspberry Pi.
+
+    b. Connect the other end of the **USB Type C to USB Type C** cable to the **Power Adapter Brick**.
+
+5. Plug the **Power Adapter Brick** into a socket. The Pi should boot automatically. Give it time.

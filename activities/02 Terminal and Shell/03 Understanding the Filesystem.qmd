@@ -1,0 +1,12 @@
+---
+title: Understanding the Filesystem
+---
+
+Every file and folder on your Pi is organized into a single tree-like structure, starting from the **root directory**, written as `/`. Folders are called **directories**, and they can contain files or other directories, just like folders on a desktop computer.
+
+Your personal files live inside your **home directory**, usually `/home/pi`, which the shell represents with the shorthand `~` (tilde).
+
+## Absolute vs. Relative Paths
+
+- An **absolute path** always starts from the root (`/`) and spells out the full location, such as `/home/pi/Documents/notes.txt`.
+- A **relative path** starts from wherever you currently are, such as `Documents/notes.txt` if you're already inside `/home/pi`.
