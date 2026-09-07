@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Hands-On Practice – The Science of Computing I</title>
+<title>Getting to the Root of your Pi – The Science of Computing I</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,6 +33,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../activities/02 Getting to the Root of your Pi/01 What is the Terminal.html" rel="next">
+<link href="../../activities/01 Pi-ecing it Together/05 Familiarize Yourself with RPi OS.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -249,9 +251,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      The Science of Computing I
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../activities/01 Pi-ecing it Together/index.html">Activities</a></li><li class="breadcrumb-item"><a href="../../activities/02 Getting to the Root of your Pi/index.html">02 Getting to the Root of your Pi</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -583,27 +583,103 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../activities/01 Getting to Know the RPi/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">01 Getting to Know the RPi</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../activities/02 Terminal and Shell/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">02 Terminal and Shell</span></a>
-  </div>
-</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../activities/03 LED the Way/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">03 LED the Way</span></a>
+            <a href="../../activities/01 Pi-ecing it Together/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 Pi-ecing it Together</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../activities/01 Pi-ecing it Together/01 What is a Raspberry Pi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is a Raspberry Pi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../activities/01 Pi-ecing it Together/02 Confirming Your Components.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Confirming Your Components</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../activities/01 Pi-ecing it Together/03 Assembling the Pi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assembling the Pi</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../activities/01 Pi-ecing it Together/04 Connect to the Internet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Connect to the Internet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../activities/01 Pi-ecing it Together/05 Familiarize Yourself with RPi OS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Familiarize Yourself with RPi OS</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../activities/02 Getting to the Root of your Pi/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">02 Getting to the Root of your Pi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../activities/02 Getting to the Root of your Pi/01 What is the Terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is the Terminal</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../activities/02 Getting to the Root of your Pi/02 Opening a Terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Opening a Terminal</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../activities/02 Getting to the Root of your Pi/03 Understanding the Filesystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Understanding the Filesystem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../activities/02 Getting to the Root of your Pi/04 Core Commands to Know.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Core Commands to Know</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../activities/02 Getting to the Root of your Pi/05 Hands-On Practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hands-On Practice</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../activities/02 Getting to the Root of your Pi/06 Familiarize Yourself with the Filesystem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Familiarize Yourself with the Filesystem</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../activities/03 LED the Way/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 LED the Way</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../activities/03 LED the Way/01 Overview.html" class="sidebar-item-text sidebar-link">
@@ -668,9 +744,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../activities/01 Pi-ecing it Together/index.html">Activities</a></li><li class="breadcrumb-item"><a href="../../activities/02 Getting to the Root of your Pi/index.html">02 Getting to the Root of your Pi</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Hands-On Practice</h1>
+<h1 class="title">Getting to the Root of your Pi</h1>
 </div>
 
 
@@ -687,19 +763,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Work through the following tasks in order, using only the terminal (no file manager).</p>
-<ol type="1">
-<li>Open a terminal and run <code>pwd</code> to confirm you’re in your home directory.</li>
-<li>Create a new folder called <code>terminal_practice</code>.</li>
-<li>Move into that folder using <code>cd</code>.</li>
-<li>Create three empty files named <code>file1.txt</code>, <code>file2.txt</code>, and <code>file3.txt</code>.</li>
-<li>List the contents of the folder to confirm all three files exist.</li>
-<li>Create a subfolder called <code>backups</code>.</li>
-<li>Copy <code>file1.txt</code> into the <code>backups</code> folder.</li>
-<li>Rename <code>file2.txt</code> to <code>renamed_file2.txt</code>.</li>
-<li>Delete <code>file3.txt</code>.</li>
-<li>Run <code>ls -l</code> and take a screenshot showing your final folder contents.</li>
-</ol>
+<ul>
+<li><p><a href="../../activities/02 Getting to the Root of your Pi/01 What is the Terminal.html">01 What is the Terminal</a></p></li>
+<li><p><a href="../../activities/02 Getting to the Root of your Pi/02 Opening a Terminal.html">02 Opening a Terminal</a></p></li>
+<li><p><a href="../../activities/02 Getting to the Root of your Pi/03 Understanding the Filesystem.html">03 Understanding the Filesystem</a></p></li>
+<li><p><a href="../../activities/02 Getting to the Root of your Pi/04 Core Commands to Know.html">04 Core Commands to Know</a></p></li>
+<li><p><a href="../../activities/02 Getting to the Root of your Pi/05 Hands-On Practice.html">05 Hands-On Practice</a></p></li>
+<li><p><a href="../../activities/02 Getting to the Root of your Pi/06 Familiarize Yourself with the Filesystem.html">06 Familiarize Yourself with the Filesystem</a></p></li>
+</ul>
 
 
 
@@ -1117,6 +1188,18 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../activities/01 Pi-ecing it Together/05 Familiarize Yourself with RPi OS.html" class="pagination-link" aria-label="Familiarize Yourself with RPi OS">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Familiarize Yourself with RPi OS</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../activities/02 Getting to the Root of your Pi/01 What is the Terminal.html" class="pagination-link" aria-label="What is the Terminal">
+        <span class="nav-page-text">What is the Terminal</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 
