@@ -1,5 +1,5 @@
 ---
-title: "Getting to Know the Raspberry Pi"
+title: "Pi-ecing it Together"
 ---
 
 - [01 What is a Raspberry Pi](01%20What%20is%20a%20Raspberry%20Pi.qmd)

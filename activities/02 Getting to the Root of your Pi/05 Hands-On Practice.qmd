@@ -13,4 +13,10 @@ Work through the following tasks in order, using only the terminal (no file mana
 7. Copy `file1.txt` into the `backups` folder.
 8. Rename `file2.txt` to `renamed_file2.txt`.
 9. Delete `file3.txt`.
-10. Run `ls -l` and take a screenshot showing your final folder contents.
+10. Run `ls -lR` and take a screenshot showing your final folder and subdirectory contents.
+
+::: {.callout-tip}
+## Taking a Screenshot on the Raspberry Pi 400
+
+Press **Print Screen** (labeled `Prt Sc` on the Raspberry Pi 400 keyboard) to capture the entire screen. The image will be saved automatically to `/home/pi/Pictures/`. You can confirm it's there by running `ls ~/Pictures/` in the terminal.
+:::

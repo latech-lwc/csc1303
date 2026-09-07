@@ -1,5 +1,5 @@
 ---
-title: "Terminal and Shell"
+title: "Getting to the Root of your Pi"
 ---
 
 - [01 What is the Terminal](01%20What%20is%20the%20Terminal.qmd)

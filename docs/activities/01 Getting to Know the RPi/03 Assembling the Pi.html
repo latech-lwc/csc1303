@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Getting to Know the Raspberry Pi – The Science of Computing I</title>
+<title>Assembling the Pi – The Science of Computing I</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,8 +33,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../activities/02 Terminal and Shell/index.html" rel="next">
-<link href="../../lessons/05 Introduction to Data Structures/index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -251,7 +249,9 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../activities/01 Getting to Know the RPi/index.html">Activities</a></li><li class="breadcrumb-item"><a href="../../activities/01 Getting to Know the RPi/index.html">01 Getting to Know the RPi</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      The Science of Computing I
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -585,7 +585,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../activities/01 Getting to Know the RPi/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../activities/01 Getting to Know the RPi/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">01 Getting to Know the RPi</span></a>
   </div>
 </li>
@@ -668,9 +668,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../activities/01 Getting to Know the RPi/index.html">Activities</a></li><li class="breadcrumb-item"><a href="../../activities/01 Getting to Know the RPi/index.html">01 Getting to Know the RPi</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Getting to Know the Raspberry Pi</h1>
+<h1 class="title">Assembling the Pi</h1>
 </div>
 
 
@@ -687,13 +687,39 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Most of the software has already been setup for you. All you need to do is connect the various components properly in order to use it. Complete the steps that follow to assemble your pi.</p>
+<ol type="1">
+<li><p>Locate the following components and remove them from their packaging.</p>
 <ul>
-<li><p><a href="../../activities/01 Getting to Know the RPi/01 What is a Raspberry Pi.html">01 What is a Raspberry Pi</a></p></li>
-<li><p><a href="../../activities/01 Getting to Know the RPi/02 Confirming Your Components.html">02 Confirming Your Components</a></p></li>
-<li><p><a href="../../activities/01 Getting to Know the RPi/03 Assembling the Pi.html">03 Assembling the Pi</a></p></li>
-<li><p><a href="../../activities/01 Getting to Know the RPi/04 Connect to the Internet.html">04 Connect to the Internet</a></p></li>
-<li><p><a href="../../activities/01 Getting to Know the RPi/05 Familiarize Yourself with RPi OS.html">05 Familiarize Yourself with RPi OS</a></p></li>
-</ul>
+<li>Monitor</li>
+<li>Raspberry Pi 400</li>
+<li>HDMI to Mini HDMI to Cable</li>
+<li>Micro HDMI Adapter</li>
+<li>USB Type C to USB Type C Cable - Power cable for Pi</li>
+<li>USB Type A to USB Type C Cable - Power cable for Monitor</li>
+<li>USB Type C and USB Type A Power Adapter Brick</li>
+<li>Micro SD (In components bag)</li>
+<li>Mouse</li>
+</ul></li>
+<li><p>Connect the <strong>Mouse</strong> to the <strong>Raspberry Pi 400</strong> using a USB Type A port on the Raspberry Pi 400.</p></li>
+<li><p>In this step, we connect the <strong>Monitor</strong> to the <strong>Raspberry Pi 400</strong> using the HDMI connection.</p>
+<ol type="a">
+<li><p>Combine the <strong>HDMI to Mini HDMI Cable</strong> with the <strong>Micro HDMI Adapter</strong> to get a resulting cable with a mini hdmi connection on one end, and a micro hdmi connection on the other end. Note that micro is smaller than mini.</p></li>
+<li><p>Connect the mini HDMI connection to the monitor HDMI input on the monitor.</p></li>
+<li><p>Connect the micro HDMI connection to either output on the Raspberry Pi 400.</p></li>
+</ol></li>
+<li><p>In this step, we connect Power cable to the portable monitor.</p>
+<ol type="a">
+<li><p>Connect the <strong>USB Type C to USB Type A Cable</strong> to the monitor via the <strong>Type C</strong> port on the monitor.</p></li>
+<li><p>Connect the other end of the <strong>USB Type C to USB Type A</strong> cable to the <strong>Power Adapter Brick</strong>.</p></li>
+</ol></li>
+<li><p>In this step, we connect power to the Raspberry Pi.</p>
+<ol type="a">
+<li><p>Connect the <strong>USB Type C to USB Type C Cable</strong> to the Raspberry Pi via the <strong>Type C</strong> port on the Raspberry Pi.</p></li>
+<li><p>Connect the other end of the <strong>USB Type C to USB Type C</strong> cable to the <strong>Power Adapter Brick</strong>.</p></li>
+</ol></li>
+<li><p>Plug the <strong>Power Adapter Brick</strong> into a socket. The Pi should boot automatically. Give it time.</p></li>
+</ol>
 
 
 
@@ -1111,18 +1137,6 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../lessons/05 Introduction to Data Structures/index.html" class="pagination-link" aria-label="05 Introduction to Data Structures">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">05 Introduction to Data Structures</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../activities/02 Terminal and Shell/index.html" class="pagination-link" aria-label="02 Terminal and Shell">
-        <span class="nav-page-text">02 Terminal and Shell</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
