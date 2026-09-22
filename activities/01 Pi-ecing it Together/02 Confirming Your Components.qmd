@@ -2,4 +2,7 @@
 title: Confirming Your Components
 ---
 
-To make sure we have packed your kit with everything you need, complete the [Living with Cyber Raspberry Pi Kit Components Form](https://forms.gle/2MqJaahsn5JVc2176).
+
+To make sure we have packed your kit with everything you need, complete the [Living with Cyber Raspberry Pi Kit Components Form](https://forms.gle/2MqJaahsn5JVc2176){target="_blank"}. This form needs to be completed with your Louisiana Tech University Google account.
+
+Here are [some tips on accessing the google form](https://www2.latech.edu/~long/how_to_use_google_form.html){target="_blank"} with your Louisiana Tech Google account.
