@@ -1,0 +1,88 @@
+---
+title: Settling and Calibrating the Sensor
+---
+
+Next, let's work on settling and calibrating the sensor.
+
+## Settling the Sensor
+
+Settling the sensor is quite simple: set the sensor's **TRIG** pin to low and wait a short while to ensure that it isn't triggered to send an ultrasonic pulse. Modify the main part of the program as follows (new statements are marked with `# NEW`):
+
+```python
+# first, allow the sensor to settle for a bit
+print("Waiting for sensor to settle ({}s)...".format(SETTLE_TIME))  # NEW
+GPIO.output(TRIG, GPIO.LOW)                                         # NEW
+sleep(SETTLE_TIME)                                                  # NEW
+```
+
+Of course, the constant `SETTLE_TIME` must be defined (note that 2s is adequate for the settling time). Do so in the constants section at the top of the program:
+
+```python
+# constants
+DEBUG = False                 # debug mode?
+
+SETTLE_TIME = 2               # NEW: seconds to let the sensor settle
+```
+
+## Calibrating the Sensor
+
+Next, let's calibrate the sensor. First, add the call to the `calibrate` function (which returns the correction factor) in the main part of the program:
+
+```python
+# next, calibrate the sensor
+correction_factor = calibrate()    # NEW
+```
+
+Since the `calibrate` function will make use of several constants, let's add them to the constants section as well:
+
+```python
+SETTLE_TIME = 2               # seconds to let the sensor settle
+CALIBRATIONS = 5              # NEW: number of calibration
+                              #  measurements to take
+CALIBRATION_DELAY = 1         # NEW: seconds to delay in between
+                              #  calibration measurements
+```
+
+The constant `CALIBRATIONS` specifies the number of calibration measurements to take (five is adequate). The constant `CALIBRATION_DELAY` specifies a delay in between each calibration measurement. It is good to delay about 1s in between triggers to the sensor to take more measurements.
+
+Now, implement the `calibrate` function:
+
+```python
+# calibrates the sensor
+# technically, it returns a correction factor to use in our
+#  calculations
+def calibrate():
+    print("Calibrating...")                                   # NEW
+    # prompt the user for an object's known distance
+    print("-Place the sensor a measured distance away from an object.")
+    known_distance = float(input("-What is the measured distance (cm)? "))
+
+    # measure the distance to the object with the sensor
+    # do this several times and get an average
+    print("-Getting calibration measurements...")
+    distance_avg = 0
+    for i in range(CALIBRATIONS):
+        distance = getDistance()
+        if (DEBUG):
+            print("--Got {}cm".format(distance))
+        # keep a running sum
+        distance_avg += distance
+        # delay a short time before using the sensor again
+        sleep(CALIBRATION_DELAY)
+    # calculate the average of the distances
+    distance_avg /= CALIBRATIONS
+    if (DEBUG):
+        print("--Average is {}cm".format(distance_avg))
+
+    # calculate the correction factor
+    correction_factor = known_distance / distance_avg
+    if (DEBUG):
+        print("--Correction factor is {}".format(correction_factor))
+
+    print("Done.")
+    print()
+
+    return correction_factor
+```
+
+The `calibrate` function first asks the user for the known distance to an object that is in front of the sensor. It then triggers the sensor to send an ultrasonic pulse to this object. It subsequently drives its **ECHO** pin high a duration equal to the amount of time the pulse took to get from the sensor to the object, and back again. This process repeats a number of times, after which the average distance is then calculated. Since the sensor is not perfect, a correction factor (the ratio of the known distance to the average distance) is also calculated. This correction factor can be used in all subsequent distance calculations.
