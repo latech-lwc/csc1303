@@ -1,0 +1,62 @@
+---
+title: Homework
+---
+
+## Planning the Sort
+
+The final task of sorting the measured/calculated distances is **left to you**. To do so, you should first determine the answers to the following questions:
+
+- How will the various distances be stored (considering that there could be an arbitrary number of them)?
+
+- Where (in the code) should the storing mechanism(s) be initialized (if necessary)?
+
+- Where (in the code) should the distances be stored?
+
+- What sorting algorithm will be used to sort the distances? You know of several sorting algorithms. Which will you use?
+
+- Where (in the code) will the distances be sorted?
+
+- How and where will the unsorted and sorted distances be displayed?
+
+## Homework: Ultrasonic Sort
+
+Extend the program in this activity so that it properly stores and sorts the distances measured/calculated. Feel free to implement any of the sorting algorithms that you have learned in this curriculum so far. Your program should first display the distances in the order that they were measured/calculated (i.e., unsorted). It should then sort the distances and subsequently display them again, this time in sorted order. Make sure to represent the distances with a precision of four decimal places (to the right of the decimal point).
+
+It is highly recommended that you place the sorting algorithm that you select in its own function that is appropriately called in your program. In fact, not doing so would be considered quite inefficient (and will result in points being deducted).
+
+Here's sample output of a properly implemented program. Of course, the known distance and distance values measured/calculated are unique to this particular run of the program. User input is shown after each prompt (the values `20.5`, `y`, and `n`):
+
+```
+Waiting for sensor to settle (2s)...
+Calibrating...
+-Place the sensor a measured distance away from an object.
+-What is the measured distance (cm)? 20.5
+-Getting calibration measurements...
+Done.
+
+Press enter to begin...
+Getting measurements:
+-Measuring...
+--Distance measured: 20.5464cm
+--Get another measurement (Y/n)? y
+-Measuring...
+--Distance measured: 98.1243cm
+--Get another measurement (Y/n)? y
+-Measuring...
+--Distance measured: 41.3557cm
+--Get another measurement (Y/n)? y
+-Measuring...
+--Distance measured: 19.9691cm
+--Get another measurement (Y/n)? y
+-Measuring...
+--Distance measured: 5.0077cm
+--Get another measurement (Y/n)? n
+Done.
+
+Unsorted measurements:
+[20.5464, 98.1243, 41.3557, 19.9691, 5.0077]
+Sorted measurements:
+[5.0077, 19.9691, 20.5464, 41.3557, 98.1243]
+```
+
+Submit your Python source file (i.e., the one with a `.py` extension) through the upload facility on the web site.

@@ -168,7 +168,22 @@ website:
               - text: "Homework"
                 href: "activities/03 LED the Way/07 Homework.qmd"
 
-          - text: "04 Ultrasonic Sort"
+          - section: "04 Ultrasonic Sort"
             href: "activities/04 Ultrasonic Sort/index.qmd"
+            contents:
+              - text: "Overview"
+                href: "activities/04 Ultrasonic Sort/01 Overview.qmd"
+              - text: "The Circuit"
+                href: "activities/04 Ultrasonic Sort/02 The Circuit.qmd"
+              - text: "The Voltage Divider"
+                href: "activities/04 Ultrasonic Sort/03 The Voltage Divider.qmd"
+              - text: "Program Layout"
+                href: "activities/04 Ultrasonic Sort/04 Program Layout.qmd"
+              - text: "Settling and Calibrating the Sensor"
+                href: "activities/04 Ultrasonic Sort/05 Settling and Calibrating the Sensor.qmd"
+              - text: "Measuring Distances"
+                href: "activities/04 Ultrasonic Sort/06 Measuring Distances.qmd"
+              - text: "Homework"
+                href: "activities/04 Ultrasonic Sort/07 Homework.qmd"
 
 

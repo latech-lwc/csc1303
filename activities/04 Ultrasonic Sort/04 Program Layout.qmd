@@ -1,0 +1,65 @@
+---
+title: Program Layout
+---
+
+The next task is to layout a Python program to accomplish the desired task of measuring the distance of objects using the HC-SR04 sensor. Let's take an incremental approach to accomplish this, developing a little at a time.
+
+It is important to note that the sensor is not perfect. That is, it may be slightly off in its measurements. Therefore, it will need to be calibrated before taking distance measurements. Technically, the sensor itself is not directly calibrated. Instead, several distance measurements to an object that is a known distance away are taken. The average of these is used to determine a **correction factor** that is subsequently applied to calculations that involve the sensor's distance measurements. This will be discussed in more detail later.
+
+Let's begin with the first iteration of the program, creating a layout that includes general initialization instructions and stubs for any functions:
+
+```python
+import RPi.GPIO as GPIO
+from time import sleep, time
+
+# constants
+DEBUG = False                 # debug mode?
+
+# set the RPi to the Broadcom pin layout
+GPIO.setmode(GPIO.BCM)
+
+# GPIO pins
+TRIG = 18                     # the sensor's TRIG pin
+ECHO = 27                     # the sensor's ECHO pin
+
+GPIO.setup(TRIG, GPIO.OUT)    # TRIG is an output
+GPIO.setup(ECHO, GPIO.IN)     # ECHO is an input
+
+# calibrates the sensor
+# technically, it returns a correction factor to use in our
+#  calculations
+def calibrate():
+    pass
+
+# uses the sensor to calculate the distance to an object
+def getDistance():
+    pass
+
+########
+# MAIN #
+########
+# first, allow the sensor to settle for a bit
+
+# next, calibrate the sensor
+
+# then, measure
+
+# finally, cleanup the GPIO pins
+```
+
+First, the required libraries are imported. The `time` library's `sleep` and `time` functions will be used to implement various required timings and delays later.
+
+It is usually good programming practice to provide meaningful state information while a program is running. This is useful when debugging; however, such information is not necessary (nor desired) once everything is in working order. Typically, a debugging variable (as a boolean) is declared (and set to true when in debug mode or false otherwise). State information throughout the code can be easily displayed when in debug mode via `if` statements. For example:
+
+```python
+if (DEBUG):
+    print("Some useful bit of information.")
+```
+
+Next, the pin mode is set to the Broadcom pin layout, and the sensor's **TRIG** and **ECHO** GPIO pin numbers and IO settings are defined.
+
+Two functions are then defined (simply *stubbed* out at this time). One will calibrate the sensor, generating (and returning) the correction factor; the other will use the sensor combined with the correction factor to measure and calculate the distance from the sensor to an object.
+
+Finally, the main part of the program is laid out. The process is to first allow the sensor to settle. This is done to ensure that, initially, the sensor is not accidentally triggered. Next, the sensor will be calibrated so that the calculated distance measurements are accurate. The program will eventually support taking multiple measurements through a `while` loop. When taking measurements, the user will be prompted whether to take another measurement (or quit) each time. Finally, the GPIO pins will be reset before the program terminates.
+
+Now that the first iteration is complete, test it to make sure that it works. Note that there should be no output at this time.

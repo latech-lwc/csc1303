@@ -1,0 +1,264 @@
+---
+title: Measuring Distances
+---
+
+Finally, let's work on actually triggering the sensor to take measurements of objects.
+
+## Calculating Distance
+
+First, we'll need a few constants for the `getDistance` function:
+
+```python
+# constants
+...
+TRIGGER_TIME = 0.00001        # seconds needed to trigger the
+                              #  sensor (to get a measurement)
+SPEED_OF_SOUND = 343          # speed of sound in m/s
+```
+
+The sensor only measures the time it takes for an ultrasonic pulse to get from its transmitters to an object, and back to its receiver. The distance to the object must therefore be calculated. You should be familiar with the method to calculate distance from speed and time:
+
+$$
+\text{distance} = \text{speed} \times \text{time}
+$$
+
+For example, if you are running at 18 km/hour (~11.18 miles/hour) and run for 1.5 hours, you will have covered 27 km (16.77 miles):
+
+$$
+\begin{aligned}
+\text{distance} &= 18\text{ km/hour} \times 1.5\text{ hours} \\
+\text{distance} &= 27\text{ km}
+\end{aligned}
+$$
+
+The speed of sound is known to be 343 meters/second, and the duration (time) of the ultrasonic pulse will be obtained from the sensor by monitoring its **ECHO** pin. The distance that the ultrasonic pulse traveled (i.e., from the sensor to the object, and back again) can then be calculated using this formula.
+
+Note that the calculation provides the *total* distance that the ultrasonic pulse traveled (i.e., from the sensor to the object, and from the object back to the sensor). Since the distance from the sensor to the object is all that is desired, then the distance that the ultrasonic pulse traveled from the object back to the sensor is not necessary. Therefore, the total calculated distance must be **divided by two**!
+
+The end result is in meters (since the speed of sound was specified in this manner). Since the objects that are placed will only be centimeters away, it will be more meaningful to convert the distance from meters to centimeters. Obviously, we can do so by multiplying the distance by 100 (since there are 100 centimeters in a meter).
+
+::: {.callout-note}
+## Did you know?
+Although the speed of sound is accepted to be 343 m/s, it is actually affected by the air temperature. Technically, it is 343 m/s at 20°C. In general, we can precisely calculate the speed of sound as follows: 331.3 + (0.606 × temperature in °C). For an air temperature of 73°F (22.78°C), for example, the actual speed of sound is: 331.3 + (0.606 × 22.78) = 331.3 + 13.81 = 345.1 m/s.
+
+In this activity, an accurate speed of sound isn't necessary, as any differences in the measurements will be inconsequential. Moreover, perfect distance measurements are not required for the sorting portion of this activity.
+:::
+
+## The `getDistance` Function
+
+Let's now implement the `getDistance` function:
+
+```python
+# uses the sensor to calculate the distance to an object
+def getDistance():
+    # trigger the sensor by setting it high for a short time and
+    #  then setting it low
+    GPIO.output(TRIG, GPIO.HIGH)
+    sleep(TRIGGER_TIME)
+    GPIO.output(TRIG, GPIO.LOW)
+
+    # wait for the ECHO pin to read high
+    # once the ECHO pin is high, the start time is set
+    # once the ECHO pin is low again, the end time is set
+    while (GPIO.input(ECHO) == GPIO.LOW):
+        start = time()
+    while (GPIO.input(ECHO) == GPIO.HIGH):
+        end = time()
+
+    # calculate the duration that the ECHO pin was high
+    # this is how long the pulse took to get from the sensor to
+    #  the object -- and back again
+    duration = end - start
+    # calculate the total distance that the pulse traveled by
+    #  factoring in the speed of sound (m/s)
+    distance = duration * SPEED_OF_SOUND
+    # the distance from the sensor to the object is half of the
+    #  total distance traveled
+    distance /= 2
+    # convert from meters to centimeters
+    distance *= 100
+
+    return distance
+```
+
+The `getDistance` function first triggers the sensor to take a measurement. It does this by briefly setting the sensor's **TRIG** pin high. The sensor then sends an ultrasonic pulse, measuring how long the pulse takes to get from its transmitters to the object, and back to its receiver. While this happens, the sensor's **ECHO** pin is monitored. As the sensor is taking a measurement, its **ECHO** pin is low. The idea is to repeatedly set a *start* time while the **ECHO** pin is low. Once the **ECHO** pin is high, the last set start time will be used (which occurs at the moment when the **ECHO** pin transitions from low to high).
+
+The sensor then sets its **ECHO** pin high for the duration of the ultrasonic pulse. By repeatedly setting an *end* time while the **ECHO** pin is high, the last set end time (which occurs at the moment when the **ECHO** pin transitions from high to low) can be used to calculate the duration that the **ECHO** pin was high.
+
+The next step is to calculate the distance as described above: multiply the duration of the pulse by the speed of sound. Since this results in the total distance that the ultrasonic pulse traveled, dividing in half represents the distance from the sensor to the object. Finally, the distance is converted from meters to centimeters.
+
+## Taking Measurements
+
+Let's now actually use the sensor to take measurements. Modify the main part of the program as follows:
+
+```python
+# then, measure
+input("Press enter to begin...")                                 # NEW
+print("Getting measurements:")                                   # NEW
+while (True):                                                    # NEW
+    # get the distance to an object and correct it with the
+    #  correction factor
+    print("-Measuring...")
+    distance = getDistance() * correction_factor
+    sleep(1)
+
+    # and round to four decimal places
+    distance = round(distance, 4)
+
+    # display the distance measured/calculated
+    print("--Distance measured: {}cm".format(distance))
+
+    # prompt for another measurement
+    i = input("--Get another measurement (Y/n)? ")
+    # stop measuring if desired
+    if (not i in [ "y", "Y", "yes", "Yes", "YES", "" ]):
+        break
+```
+
+For context, the main part of the program first settles the sensor. It then "calibrates" it, generating a correction factor to use in further calculations. The newly added code then describes how to actually measure and calculate an object's distance.
+
+First, to make sure that the user is ready to take measurements, the program is paused until the enter key is pressed. Next, measurements are repeatedly taken until the user no longer wishes to do so. Therefore, this part is contained within a `while` loop. A single object distance is then measured and calculated by calling the `getDistance` function and applying the correction factor. The result is then rounded to four decimal places (to the right of the decimal point) and displayed. Lastly, the user is asked if taking another measurement is desired. If not, the `while` loop is exited.
+
+The final `if` statement in the loop is interesting. After prompting the user to get another measurement, the response is compared to various strings in a list using the membership operator `in`. The strings in the list represent various forms of a "yes" response (i.e., the user wishes to take another measurement). For simplicity, pressing enter (i.e., entering nothing) is also considered a "yes" response. If the provided input is not in the list containing the various capitalizations of "yes", a "no" response is interpreted, thereby exiting the `while` loop.
+
+Finally, it is good practice to reset the RPi's GPIO pins. Add the following to the main part of the program:
+
+```python
+# finally, cleanup the GPIO pins
+print("Done.")           # NEW
+GPIO.cleanup()           # NEW
+```
+
+## The Complete Program
+
+That's it! For completeness, here's the program in its entirety:
+
+```python
+import RPi.GPIO as GPIO
+from time import sleep, time
+
+# constants
+DEBUG = False            # debug mode?
+SETTLE_TIME = 2          # seconds to let the sensor settle
+CALIBRATIONS = 5         # number of calibration measurements to
+                         #  take
+CALIBRATION_DELAY = 1    # seconds to delay in between
+                         #  calibration measurements
+TRIGGER_TIME = 0.00001   # seconds needed to trigger the sensor
+                         #  (to get a measurement)
+SPEED_OF_SOUND = 343     # speed of sound in m/s
+
+# set the RPi to the Broadcom pin layout
+GPIO.setmode(GPIO.BCM)
+
+# GPIO pins
+TRIG = 18                # the sensor's TRIG pin
+ECHO = 27                # the sensor's ECHO pin
+
+GPIO.setup(TRIG, GPIO.OUT)    # TRIG is an output
+GPIO.setup(ECHO, GPIO.IN)     # ECHO is an input
+
+# calibrates the sensor
+# technically, it returns a correction factor to use in our
+#  calculations
+def calibrate():
+    print("Calibrating...")
+    # prompt the user for an object's known distance
+    print("-Place the sensor a measured distance away from an object.")
+    known_distance = float(input("-What is the measured distance (cm)? "))
+
+    # measure the distance to the object with the sensor
+    # do this several times and get an average
+    print("-Getting calibration measurements...")
+    distance_avg = 0
+    for i in range(CALIBRATIONS):
+        distance = getDistance()
+        if (DEBUG):
+            print("--Got {}cm".format(distance))
+        # keep a running sum
+        distance_avg += distance
+        # delay a short time before using the sensor again
+        sleep(CALIBRATION_DELAY)
+    # calculate the average of the distances
+    distance_avg /= CALIBRATIONS
+    if (DEBUG):
+        print("--Average is {}cm".format(distance_avg))
+
+    # calculate the correction factor
+    correction_factor = known_distance / distance_avg
+    if (DEBUG):
+        print("--Correction factor is {}".format(correction_factor))
+
+    print("Done.")
+    print()
+
+    return correction_factor
+
+# uses the sensor to calculate the distance to an object
+def getDistance():
+    # trigger the sensor by setting it high for a short time and
+    #  then setting it low
+    GPIO.output(TRIG, GPIO.HIGH)
+    sleep(TRIGGER_TIME)
+    GPIO.output(TRIG, GPIO.LOW)
+
+    # wait for the ECHO pin to read high
+    # once the ECHO pin is high, the start time is set
+    # once the ECHO pin is low again, the end time is set
+    while (GPIO.input(ECHO) == GPIO.LOW):
+        start = time()
+    while (GPIO.input(ECHO) == GPIO.HIGH):
+        end = time()
+
+    # calculate the duration that the ECHO pin was high
+    # this is how long the pulse took to get from the sensor to
+    #  the object -- and back again
+    duration = end - start
+    # calculate the total distance that the pulse traveled by
+    #  factoring in the speed of sound (m/s)
+    distance = duration * SPEED_OF_SOUND
+    # the distance from the sensor to the object is half of the
+    #  total distance traveled
+    distance /= 2
+    # convert from meters to centimeters
+    distance *= 100
+
+    return distance
+
+########
+# MAIN #
+########
+# first, allow the sensor to settle for a bit
+print("Waiting for sensor to settle ({}s)...".format(SETTLE_TIME))
+GPIO.output(TRIG, GPIO.LOW)
+sleep(SETTLE_TIME)
+
+# next, calibrate the sensor
+correction_factor = calibrate()
+
+# then, measure
+input("Press enter to begin...")
+print("Getting measurements:")
+while (True):
+    # get the distance to an object and correct it with the
+    #  correction factor
+    print("-Measuring...")
+    distance = getDistance() * correction_factor
+    sleep(1)
+
+    # and round to four decimal places
+    distance = round(distance, 4)
+
+    # display the distance measured/calculated
+    print("--Distance measured: {}cm".format(distance))
+
+    # prompt for another measurement
+    i = input("--Get another measurement (Y/n)? ")
+    # stop measuring if desired
+    if (not i in [ "y", "Y", "yes", "Yes", "YES", "" ]):
+        break
+
+# finally, cleanup the GPIO pins
+print("Done.")
+GPIO.cleanup()
+```

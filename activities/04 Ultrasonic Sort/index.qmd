@@ -1,3 +1,17 @@
 ---
 title: "Ultrasonic Sort"
 ---
+
+- [01 Overview](01%20Overview.qmd)
+
+- [02 The Circuit](02%20The%20Circuit.qmd)
+
+- [03 The Voltage Divider](03%20The%20Voltage%20Divider.qmd)
+
+- [04 Program Layout](04%20Program%20Layout.qmd)
+
+- [05 Settling and Calibrating the Sensor](05%20Settling%20and%20Calibrating%20the%20Sensor.qmd)
+
+- [06 Measuring Distances](06%20Measuring%20Distances.qmd)
+
+- [07 Homework](07%20Homework.qmd)
