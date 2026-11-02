@@ -1,0 +1,10 @@
+---
+title: "Practice: Introduction to Algorithms"
+toc: false
+---
+
+Interactive practice for [Introduction to Algorithms](../../lessons/01%20Introduction%20to%20Algorithms/index.qmd).
+
+1. [Algorithms and Control Flow](01%20Algorithms%20and%20Control%20Flow.qmd) — Problem statements, control flow and step numbering, flowchart blocks, and the kinds of repetition.
+2. [Flowcharts and Pseudocode](02%20Flowcharts%20and%20Pseudocode.qmd) — Follow flowcharts and pseudocode, and put algorithm steps in order.
+3. [Efficiency and Runtime](03%20Efficiency%20and%20Runtime.qmd) — Compare algorithms by calculating and converting runtimes.

@@ -1,0 +1,24 @@
+---
+title: "Practice: Writing Functions"
+toc: false
+css: ../assets/practice.css
+---
+
+## Introduction
+
+In this course we covered writing Python functions and programs. This page includes practice problems where you write real code and have it tested in your browser.
+
+## How To Use This Page
+
+For each problem, use the **↻ New variant** button to generate a new problem of that type. Use the **Check** button to check your answer. Use the **Show answer** button to see the answer and an explanation. Problems that ask you to write Python run your code in the browser; the first run downloads the Python runtime (about 10 MB).
+
+[Review the lesson](../../lessons/02%20Introduction%20to%20Computer%20Programming/index.qmd){target="_blank" rel="noopener"}
+
+## Practice Problems
+
+```{=html}
+<div class="practice-set" data-bank="programming" data-sections="writing"></div>
+<script src="../assets/engine.js"></script>
+<script src="../assets/logic.js"></script>
+<script src="../assets/bank-programming.js"></script>
+```

@@ -1,0 +1,24 @@
+---
+title: "Practice: Languages and Constructs"
+toc: false
+css: ../assets/practice.css
+---
+
+## Introduction
+
+In this course we covered programming languages and the basic constructs of a program. This page includes practice problems on machine language, compilers vs. interpreters, paradigms, and sequence, selection and repetition.
+
+## How To Use This Page
+
+For each problem, use the **↻ New variant** button to generate a new problem of that type. Use the **Check** button to check your answer. Use the **Show answer** button to see the answer and an explanation.
+
+[Review the lesson](../../lessons/02%20Introduction%20to%20Computer%20Programming/index.qmd){target="_blank" rel="noopener"}
+
+## Practice Problems
+
+```{=html}
+<div class="practice-set" data-bank="programming" data-sections="concepts"></div>
+<script src="../assets/engine.js"></script>
+<script src="../assets/logic.js"></script>
+<script src="../assets/bank-programming.js"></script>
+```

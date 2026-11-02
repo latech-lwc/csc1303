@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - practice/assets/*
 
 format:
   html:
@@ -186,4 +188,50 @@ website:
               - text: "Homework"
                 href: "activities/04 Ultrasonic Sort/07 Homework.qmd"
 
-
+      - section: "Practice"
+        contents:
+          - text: "Overview"
+            href: "practice/index.qmd"
+          # - section: "01 Introduction to Algorithms"
+          #   href: "practice/01 Introduction to Algorithms/index.qmd"
+          #   contents:
+          #     - text: "Algorithms and Control Flow"
+          #       href: "practice/01 Introduction to Algorithms/01 Algorithms and Control Flow.qmd"
+          #     - text: "Flowcharts and Pseudocode"
+          #       href: "practice/01 Introduction to Algorithms/02 Flowcharts and Pseudocode.qmd"
+          #     - text: "Efficiency and Runtime"
+          #       href: "practice/01 Introduction to Algorithms/03 Efficiency and Runtime.qmd"
+          # - section: "02 Introduction to Computer Programming"
+          #   href: "practice/02 Introduction to Computer Programming/index.qmd"
+          #   contents:
+          #     - text: "Languages and Constructs"
+          #       href: "practice/02 Introduction to Computer Programming/01 Languages and Constructs.qmd"
+          #     - text: "Operators and Identifiers"
+          #       href: "practice/02 Introduction to Computer Programming/02 Operators and Identifiers.qmd"
+          #     - text: "Tracing and Finding Errors"
+          #       href: "practice/02 Introduction to Computer Programming/03 Tracing and Errors.qmd"
+          #     - text: "Writing Functions"
+          #       href: "practice/02 Introduction to Computer Programming/04 Writing Functions.qmd"
+          # - section: "03 Introduction to Computer Architecture"
+          #   href: "practice/03 Introduction to Computer Architecture/index.qmd"
+          #   contents:
+          #     - text: "Layers and Vocabulary"
+          #       href: "practice/03 Introduction to Computer Architecture/01 Layers and Vocabulary.qmd"
+          #     - text: "Logic Gates, Boolean Algebra and Switches"
+          #       href: "practice/03 Introduction to Computer Architecture/02 Logic Gates and Switches.qmd"
+          #     - text: "Ohm's Law, LEDs and Breadboards"
+          #       href: "practice/03 Introduction to Computer Architecture/03 Ohm's Law, LEDs and Breadboards.qmd"
+          - section: "04 Searching and Sorting"
+            href: "practice/04 Searching and Sorting/index.qmd"
+            contents:
+              - text: "Searching"
+                href: "practice/04 Searching and Sorting/01 Searching.qmd"
+              - text: "Sorting"
+                href: "practice/04 Searching and Sorting/02 Sorting.qmd"
+          - section: "05 Introduction to Data Structures"
+            href: "practice/05 Introduction to Data Structures/index.qmd"
+            contents:
+              - text: "Arrays and Lists"
+                href: "practice/05 Introduction to Data Structures/01 Arrays and Lists.qmd"
+              - text: "Loops over Lists"
+                href: "practice/05 Introduction to Data Structures/02 Loops over Lists.qmd"

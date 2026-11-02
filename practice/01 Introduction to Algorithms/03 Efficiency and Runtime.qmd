@@ -1,0 +1,24 @@
+---
+title: "Practice: Efficiency and Runtime"
+toc: false
+css: ../assets/practice.css
+---
+
+## Introduction
+
+In this course we covered how to compare algorithms by their efficiency. This page includes practice problems on calculating and converting runtimes.
+
+## How To Use This Page
+
+For each problem, use the **↻ New variant** button to generate a new problem of that type. Use the **Check** button to check your answer. Use the **Show answer** button to see the answer and an explanation.
+
+[Review the lesson](../../lessons/01%20Introduction%20to%20Algorithms/index.qmd){target="_blank" rel="noopener"}
+
+## Practice Problems
+
+```{=html}
+<div class="practice-set" data-bank="algorithms" data-sections="runtime"></div>
+<script src="../assets/engine.js"></script>
+<script src="../assets/logic.js"></script>
+<script src="../assets/bank-algorithms.js"></script>
+```

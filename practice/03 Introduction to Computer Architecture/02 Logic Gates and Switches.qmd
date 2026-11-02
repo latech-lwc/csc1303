@@ -1,0 +1,24 @@
+---
+title: "Practice: Logic Gates, Boolean Algebra and Switches"
+toc: false
+css: ../assets/practice.css
+---
+
+## Introduction
+
+In this course we covered logic gates, Boolean algebra and switches. This page includes practice problems on reading circuits, writing Boolean expressions, filling in truth tables, and working with series and parallel switches.
+
+## How To Use This Page
+
+For each problem, use the **↻ New variant** button to generate a new problem of that type. Use the **Check** button to check your answer. Use the **Show answer** button to see the answer and an explanation. Problems that ask you to write Python run your code in the browser; the first run downloads the Python runtime (about 10 MB).
+
+[Review the lesson](../../lessons/03%20Introduction%20to%20Computer%20Architecture/index.qmd){target="_blank" rel="noopener"}
+
+## Practice Problems
+
+```{=html}
+<div class="practice-set" data-bank="architecture" data-sections="gates,switches"></div>
+<script src="../assets/engine.js"></script>
+<script src="../assets/logic.js"></script>
+<script src="../assets/bank-architecture.js"></script>
+```

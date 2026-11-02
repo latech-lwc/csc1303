@@ -1,0 +1,9 @@
+---
+title: "Practice: Introduction to Data Structures"
+toc: false
+---
+
+Interactive practice for [Introduction to Data Structures](../../lessons/05%20Introduction%20to%20Data%20Structures/index.qmd).
+
+1. [Arrays and Lists](01%20Arrays%20and%20Lists.qmd) — Arrays vs. Python lists, indexes and values, slicing, list methods and range().
+2. [Loops over Lists](02%20Loops%20over%20Lists.qmd) — Predict, complete and write loops that read and change lists.

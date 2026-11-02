@@ -1,5 +1,287 @@
 [
   {
+    "objectID": "practice/02 Introduction to Computer Programming/02 Operators and Identifiers.html",
+    "href": "practice/02 Introduction to Computer Programming/02 Operators and Identifiers.html",
+    "title": "Practice: Operators and Identifiers",
+    "section": "",
+    "text": "In this course we covered the building blocks of Python code. This page includes practice problems on operators, data types, identifiers, reserved words and comments."
+  },
+  {
+    "objectID": "practice/02 Introduction to Computer Programming/02 Operators and Identifiers.html#introduction",
+    "href": "practice/02 Introduction to Computer Programming/02 Operators and Identifiers.html#introduction",
+    "title": "Practice: Operators and Identifiers",
+    "section": "",
+    "text": "In this course we covered the building blocks of Python code. This page includes practice problems on operators, data types, identifiers, reserved words and comments."
+  },
+  {
+    "objectID": "practice/02 Introduction to Computer Programming/02 Operators and Identifiers.html#how-to-use-this-page",
+    "href": "practice/02 Introduction to Computer Programming/02 Operators and Identifiers.html#how-to-use-this-page",
+    "title": "Practice: Operators and Identifiers",
+    "section": "How To Use This Page",
+    "text": "How To Use This Page\nFor each problem, use the ↻ New variant button to generate a new problem of that type. Use the Check button to check your answer. Use the Show answer button to see the answer and an explanation. Problems that ask you to write Python run your code in the browser; the first run downloads the Python runtime (about 10 MB).\nReview the lesson"
+  },
+  {
+    "objectID": "practice/02 Introduction to Computer Programming/02 Operators and Identifiers.html#practice-problems",
+    "href": "practice/02 Introduction to Computer Programming/02 Operators and Identifiers.html#practice-problems",
+    "title": "Practice: Operators and Identifiers",
+    "section": "Practice Problems",
+    "text": "Practice Problems"
+  },
+  {
+    "objectID": "practice/02 Introduction to Computer Programming/04 Writing Functions.html",
+    "href": "practice/02 Introduction to Computer Programming/04 Writing Functions.html",
+    "title": "Practice: Writing Functions",
+    "section": "",
+    "text": "In this course we covered writing Python functions and programs. This page includes practice problems where you write real code and have it tested in your browser."
+  },
+  {
+    "objectID": "practice/02 Introduction to Computer Programming/04 Writing Functions.html#introduction",
+    "href": "practice/02 Introduction to Computer Programming/04 Writing Functions.html#introduction",
+    "title": "Practice: Writing Functions",
+    "section": "",
+    "text": "In this course we covered writing Python functions and programs. This page includes practice problems where you write real code and have it tested in your browser."
+  },
+  {
+    "objectID": "practice/02 Introduction to Computer Programming/04 Writing Functions.html#how-to-use-this-page",
+    "href": "practice/02 Introduction to Computer Programming/04 Writing Functions.html#how-to-use-this-page",
+    "title": "Practice: Writing Functions",
+    "section": "How To Use This Page",
+    "text": "How To Use This Page\nFor each problem, use the ↻ New variant button to generate a new problem of that type. Use the Check button to check your answer. Use the Show answer button to see the answer and an explanation. Problems that ask you to write Python run your code in the browser; the first run downloads the Python runtime (about 10 MB).\nReview the lesson"
+  },
+  {
+    "objectID": "practice/02 Introduction to Computer Programming/04 Writing Functions.html#practice-problems",
+    "href": "practice/02 Introduction to Computer Programming/04 Writing Functions.html#practice-problems",
+    "title": "Practice: Writing Functions",
+    "section": "Practice Problems",
+    "text": "Practice Problems"
+  },
+  {
+    "objectID": "practice/02 Introduction to Computer Programming/03 Tracing and Errors.html",
+    "href": "practice/02 Introduction to Computer Programming/03 Tracing and Errors.html",
+    "title": "Practice: Tracing and Finding Errors",
+    "section": "",
+    "text": "In this course we covered how Python runs a program, line by line. This page includes practice problems on predicting output, following the order lines execute, and spotting errors."
+  },
+  {
+    "objectID": "practice/02 Introduction to Computer Programming/03 Tracing and Errors.html#introduction",
+    "href": "practice/02 Introduction to Computer Programming/03 Tracing and Errors.html#introduction",
+    "title": "Practice: Tracing and Finding Errors",
+    "section": "",
+    "text": "In this course we covered how Python runs a program, line by line. This page includes practice problems on predicting output, following the order lines execute, and spotting errors."
+  },
+  {
+    "objectID": "practice/02 Introduction to Computer Programming/03 Tracing and Errors.html#how-to-use-this-page",
+    "href": "practice/02 Introduction to Computer Programming/03 Tracing and Errors.html#how-to-use-this-page",
+    "title": "Practice: Tracing and Finding Errors",
+    "section": "How To Use This Page",
+    "text": "How To Use This Page\nFor each problem, use the ↻ New variant button to generate a new problem of that type. Use the Check button to check your answer. Use the Show answer button to see the answer and an explanation.\nReview the lesson"
+  },
+  {
+    "objectID": "practice/02 Introduction to Computer Programming/03 Tracing and Errors.html#practice-problems",
+    "href": "practice/02 Introduction to Computer Programming/03 Tracing and Errors.html#practice-problems",
+    "title": "Practice: Tracing and Finding Errors",
+    "section": "Practice Problems",
+    "text": "Practice Problems"
+  },
+  {
+    "objectID": "practice/01 Introduction to Algorithms/01 Algorithms and Control Flow.html",
+    "href": "practice/01 Introduction to Algorithms/01 Algorithms and Control Flow.html",
+    "title": "Practice: Algorithms and Control Flow",
+    "section": "",
+    "text": "In this course we covered how algorithms are described and controlled. This page includes practice problems on problem statements, control flow and step numbering, flowchart blocks, and the kinds of repetition."
+  },
+  {
+    "objectID": "practice/01 Introduction to Algorithms/01 Algorithms and Control Flow.html#introduction",
+    "href": "practice/01 Introduction to Algorithms/01 Algorithms and Control Flow.html#introduction",
+    "title": "Practice: Algorithms and Control Flow",
+    "section": "",
+    "text": "In this course we covered how algorithms are described and controlled. This page includes practice problems on problem statements, control flow and step numbering, flowchart blocks, and the kinds of repetition."
+  },
+  {
+    "objectID": "practice/01 Introduction to Algorithms/01 Algorithms and Control Flow.html#how-to-use-this-page",
+    "href": "practice/01 Introduction to Algorithms/01 Algorithms and Control Flow.html#how-to-use-this-page",
+    "title": "Practice: Algorithms and Control Flow",
+    "section": "How To Use This Page",
+    "text": "How To Use This Page\nFor each problem, use the ↻ New variant button to generate a new problem of that type. Use the Check button to check your answer. Use the Show answer button to see the answer and an explanation.\nReview the lesson"
+  },
+  {
+    "objectID": "practice/01 Introduction to Algorithms/01 Algorithms and Control Flow.html#practice-problems",
+    "href": "practice/01 Introduction to Algorithms/01 Algorithms and Control Flow.html#practice-problems",
+    "title": "Practice: Algorithms and Control Flow",
+    "section": "Practice Problems",
+    "text": "Practice Problems"
+  },
+  {
+    "objectID": "practice/01 Introduction to Algorithms/02 Flowcharts and Pseudocode.html",
+    "href": "practice/01 Introduction to Algorithms/02 Flowcharts and Pseudocode.html",
+    "title": "Practice: Flowcharts and Pseudocode",
+    "section": "",
+    "text": "In this course we covered flowcharts and pseudocode. This page includes practice problems on following flowcharts and pseudocode, and putting algorithm steps in order."
+  },
+  {
+    "objectID": "practice/01 Introduction to Algorithms/02 Flowcharts and Pseudocode.html#introduction",
+    "href": "practice/01 Introduction to Algorithms/02 Flowcharts and Pseudocode.html#introduction",
+    "title": "Practice: Flowcharts and Pseudocode",
+    "section": "",
+    "text": "In this course we covered flowcharts and pseudocode. This page includes practice problems on following flowcharts and pseudocode, and putting algorithm steps in order."
+  },
+  {
+    "objectID": "practice/01 Introduction to Algorithms/02 Flowcharts and Pseudocode.html#how-to-use-this-page",
+    "href": "practice/01 Introduction to Algorithms/02 Flowcharts and Pseudocode.html#how-to-use-this-page",
+    "title": "Practice: Flowcharts and Pseudocode",
+    "section": "How To Use This Page",
+    "text": "How To Use This Page\nFor each problem, use the ↻ New variant button to generate a new problem of that type. Use the Check button to check your answer. Use the Show answer button to see the answer and an explanation. Problems that ask you to write Python run your code in the browser; the first run downloads the Python runtime (about 10 MB).\nReview the lesson"
+  },
+  {
+    "objectID": "practice/01 Introduction to Algorithms/02 Flowcharts and Pseudocode.html#practice-problems",
+    "href": "practice/01 Introduction to Algorithms/02 Flowcharts and Pseudocode.html#practice-problems",
+    "title": "Practice: Flowcharts and Pseudocode",
+    "section": "Practice Problems",
+    "text": "Practice Problems"
+  },
+  {
+    "objectID": "practice/05 Introduction to Data Structures/02 Loops over Lists.html",
+    "href": "practice/05 Introduction to Data Structures/02 Loops over Lists.html",
+    "title": "Practice: Loops over Lists",
+    "section": "",
+    "text": "In this course we covered looping over lists. This page includes practice problems on predicting, completing and writing loops that read and change lists.",
+    "crumbs": [
+      "Practice",
+      "05 Introduction to Data Structures",
+      "Loops over Lists"
+    ]
+  },
+  {
+    "objectID": "practice/05 Introduction to Data Structures/02 Loops over Lists.html#introduction",
+    "href": "practice/05 Introduction to Data Structures/02 Loops over Lists.html#introduction",
+    "title": "Practice: Loops over Lists",
+    "section": "",
+    "text": "In this course we covered looping over lists. This page includes practice problems on predicting, completing and writing loops that read and change lists.",
+    "crumbs": [
+      "Practice",
+      "05 Introduction to Data Structures",
+      "Loops over Lists"
+    ]
+  },
+  {
+    "objectID": "practice/05 Introduction to Data Structures/02 Loops over Lists.html#how-to-use-this-page",
+    "href": "practice/05 Introduction to Data Structures/02 Loops over Lists.html#how-to-use-this-page",
+    "title": "Practice: Loops over Lists",
+    "section": "How To Use This Page",
+    "text": "How To Use This Page\nFor each problem, use the ↻ New variant button to generate a new problem of that type. Use the Check button to check your answer. Use the Show answer button to see the answer and an explanation. Problems that ask you to write Python run your code in the browser; the first run downloads the Python runtime (about 10 MB).\nReview the lesson",
+    "crumbs": [
+      "Practice",
+      "05 Introduction to Data Structures",
+      "Loops over Lists"
+    ]
+  },
+  {
+    "objectID": "practice/05 Introduction to Data Structures/02 Loops over Lists.html#practice-problems",
+    "href": "practice/05 Introduction to Data Structures/02 Loops over Lists.html#practice-problems",
+    "title": "Practice: Loops over Lists",
+    "section": "Practice Problems",
+    "text": "Practice Problems",
+    "crumbs": [
+      "Practice",
+      "05 Introduction to Data Structures",
+      "Loops over Lists"
+    ]
+  },
+  {
+    "objectID": "practice/05 Introduction to Data Structures/01 Arrays and Lists.html",
+    "href": "practice/05 Introduction to Data Structures/01 Arrays and Lists.html",
+    "title": "Practice: Arrays and Lists",
+    "section": "",
+    "text": "In this course we covered arrays and Python lists. This page includes practice problems on arrays vs. lists, indexes and values, slicing, list methods and range().",
+    "crumbs": [
+      "Practice",
+      "05 Introduction to Data Structures",
+      "Arrays and Lists"
+    ]
+  },
+  {
+    "objectID": "practice/05 Introduction to Data Structures/01 Arrays and Lists.html#introduction",
+    "href": "practice/05 Introduction to Data Structures/01 Arrays and Lists.html#introduction",
+    "title": "Practice: Arrays and Lists",
+    "section": "",
+    "text": "In this course we covered arrays and Python lists. This page includes practice problems on arrays vs. lists, indexes and values, slicing, list methods and range().",
+    "crumbs": [
+      "Practice",
+      "05 Introduction to Data Structures",
+      "Arrays and Lists"
+    ]
+  },
+  {
+    "objectID": "practice/05 Introduction to Data Structures/01 Arrays and Lists.html#how-to-use-this-page",
+    "href": "practice/05 Introduction to Data Structures/01 Arrays and Lists.html#how-to-use-this-page",
+    "title": "Practice: Arrays and Lists",
+    "section": "How To Use This Page",
+    "text": "How To Use This Page\nFor each problem, use the ↻ New variant button to generate a new problem of that type. Use the Check button to check your answer. Use the Show answer button to see the answer and an explanation. Problems that ask you to write Python run your code in the browser; the first run downloads the Python runtime (about 10 MB).\nReview the lesson",
+    "crumbs": [
+      "Practice",
+      "05 Introduction to Data Structures",
+      "Arrays and Lists"
+    ]
+  },
+  {
+    "objectID": "practice/05 Introduction to Data Structures/01 Arrays and Lists.html#practice-problems",
+    "href": "practice/05 Introduction to Data Structures/01 Arrays and Lists.html#practice-problems",
+    "title": "Practice: Arrays and Lists",
+    "section": "Practice Problems",
+    "text": "Practice Problems",
+    "crumbs": [
+      "Practice",
+      "05 Introduction to Data Structures",
+      "Arrays and Lists"
+    ]
+  },
+  {
+    "objectID": "practice/04 Searching and Sorting/index.html",
+    "href": "practice/04 Searching and Sorting/index.html",
+    "title": "Practice: Searching and Sorting",
+    "section": "",
+    "text": "Interactive practice for Searching and Sorting.\n\nSearching — Sequential vs. binary search: when each applies, how many comparisons they make, and how to trace them.\nSorting — Bubble, optimized bubble, selection and insertion sort: trace them, count comparisons and swaps, and write the code.",
+    "crumbs": [
+      "Practice",
+      "04 Searching and Sorting"
+    ]
+  },
+  {
+    "objectID": "practice/03 Introduction to Computer Architecture/02 Logic Gates and Switches.html",
+    "href": "practice/03 Introduction to Computer Architecture/02 Logic Gates and Switches.html",
+    "title": "Practice: Logic Gates, Boolean Algebra and Switches",
+    "section": "",
+    "text": "In this course we covered logic gates, Boolean algebra and switches. This page includes practice problems on reading circuits, writing Boolean expressions, filling in truth tables, and working with series and parallel switches."
+  },
+  {
+    "objectID": "practice/03 Introduction to Computer Architecture/02 Logic Gates and Switches.html#introduction",
+    "href": "practice/03 Introduction to Computer Architecture/02 Logic Gates and Switches.html#introduction",
+    "title": "Practice: Logic Gates, Boolean Algebra and Switches",
+    "section": "",
+    "text": "In this course we covered logic gates, Boolean algebra and switches. This page includes practice problems on reading circuits, writing Boolean expressions, filling in truth tables, and working with series and parallel switches."
+  },
+  {
+    "objectID": "practice/03 Introduction to Computer Architecture/02 Logic Gates and Switches.html#how-to-use-this-page",
+    "href": "practice/03 Introduction to Computer Architecture/02 Logic Gates and Switches.html#how-to-use-this-page",
+    "title": "Practice: Logic Gates, Boolean Algebra and Switches",
+    "section": "How To Use This Page",
+    "text": "How To Use This Page\nFor each problem, use the ↻ New variant button to generate a new problem of that type. Use the Check button to check your answer. Use the Show answer button to see the answer and an explanation. Problems that ask you to write Python run your code in the browser; the first run downloads the Python runtime (about 10 MB).\nReview the lesson"
+  },
+  {
+    "objectID": "practice/03 Introduction to Computer Architecture/02 Logic Gates and Switches.html#practice-problems",
+    "href": "practice/03 Introduction to Computer Architecture/02 Logic Gates and Switches.html#practice-problems",
+    "title": "Practice: Logic Gates, Boolean Algebra and Switches",
+    "section": "Practice Problems",
+    "text": "Practice Problems"
+  },
+  {
+    "objectID": "practice/03 Introduction to Computer Architecture/index.html",
+    "href": "practice/03 Introduction to Computer Architecture/index.html",
+    "title": "Practice: Introduction to Computer Architecture",
+    "section": "",
+    "text": "Interactive practice for Introduction to Computer Architecture.\n\nLayers and Vocabulary — The layers of a computer, hardware components, and digital-logic vocabulary.\nLogic Gates, Boolean Algebra and Switches — Read circuits, write Boolean expressions, fill in truth tables, and work with series/parallel switches.\nOhm’s Law, LEDs and Breadboards — Voltage, current, resistance and power; designing LED circuits; breadboard connections."
+  },
+  {
     "objectID": "activities/04 Ultrasonic Sort/07 Homework.html",
     "href": "activities/04 Ultrasonic Sort/07 Homework.html",
     "title": "Homework",
@@ -1342,5 +1624,260 @@
       "04 Ultrasonic Sort",
       "Measuring Distances"
     ]
+  },
+  {
+    "objectID": "practice/03 Introduction to Computer Architecture/03 Ohm's Law, LEDs and Breadboards.html",
+    "href": "practice/03 Introduction to Computer Architecture/03 Ohm's Law, LEDs and Breadboards.html",
+    "title": "Practice: Ohm’s Law, LEDs and Breadboards",
+    "section": "",
+    "text": "In this course we covered basic electronics. This page includes practice problems on voltage, current, resistance and power, designing LED circuits, and breadboard connections."
+  },
+  {
+    "objectID": "practice/03 Introduction to Computer Architecture/03 Ohm's Law, LEDs and Breadboards.html#introduction",
+    "href": "practice/03 Introduction to Computer Architecture/03 Ohm's Law, LEDs and Breadboards.html#introduction",
+    "title": "Practice: Ohm’s Law, LEDs and Breadboards",
+    "section": "",
+    "text": "In this course we covered basic electronics. This page includes practice problems on voltage, current, resistance and power, designing LED circuits, and breadboard connections."
+  },
+  {
+    "objectID": "practice/03 Introduction to Computer Architecture/03 Ohm's Law, LEDs and Breadboards.html#how-to-use-this-page",
+    "href": "practice/03 Introduction to Computer Architecture/03 Ohm's Law, LEDs and Breadboards.html#how-to-use-this-page",
+    "title": "Practice: Ohm’s Law, LEDs and Breadboards",
+    "section": "How To Use This Page",
+    "text": "How To Use This Page\nFor each problem, use the ↻ New variant button to generate a new problem of that type. Use the Check button to check your answer. Use the Show answer button to see the answer and an explanation.\nReview the lesson"
+  },
+  {
+    "objectID": "practice/03 Introduction to Computer Architecture/03 Ohm's Law, LEDs and Breadboards.html#practice-problems",
+    "href": "practice/03 Introduction to Computer Architecture/03 Ohm's Law, LEDs and Breadboards.html#practice-problems",
+    "title": "Practice: Ohm’s Law, LEDs and Breadboards",
+    "section": "Practice Problems",
+    "text": "Practice Problems"
+  },
+  {
+    "objectID": "practice/03 Introduction to Computer Architecture/01 Layers and Vocabulary.html",
+    "href": "practice/03 Introduction to Computer Architecture/01 Layers and Vocabulary.html",
+    "title": "Practice: Layers and Vocabulary",
+    "section": "",
+    "text": "In this course we covered the layers of a computer and the vocabulary of digital logic. This page includes practice problems on the layers of a computer, hardware components, and digital-logic terms."
+  },
+  {
+    "objectID": "practice/03 Introduction to Computer Architecture/01 Layers and Vocabulary.html#introduction",
+    "href": "practice/03 Introduction to Computer Architecture/01 Layers and Vocabulary.html#introduction",
+    "title": "Practice: Layers and Vocabulary",
+    "section": "",
+    "text": "In this course we covered the layers of a computer and the vocabulary of digital logic. This page includes practice problems on the layers of a computer, hardware components, and digital-logic terms."
+  },
+  {
+    "objectID": "practice/03 Introduction to Computer Architecture/01 Layers and Vocabulary.html#how-to-use-this-page",
+    "href": "practice/03 Introduction to Computer Architecture/01 Layers and Vocabulary.html#how-to-use-this-page",
+    "title": "Practice: Layers and Vocabulary",
+    "section": "How To Use This Page",
+    "text": "How To Use This Page\nFor each problem, use the ↻ New variant button to generate a new problem of that type. Use the Check button to check your answer. Use the Show answer button to see the answer and an explanation.\nReview the lesson"
+  },
+  {
+    "objectID": "practice/03 Introduction to Computer Architecture/01 Layers and Vocabulary.html#practice-problems",
+    "href": "practice/03 Introduction to Computer Architecture/01 Layers and Vocabulary.html#practice-problems",
+    "title": "Practice: Layers and Vocabulary",
+    "section": "Practice Problems",
+    "text": "Practice Problems"
+  },
+  {
+    "objectID": "practice/04 Searching and Sorting/01 Searching.html",
+    "href": "practice/04 Searching and Sorting/01 Searching.html",
+    "title": "Practice: Searching",
+    "section": "",
+    "text": "In this course we covered Sequential and Binary search. This page includes practice problems to help you prepare for you exam and internalize each search algorithm.",
+    "crumbs": [
+      "Practice",
+      "04 Searching and Sorting",
+      "Searching"
+    ]
+  },
+  {
+    "objectID": "practice/04 Searching and Sorting/01 Searching.html#introduction",
+    "href": "practice/04 Searching and Sorting/01 Searching.html#introduction",
+    "title": "Practice: Searching",
+    "section": "",
+    "text": "In this course we covered Sequential and Binary search. This page includes practice problems to help you prepare for you exam and internalize each search algorithm.",
+    "crumbs": [
+      "Practice",
+      "04 Searching and Sorting",
+      "Searching"
+    ]
+  },
+  {
+    "objectID": "practice/04 Searching and Sorting/01 Searching.html#how-to-use-this-page",
+    "href": "practice/04 Searching and Sorting/01 Searching.html#how-to-use-this-page",
+    "title": "Practice: Searching",
+    "section": "How To Use This Page",
+    "text": "How To Use This Page\nFor each problem, use the ↻ New variant button to generate a new problem of that type. Use the Check button to check your answer. Use the Show answer button to see the answer an and an explanation.\nReview the lesson",
+    "crumbs": [
+      "Practice",
+      "04 Searching and Sorting",
+      "Searching"
+    ]
+  },
+  {
+    "objectID": "practice/04 Searching and Sorting/01 Searching.html#practice-problems",
+    "href": "practice/04 Searching and Sorting/01 Searching.html#practice-problems",
+    "title": "Practice: Searching",
+    "section": "Practice Problems",
+    "text": "Practice Problems",
+    "crumbs": [
+      "Practice",
+      "04 Searching and Sorting",
+      "Searching"
+    ]
+  },
+  {
+    "objectID": "practice/04 Searching and Sorting/02 Sorting.html",
+    "href": "practice/04 Searching and Sorting/02 Sorting.html",
+    "title": "Practice: Sorting",
+    "section": "",
+    "text": "In this course we covered Bubble, Optimized Bubble, Selection and Insertion sort. This page includes practice problems to help you prepare for your exam and internalize each sorting algorithm: trace them, count comparisons and swaps, and write the code.",
+    "crumbs": [
+      "Practice",
+      "04 Searching and Sorting",
+      "Sorting"
+    ]
+  },
+  {
+    "objectID": "practice/04 Searching and Sorting/02 Sorting.html#introduction",
+    "href": "practice/04 Searching and Sorting/02 Sorting.html#introduction",
+    "title": "Practice: Sorting",
+    "section": "",
+    "text": "In this course we covered Bubble, Optimized Bubble, Selection and Insertion sort. This page includes practice problems to help you prepare for your exam and internalize each sorting algorithm: trace them, count comparisons and swaps, and write the code.",
+    "crumbs": [
+      "Practice",
+      "04 Searching and Sorting",
+      "Sorting"
+    ]
+  },
+  {
+    "objectID": "practice/04 Searching and Sorting/02 Sorting.html#how-to-use-this-page",
+    "href": "practice/04 Searching and Sorting/02 Sorting.html#how-to-use-this-page",
+    "title": "Practice: Sorting",
+    "section": "How To Use This Page",
+    "text": "How To Use This Page\nFor each problem, use the ↻ New variant button to generate a new problem of that type. Use the Check button to check your answer. Use the Show answer button to see the answer and an explanation. Problems that ask you to write Python run your code in the browser; the first run downloads the Python runtime (about 10 MB).\nReview the lesson",
+    "crumbs": [
+      "Practice",
+      "04 Searching and Sorting",
+      "Sorting"
+    ]
+  },
+  {
+    "objectID": "practice/04 Searching and Sorting/02 Sorting.html#practice-problems",
+    "href": "practice/04 Searching and Sorting/02 Sorting.html#practice-problems",
+    "title": "Practice: Sorting",
+    "section": "Practice Problems",
+    "text": "Practice Problems",
+    "crumbs": [
+      "Practice",
+      "04 Searching and Sorting",
+      "Sorting"
+    ]
+  },
+  {
+    "objectID": "practice/05 Introduction to Data Structures/index.html",
+    "href": "practice/05 Introduction to Data Structures/index.html",
+    "title": "Practice: Introduction to Data Structures",
+    "section": "",
+    "text": "Interactive practice for Introduction to Data Structures.\n\nArrays and Lists — Arrays vs. Python lists, indexes and values, slicing, list methods and range().\nLoops over Lists — Predict, complete and write loops that read and change lists.",
+    "crumbs": [
+      "Practice",
+      "05 Introduction to Data Structures"
+    ]
+  },
+  {
+    "objectID": "practice/01 Introduction to Algorithms/03 Efficiency and Runtime.html",
+    "href": "practice/01 Introduction to Algorithms/03 Efficiency and Runtime.html",
+    "title": "Practice: Efficiency and Runtime",
+    "section": "",
+    "text": "In this course we covered how to compare algorithms by their efficiency. This page includes practice problems on calculating and converting runtimes."
+  },
+  {
+    "objectID": "practice/01 Introduction to Algorithms/03 Efficiency and Runtime.html#introduction",
+    "href": "practice/01 Introduction to Algorithms/03 Efficiency and Runtime.html#introduction",
+    "title": "Practice: Efficiency and Runtime",
+    "section": "",
+    "text": "In this course we covered how to compare algorithms by their efficiency. This page includes practice problems on calculating and converting runtimes."
+  },
+  {
+    "objectID": "practice/01 Introduction to Algorithms/03 Efficiency and Runtime.html#how-to-use-this-page",
+    "href": "practice/01 Introduction to Algorithms/03 Efficiency and Runtime.html#how-to-use-this-page",
+    "title": "Practice: Efficiency and Runtime",
+    "section": "How To Use This Page",
+    "text": "How To Use This Page\nFor each problem, use the ↻ New variant button to generate a new problem of that type. Use the Check button to check your answer. Use the Show answer button to see the answer and an explanation.\nReview the lesson"
+  },
+  {
+    "objectID": "practice/01 Introduction to Algorithms/03 Efficiency and Runtime.html#practice-problems",
+    "href": "practice/01 Introduction to Algorithms/03 Efficiency and Runtime.html#practice-problems",
+    "title": "Practice: Efficiency and Runtime",
+    "section": "Practice Problems",
+    "text": "Practice Problems"
+  },
+  {
+    "objectID": "practice/01 Introduction to Algorithms/index.html",
+    "href": "practice/01 Introduction to Algorithms/index.html",
+    "title": "Practice: Introduction to Algorithms",
+    "section": "",
+    "text": "Interactive practice for Introduction to Algorithms.\n\nAlgorithms and Control Flow — Problem statements, control flow and step numbering, flowchart blocks, and the kinds of repetition.\nFlowcharts and Pseudocode — Follow flowcharts and pseudocode, and put algorithm steps in order.\nEfficiency and Runtime — Compare algorithms by calculating and converting runtimes."
+  },
+  {
+    "objectID": "practice/index.html",
+    "href": "practice/index.html",
+    "title": "Practice Problems",
+    "section": "",
+    "text": "Interactive practice for each lesson. Every problem is built from a template with randomized numbers, lists and circuits, so you can try the same kind of problem as many times as you like and never see the identical question twice.",
+    "crumbs": [
+      "Practice",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "practice/index.html#how-to-use-these-pages",
+    "href": "practice/index.html#how-to-use-these-pages",
+    "title": "Practice Problems",
+    "section": "How to use these pages",
+    "text": "How to use these pages\n\nCheck grades your answer. Green means correct; red shows which parts need another look.\nShow answer fills in the answer and explains it. Then press ↻ New variant and try again without looking.\nSeveral pages have an Explore widget (a step-through of sorting or binary search, and an expression → circuit → truth-table sandbox). Use them to build intuition or to check your work.\nDo the calculations on paper first, the same way you would on a quiz: write the formula, show your work, then type the result.\nProblems that ask you to write Python run your code in your browser. The first run takes a moment while the Python runtime downloads.",
+    "crumbs": [
+      "Practice",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "practice/02 Introduction to Computer Programming/01 Languages and Constructs.html",
+    "href": "practice/02 Introduction to Computer Programming/01 Languages and Constructs.html",
+    "title": "Practice: Languages and Constructs",
+    "section": "",
+    "text": "In this course we covered programming languages and the basic constructs of a program. This page includes practice problems on machine language, compilers vs. interpreters, paradigms, and sequence, selection and repetition."
+  },
+  {
+    "objectID": "practice/02 Introduction to Computer Programming/01 Languages and Constructs.html#introduction",
+    "href": "practice/02 Introduction to Computer Programming/01 Languages and Constructs.html#introduction",
+    "title": "Practice: Languages and Constructs",
+    "section": "",
+    "text": "In this course we covered programming languages and the basic constructs of a program. This page includes practice problems on machine language, compilers vs. interpreters, paradigms, and sequence, selection and repetition."
+  },
+  {
+    "objectID": "practice/02 Introduction to Computer Programming/01 Languages and Constructs.html#how-to-use-this-page",
+    "href": "practice/02 Introduction to Computer Programming/01 Languages and Constructs.html#how-to-use-this-page",
+    "title": "Practice: Languages and Constructs",
+    "section": "How To Use This Page",
+    "text": "How To Use This Page\nFor each problem, use the ↻ New variant button to generate a new problem of that type. Use the Check button to check your answer. Use the Show answer button to see the answer and an explanation.\nReview the lesson"
+  },
+  {
+    "objectID": "practice/02 Introduction to Computer Programming/01 Languages and Constructs.html#practice-problems",
+    "href": "practice/02 Introduction to Computer Programming/01 Languages and Constructs.html#practice-problems",
+    "title": "Practice: Languages and Constructs",
+    "section": "Practice Problems",
+    "text": "Practice Problems"
+  },
+  {
+    "objectID": "practice/02 Introduction to Computer Programming/index.html",
+    "href": "practice/02 Introduction to Computer Programming/index.html",
+    "title": "Practice: Introduction to Computer Programming",
+    "section": "",
+    "text": "Interactive practice for Introduction to Computer Programming.\n\nLanguages and Constructs — Machine language, compilers vs. interpreters, paradigms, and sequence/selection/repetition.\nOperators and Identifiers — Python operators, data types, identifiers, reserved words and comments.\nTracing and Finding Errors — Predict output, follow the order lines execute, and spot errors.\nWriting Functions — Write real Python functions and programs; your code is tested in the browser."
   }
 ]
