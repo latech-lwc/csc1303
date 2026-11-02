@@ -1,0 +1,10 @@
+---
+title: "Practice: Introduction to Computer Architecture"
+toc: false
+---
+
+Interactive practice for [Introduction to Computer Architecture](../../lessons/03%20Introduction%20to%20Computer%20Architecture/index.qmd).
+
+1. [Layers and Vocabulary](01%20Layers%20and%20Vocabulary.qmd) — The layers of a computer, hardware components, and digital-logic vocabulary.
+2. [Logic Gates, Boolean Algebra and Switches](02%20Logic%20Gates%20and%20Switches.qmd) — Read circuits, write Boolean expressions, fill in truth tables, and work with series/parallel switches.
+3. [Ohm's Law, LEDs and Breadboards](03%20Ohm%27s%20Law%2C%20LEDs%20and%20Breadboards.qmd) — Voltage, current, resistance and power; designing LED circuits; breadboard connections.

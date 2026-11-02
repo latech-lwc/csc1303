@@ -1,0 +1,9 @@
+---
+title: "Practice: Searching and Sorting"
+toc: false
+---
+
+Interactive practice for [Searching and Sorting](../../lessons/04%20Searching%20and%20Sorting/index.qmd).
+
+1. [Searching](01%20Searching.qmd) — Sequential vs. binary search: when each applies, how many comparisons they make, and how to trace them.
+2. [Sorting](02%20Sorting.qmd) — Bubble, optimized bubble, selection and insertion sort: trace them, count comparisons and swaps, and write the code.

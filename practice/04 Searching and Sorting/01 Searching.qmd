@@ -1,0 +1,24 @@
+---
+title: "Practice: Searching"
+toc: false
+css: ../assets/practice.css
+---
+
+## Introduction 
+
+In this course we covered Sequential and Binary search. This page includes practice problems to help you prepare for you exam and internalize each search algorithm. 
+
+## How To Use This Page
+
+For each problem, use the **↻ New variant** button to generate a new problem of that type. Use the **Check** button to check your answer. Use the **Show answer** button to see the answer an and an explanation.
+
+[Review the lesson](../../lessons/04%20Searching%20and%20Sorting/index.qmd){target="_blank" rel="noopener"}
+
+## Practice Problems
+
+```{=html}
+<div class="practice-set" data-bank="searchsort" data-sections="searching"></div>
+<script src="../assets/engine.js"></script>
+<script src="../assets/logic.js"></script>
+<script src="../assets/bank-searchsort.js"></script>
+```

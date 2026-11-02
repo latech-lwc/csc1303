@@ -1,0 +1,22 @@
+---
+title: "Practice Problems"
+toc: false
+---
+
+Interactive practice for each lesson. Every problem is built from a template with randomized numbers, lists and circuits, so you can try the same *kind* of problem as many times as you like and never see the identical question twice.
+
+| Lesson | What you can practice |
+|---|---|
+<!-- | [01 Introduction to Algorithms](01%20Introduction%20to%20Algorithms/index.qmd) | problem statements, control flow, flowcharts, repetition, pseudocode, runtime calculations |
+| [02 Introduction to Computer Programming](02%20Introduction%20to%20Computer%20Programming/index.qmd) | compilers vs. interpreters, operators, identifiers, tracing code and function calls, finding errors, writing functions |
+| [03 Introduction to Computer Architecture](03%20Introduction%20to%20Computer%20Architecture/index.qmd) | logic gates, Boolean expressions, truth tables, switch circuits, Ohm's law, LEDs, breadboards | -->
+| [04 Searching and Sorting](04%20Searching%20and%20Sorting/index.qmd) | sequential and binary search, the four sorts, counting comparisons and swaps, coding the algorithms |
+| [05 Introduction to Data Structures](05%20Introduction%20to%20Data%20Structures/index.qmd) | arrays vs. lists, indexes, slicing, list methods, loops over lists |
+
+## How to use these pages
+
+- **Check** grades your answer. Green means correct; red shows which parts need another look.
+- **Show answer** fills in the answer and explains it. Then press **↻ New variant** and try again without looking.
+- Several pages have an **Explore** widget (a step-through of sorting or binary search, and an expression → circuit → truth-table sandbox). Use them to build intuition or to check your work.
+- Do the calculations on paper first, the same way you would on a quiz: write the formula, show your work, then type the result.
+- Problems that ask you to write Python run your code in your browser. The first run takes a moment while the Python runtime downloads.

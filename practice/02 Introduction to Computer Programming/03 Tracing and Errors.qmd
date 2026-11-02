@@ -1,0 +1,24 @@
+---
+title: "Practice: Tracing and Finding Errors"
+toc: false
+css: ../assets/practice.css
+---
+
+## Introduction
+
+In this course we covered how Python runs a program, line by line. This page includes practice problems on predicting output, following the order lines execute, and spotting errors.
+
+## How To Use This Page
+
+For each problem, use the **↻ New variant** button to generate a new problem of that type. Use the **Check** button to check your answer. Use the **Show answer** button to see the answer and an explanation.
+
+[Review the lesson](../../lessons/02%20Introduction%20to%20Computer%20Programming/index.qmd){target="_blank" rel="noopener"}
+
+## Practice Problems
+
+```{=html}
+<div class="practice-set" data-bank="programming" data-sections="tracing,errors"></div>
+<script src="../assets/engine.js"></script>
+<script src="../assets/logic.js"></script>
+<script src="../assets/bank-programming.js"></script>
+```

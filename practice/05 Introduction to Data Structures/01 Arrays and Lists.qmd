@@ -1,0 +1,24 @@
+---
+title: "Practice: Arrays and Lists"
+toc: false
+css: ../assets/practice.css
+---
+
+## Introduction
+
+In this course we covered arrays and Python lists. This page includes practice problems on arrays vs. lists, indexes and values, slicing, list methods and range().
+
+## How To Use This Page
+
+For each problem, use the **↻ New variant** button to generate a new problem of that type. Use the **Check** button to check your answer. Use the **Show answer** button to see the answer and an explanation. Problems that ask you to write Python run your code in the browser; the first run downloads the Python runtime (about 10 MB).
+
+[Review the lesson](../../lessons/05%20Introduction%20to%20Data%20Structures/index.qmd){target="_blank" rel="noopener"}
+
+## Practice Problems
+
+```{=html}
+<div class="practice-set" data-bank="datastructures" data-sections="arrays"></div>
+<script src="../assets/engine.js"></script>
+<script src="../assets/logic.js"></script>
+<script src="../assets/bank-datastructures.js"></script>
+```

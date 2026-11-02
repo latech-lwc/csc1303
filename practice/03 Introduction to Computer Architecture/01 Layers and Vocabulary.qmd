@@ -1,0 +1,24 @@
+---
+title: "Practice: Layers and Vocabulary"
+toc: false
+css: ../assets/practice.css
+---
+
+## Introduction
+
+In this course we covered the layers of a computer and the vocabulary of digital logic. This page includes practice problems on the layers of a computer, hardware components, and digital-logic terms.
+
+## How To Use This Page
+
+For each problem, use the **↻ New variant** button to generate a new problem of that type. Use the **Check** button to check your answer. Use the **Show answer** button to see the answer and an explanation.
+
+[Review the lesson](../../lessons/03%20Introduction%20to%20Computer%20Architecture/index.qmd){target="_blank" rel="noopener"}
+
+## Practice Problems
+
+```{=html}
+<div class="practice-set" data-bank="architecture" data-sections="concepts"></div>
+<script src="../assets/engine.js"></script>
+<script src="../assets/logic.js"></script>
+<script src="../assets/bank-architecture.js"></script>
+```

@@ -1,0 +1,11 @@
+---
+title: "Practice: Introduction to Computer Programming"
+toc: false
+---
+
+Interactive practice for [Introduction to Computer Programming](../../lessons/02%20Introduction%20to%20Computer%20Programming/index.qmd).
+
+1. [Languages and Constructs](01%20Languages%20and%20Constructs.qmd) — Machine language, compilers vs. interpreters, paradigms, and sequence/selection/repetition.
+2. [Operators and Identifiers](02%20Operators%20and%20Identifiers.qmd) — Python operators, data types, identifiers, reserved words and comments.
+3. [Tracing and Finding Errors](03%20Tracing%20and%20Errors.qmd) — Predict output, follow the order lines execute, and spot errors.
+4. [Writing Functions](04%20Writing%20Functions.qmd) — Write real Python functions and programs; your code is tested in the browser.

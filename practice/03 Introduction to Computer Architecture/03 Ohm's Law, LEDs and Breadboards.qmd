@@ -1,0 +1,24 @@
+---
+title: "Practice: Ohm's Law, LEDs and Breadboards"
+toc: false
+css: ../assets/practice.css
+---
+
+## Introduction
+
+In this course we covered basic electronics. This page includes practice problems on voltage, current, resistance and power, designing LED circuits, and breadboard connections.
+
+## How To Use This Page
+
+For each problem, use the **↻ New variant** button to generate a new problem of that type. Use the **Check** button to check your answer. Use the **Show answer** button to see the answer and an explanation.
+
+[Review the lesson](../../lessons/03%20Introduction%20to%20Computer%20Architecture/index.qmd){target="_blank" rel="noopener"}
+
+## Practice Problems
+
+```{=html}
+<div class="practice-set" data-bank="architecture" data-sections="ohm,breadboard"></div>
+<script src="../assets/engine.js"></script>
+<script src="../assets/logic.js"></script>
+<script src="../assets/bank-architecture.js"></script>
+```
