@@ -1,0 +1,21 @@
+---
+title: "Introduction to Data Structures"
+---
+
+## Contents
+
+1. [The Need for Data Structures](01 The Need for Data Structures.qmd)
+
+2. [The Array](02 The Array.qmd)
+
+3. [Python Lists](03 Python Lists.qmd)
+
+4. [Creating and Populating a List](04 Creating and Populating a List.qmd)
+
+5. [The Python For Loop](05 The Python For Loop.qmd)
+
+6. [Sequential Search of an Array](06 Sequential Search of an Array.qmd)
+
+7. [Selection Sort of an Array](07 Selection Sort of an Array.qmd)
+
+8. [Binary Search of an Array](08 Binary Search of an Array.qmd)

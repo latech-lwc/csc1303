@@ -116,8 +116,25 @@ website:
               - text: "Comparing Sorts"
                 href: "lessons/04 Searching and Sorting/08 Comparing Sorts.qmd"
 
-          - text: "05 Introduction to Data Structures"
+          - section: "05 Introduction to Data Structures"
             href: "lessons/05 Introduction to Data Structures/index.qmd"
+            contents:
+              - text: "The Need for Data Structures"
+                href: "lessons/05 Introduction to Data Structures/01 The Need for Data Structures.qmd"
+              - text: "The Array"
+                href: "lessons/05 Introduction to Data Structures/02 The Array.qmd"
+              - text: "Python Lists"
+                href: "lessons/05 Introduction to Data Structures/03 Python Lists.qmd"
+              - text: "Creating and Populating a List"
+                href: "lessons/05 Introduction to Data Structures/04 Creating and Populating a List.qmd"
+              - text: "The Python For Loop"
+                href: "lessons/05 Introduction to Data Structures/05 The Python For Loop.qmd"
+              - text: "Sequential Search of an Array"
+                href: "lessons/05 Introduction to Data Structures/06 Sequential Search of an Array.qmd"
+              - text: "Selection Sort of an Array"
+                href: "lessons/05 Introduction to Data Structures/07 Selection Sort of an Array.qmd"
+              - text: "Binary Search of an Array"
+                href: "lessons/05 Introduction to Data Structures/08 Binary Search of an Array.qmd"
 
 
       - section: "Activities"

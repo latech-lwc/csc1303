@@ -1,0 +1,144 @@
+---
+title: "Python Lists"
+---
+
+### The Python sequence
+
+The most basic data structure in Python is the **sequence**. A sequence is composed of (related) elements. Each element in a sequence is assigned an index (or position). A sequence with *n* elements has indexes 0 to *n*−1. Pay special attention to this! The first value in a Python sequence is located at index 0, and the *n*th (i.e., last) value is located at index *n*−1. Python has many built-in types of sequences; however, the most popular is called the **list**. It effectively functions as an array!
+
+The list in Python is quite versatile and is declared using square brackets; for example:
+
+```python
+grades = [ 94, 78, 100, 86 ]
+```
+
+The statement above declares the list `grades` with four integers: 94, 78, 100, and 86. The list can be displayed in its entirety (e.g., with the statement `print(grades)`); however, we can access each element individually by its index (specified within brackets). Accessing can mean to read a value in the list, or it can mean to change a value in the list; for example:
+
+```python
+grades[0]
+grades[3] = 87
+```
+
+Here's an example of this:
+
+```
+>>> grades = [ 94, 78, 100, 86 ]
+>>> grades
+[94, 78, 100, 86]
+>>> grades[0]
+94
+>>> grades[3] = 87
+>>> grades
+[94, 78, 100, 87]
+```
+
+Note that, in Python, the values within a list do not need to be of the same data type! This is a bit different than lists in most other general purpose programming languages (usually, those languages call their lists arrays), in which all elements must be of the same type. Here's an example of a **heterogeneous** (meaning diverse) list in Python:
+
+```
+>>> stuff = [ 3.14, 2.78, 100, "100", "the speed of light!" ]
+>>> stuff[0] = 3.14159
+>>> stuff[4]
+'the speed of light!'
+>>> stuff[4] = "the speed of sound!"
+>>> stuff
+[3.14159, 2.78, 100, '100', 'the speed of sound!']
+```
+
+### Accessing a range of values
+
+More than one value in a list can be accessed at a time. We can specify a range (or interval) of indexes in the format `[lower:upper+1]` which means the interval [lower, upper) (i.e., closed at lower and open at upper). That is, the lower index in the range is inclusive but the upper is not. For example:
+
+```python
+stuff[3:4]             # accesses index 3 (the same as stuff[3])
+stuff[0:5]             # accesses indexes 0 through 4
+stuff[-3]              # accesses the third index from the right
+```
+
+Here are some examples:
+
+```
+>>> stuff = [ 3.14159, 2.78, 100, "100", "the speed of sound!" ]
+>>> stuff[3:4]
+['100']
+>>> stuff[0:5]
+[3.14159, 2.78, 100, '100', 'the speed of sound!']
+>>> stuff[-3]
+100
+>>> stuff[-0]
+3.14159
+>>> stuff[-1]
+'the speed of sound!'
+>>> stuff[-2]
+'100'
+```
+
+Note the difference between the element `100` (a number) at index 2 and the element `'100'` (a string) at index 3.
+
+### Deleting elements
+
+List elements can be deleted with the `del` keyword as follows:
+
+```
+>>> stuff = [ 3.14159, 2.78, 100, "100", "the speed of sound!" ]
+>>> del stuff[0]
+>>> stuff
+[2.78, 100, '100', 'the speed of sound!']
+>>> del stuff[2]
+>>> stuff
+[2.78, 100, 'the speed of sound!']
+>>> del stuff[2]
+>>> stuff
+[2.78, 100]
+```
+
+### List operations
+
+Python provides several built-in operations that can be performed on lists. Here are many of them:
+
+| Operation | Description |
+|---|---|
+| `len(list)` | Returns the length of a list |
+| `max(list)` | Returns the item in the list with the maximum value |
+| `min(list)` | Returns the item in the list with the minimum value |
+| `list.append(item)` | Inserts `item` at the end of the list |
+| `list.count(item)` | Returns the number of times an item appears in the list |
+| `list.index(item)` | Returns the index of the first occurrence of `item` |
+| `list.insert(index, item)` | Inserts an item at the specified index in the list |
+| `list.remove(item)` | Removes the first occurrence of `item` from the list |
+| `list.reverse()` | Reverses the items in the list |
+| `list.sort()` | Sorts a list |
+
+Note that the word `list` is just a variable we defined to hold a list and is not a keyword nor anything built into Python. If, for example, you call your list `numbers`, then you would write `numbers.sort()` to sort the values in your list, `numbers.append(item)` to append the contents of the variable `item` into your list, and `len(numbers)` to get the length of your `numbers` list.
+
+```
+>>> list = [ 13, 27, 4, 7, 2, 99, 46, 1 ]
+>>> list
+[13, 27, 4, 7, 2, 99, 46, 1]
+>>> len(list)
+8
+>>> max(list)
+99
+>>> min(list)
+1
+>>> list.append(16)
+>>> list
+[13, 27, 4, 7, 2, 99, 46, 1, 16]
+>>> list.count(7)
+1
+>>> list.insert(1, 7)
+>>> list
+[13, 7, 27, 4, 7, 2, 99, 46, 1, 16]
+>>> list.count(7)
+2
+>>> list.index(7)
+1
+>>> list.remove(7)
+>>> list
+[13, 27, 4, 7, 2, 99, 46, 1, 16]
+>>> list.sort()
+>>> list
+[1, 2, 4, 7, 13, 16, 27, 46, 99]
+>>> list.reverse()
+>>> list
+[99, 46, 27, 16, 13, 7, 4, 2, 1]
+```

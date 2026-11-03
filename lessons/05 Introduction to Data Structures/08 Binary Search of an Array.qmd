@@ -1,0 +1,213 @@
+---
+title: "Binary Search of an Array"
+---
+
+::: {.callout-important title="Activity 4: Binary search for a specific value in an array" collapse=true}
+For this activity, we assume that you have declared and randomly populated a list of values (called `numbers`), and that you have also sorted this list using the selection sort implemented in the previous activity.
+:::
+
+Let's begin by recalling the pseudocode for the binary search as shown in a previous lesson:
+
+```
+1:  repeat
+2:      n ← number of items in the current portion of the list
+3:      mid ← floor(n / 2) + 1
+4:      guess mid
+5:      if response is HIGHER
+6:      then
+7:          discard the left half of the list
+8:      else if response is LOWER
+9:      then
+10:         discard the right half of the list
+11:     end
+12: until guess is correct
+```
+
+Note that the repeat-until loop terminates when the guess is correct. This is because we tailored the binary search to the number guessing game (which means that, eventually, the number will be found). We need to generalize the algorithm so that it can work on an arbitrary list of values, whether the specified value is found in it or not. Try to rewrite the algorithm so that it works for an arbitrary list. Type your pseudocode in the box below (your work is saved in this browser), then compare it with a possible answer.
+
+```{=html}
+<div id="bs-rewrite" style="margin: 1rem 0;">
+  <textarea id="bs-rewrite-text" rows="14" spellcheck="false"
+    placeholder="Write your pseudocode here, one step per line..."
+    style="width:100%; font-family:var(--bs-font-monospace, monospace); font-size:.9rem; tab-size:4;
+           background:var(--bs-body-bg); color:var(--bs-body-color);
+           border:1px solid color-mix(in srgb, currentColor 35%, transparent); border-radius:.3rem; padding:.6rem .8rem;"></textarea>
+  <div style="display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.5rem;">
+    <button type="button" id="bs-rewrite-show" class="btn btn-primary btn-sm">Show a possible answer</button>
+    <button type="button" id="bs-rewrite-clear" class="btn btn-outline-secondary btn-sm">Clear</button>
+  </div>
+  <pre id="bs-rewrite-answer" style="display:none; margin-top:.8rem;"><code>1:  num ← number to search for
+2:  found ← false
+3:  repeat
+4:      n ← number of items in the current portion of the list
+5:      mid ← floor(n / 2) + 1
+6:      if num = item at mid
+7:      then
+8:          found ← true
+9:      else if num > item at mid
+10:     then
+11:         discard the left half of the list
+12:     else
+13:         discard the right half of the list
+14:     end
+15: until found = true or the current portion of the list is empty
+16: display found</code></pre>
+</div>
+<script>
+(function () {
+  var box = document.getElementById('bs-rewrite-text');
+  var answer = document.getElementById('bs-rewrite-answer');
+  var show = document.getElementById('bs-rewrite-show');
+  var KEY = 'bs-rewrite-text';
+
+  // Restore saved work (storage can be unavailable, so every access is guarded).
+  try { box.value = localStorage.getItem(KEY) || ''; } catch (e) {}
+  box.addEventListener('input', function () {
+    try { localStorage.setItem(KEY, box.value); } catch (e) {}
+  });
+
+  // The Tab key inserts four spaces instead of leaving the box.
+  box.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab') return;
+    e.preventDefault();
+    var start = box.selectionStart;
+    box.value = box.value.slice(0, start) + '    ' + box.value.slice(box.selectionEnd);
+    box.selectionStart = box.selectionEnd = start + 4;
+    box.dispatchEvent(new Event('input'));
+  });
+
+  show.addEventListener('click', function () {
+    var hidden = answer.style.display === 'none';
+    answer.style.display = hidden ? 'block' : 'none';
+    show.textContent = hidden ? 'Hide the possible answer' : 'Show a possible answer';
+  });
+
+  document.getElementById('bs-rewrite-clear').addEventListener('click', function () {
+    box.value = '';
+    box.dispatchEvent(new Event('input'));
+  });
+})();
+</script>
+```
+
+This new version works by finding the middle value in the list. It then compares the value to search for with this middle value. If they match, then the search is finished! Otherwise, the left or right half of the list is discarded, depending on the result of the comparison. This continues, either until the value is found, or until the entire list has been searched (and the value was not found).
+
+Generally, it's not a good idea to actually remove values from a list when performing a search. We can tweak the algorithm a bit to maintain the list's integrity by keeping track of the "beginning" and "end" of the valid portion of the list. That is, if we wish to "discard" the left half of the list, then the valid portion of the list is the right half: the beginning of the valid portion of the list is at the index directly to the right of the middle value, and the end of the valid portion of the list doesn't change. And if we wish to "discard" the right half of the list, then the valid portion of the list is the left half: the beginning of the valid portion of the list doesn't change, and the end of the valid portion of the list is at the index directly to the left of the middle value. Here's a modified algorithm that implements this tweak:
+
+```
+num ← number to search for
+found ← false
+first ← 0
+last ← number of items in the list - 1
+while first <= last and found != true
+    mid ← floor((first + last) / 2)
+    if num = item at mid of the list
+    then
+        found ← true
+    else if num > item at mid of the list
+    then
+        first ← mid + 1
+    else
+        last ← mid - 1
+    end
+display found
+```
+
+If the desired value is found in the list, the search terminates. This occurs because the variable `found` is set to true when the value is found in the list, and the `while` loop's condition requires `found != true` to continue the repetition. The `while` loop also terminates if the variables `first` and `last` shift sides (i.e., `first` represents an index in the list that is greater than `last`). This indicates that the desired value was not found in the list.
+
+Note how the variable `mid` is calculated: it is the average of the `first` and `last` indexes! The floor math function guarantees that the middle value is to the left of the center of the valid portion of the list, if the valid portion of the list has an even number of items.
+
+### The Python implementation
+
+Here's a Python implementation of the binary search:
+
+```python
+num = int(input("What integer would you like to search for? "))
+found = False
+first = 0
+last = len(numbers) - 1
+
+
+while (first <= last and found != True):
+    mid = (first + last) // 2
+    if (num == numbers[mid]):
+        found = True
+    elif (num > numbers[mid]):
+        first = mid + 1
+    else:
+        last = mid - 1
+
+print(found)
+```
+
+First, the desired search value is obtained and stored into the variable `num`:
+
+```python
+num = int(input("What integer would you like to search for? "))
+```
+
+Next, `found` is initialized to `False`, `first` to 0 (the first valid index in the list), and `last` to `len(numbers) - 1` (the last valid index in the list):
+
+```python
+found = False
+first = 0
+last = len(numbers) - 1
+```
+
+The `while` loop is structured so that it iterates so long as `first <= last` (i.e., the beginning and end of the valid portion of the list haven't logically swapped) and `found != True` (i.e., the desired value hasn't already been found):
+
+```python
+while (first <= last and found != True):
+```
+
+Next, the middle index of the valid portion of the list is calculated as the average of `first` and `last`. Note the use of the `//` operator (which performs a floor division):
+
+```python
+mid = (first + last) // 2
+```
+
+If the desired value is found at the index stored in `mid`, then `found` is set to `True` (which will terminate the `while` loop). If not, then either `first` or `last` is appropriately updated: if the desired value is greater than the value at `mid`, then `first` is updated to `mid + 1`; if the desired value is less than the value at `mid`, then `last` is updated to `mid - 1`.
+
+```python
+if (num == numbers[mid]):
+    found = True
+elif (num > numbers[mid]):
+    first = mid + 1
+else:
+    last = mid - 1
+```
+
+### Checking that the loop terminates
+
+To assure yourself that the loop will terminate if the desired value is not found by logically swapping the positions of `first` and `last`, let's try a trivial example with a list of one item: `[ 5 ]`.
+
+Running the binary search on this list initially sets `found` to `False`, `first` to 0, and `last` to 0 (`len(numbers) - 1 = 1 - 1 = 0`). At this point, `first` is indeed less than or equal to `last` (actually `first == last`). Moreover, `found != True`. Therefore, `mid` is calculated to be `(0 + 0) // 2 = 0 // 2 = 0`.
+
+Suppose that we wish to search for the value 6 (which is not in the list). Therefore, `num != numbers[mid]`; however, `num > numbers[mid]` (i.e., 6 > 5). This results in `first` being updated to 1: `mid + 1 = 0 + 1 = 1`. When the condition in the `while` loop is reevaluated, `first` is 1 and `last` is 0! The values have logically swapped (i.e., how can `first` be greater than `last`?). Therefore, the `while` loop terminates, and the variable `found` is never changed from its initialized value of `False`.
+
+### A more meaningful output
+
+How could the algorithm be modified so that the output is more meaningful? That is, if the desired value is found, additionally display its index in the list. A possible solution is:
+
+```python
+num = int(input("What integer would you like to search for? "))
+found = False
+first = 0
+last = len(numbers) - 1
+
+while (first <= last and found != True):
+    mid = (first + last) // 2
+    if (num == numbers[mid]):
+        found = True
+    elif (num > numbers[mid]):
+        first = mid + 1
+    else:
+        last = mid - 1
+
+if (found):
+    print("{} was found at index {}!".format(num, mid))
+else:
+    print("{} was not found.".format(num))
+```
+
+The reason that `mid` can be used to provide the index of the desired (and found) value in the list is that it is not recalculated when `found` is set to `True`. That is, its last calculated value is preserved (which is the last calculated middle of the valid portion of the list -- where the desired value was found).

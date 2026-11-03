@@ -1,0 +1,82 @@
+---
+title: "The Python For Loop"
+---
+
+Python provides one more repetition construct called the `for` loop. Typically, `while` loops are considered to be *sentinel-driven*. That is, they require a condition to either be true or false that indicates execution of the statements in the loop. Recall that Scratch also had a *repeat-n* block that repeated a task a set (or fixed) number of times. This kind of loop can be implemented in Python using the `for` loop construct.
+
+The structure of a `for` loop in Python is:
+
+```python
+for iterating_variable in sequence:
+    loop_body
+```
+
+Here's an example that uses the `for` loop on a list:
+
+```
+>>> list = [ 2, 4, 6, 8 ]
+>>> for list_item in list:
+        print("Current list item: {}".format(list_item))
+
+Current list item: 2
+Current list item: 4
+Current list item: 6
+Current list item: 8
+```
+
+The variable `list_item` is used as an *iterator*. That is, it takes on the value of each item in the list at each iteration of the `for` loop. The first time, `list_item` takes on the first item in the list, 2. The second time, it takes on the second item in the list, 4. Eventually, it takes on the last item in the list, 8. In total, the body of the `for` loop executes once for each item in the list (or four times).
+
+The `for` loop is actually quite powerful and flexible. It can, for example, iterate through the letters of a string:
+
+```
+>>> for letter in "Hello world!":
+        print("Current letter: {}".format(letter))
+
+Current letter: H
+Current letter: e
+Current letter: l
+Current letter: l
+Current letter: o
+Current letter:
+Current letter: w
+Current letter: o
+Current letter: r
+Current letter: l
+Current letter: d
+Current letter: !
+```
+
+### Looping with range()
+
+Typically, `for` loops iterate through a counter. The counter can then be used to refer to a variety of things, including the index of the elements of a list. To structure a `for` loop such that it iterates, say from 0 through 8, we would use the built-in Python function, `range()`:
+
+```
+>>> for i in range(0, 9):
+        print("Current iteration: {}".format(i))
+
+Current iteration: 0
+Current iteration: 1
+Current iteration: 2
+Current iteration: 3
+Current iteration: 4
+Current iteration: 5
+Current iteration: 6
+Current iteration: 7
+Current iteration: 8
+```
+
+The `range()` function typically takes two parameters: a start value and a stop value. The start value is included in the range; however, the stop value is not. For example, to iterate from -10 to 10:
+
+```python
+for i in range(-10, 11)
+```
+
+Note that an optional third parameter can be specified to indicate a *step* value. For example, suppose that you wish to iterate from 0 to 100 in increments of 10 (i.e., 0, 10, 20, …, 90, 100):
+
+```python
+for i in range(0, 101, 10)
+```
+
+More on the `for` loop will be discussed later.
+
+Now that we have a list populated with random values, we can implement the sequential search to find the largest value in the list!

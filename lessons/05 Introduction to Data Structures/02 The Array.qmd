@@ -1,0 +1,24 @@
+---
+title: "The Array"
+---
+
+One of the most commonly used data structures is called the **array**. We will see that many concepts in computer science, and particularly in data structures, are derived from real life examples -- and arrays are not an exception. Arrays are comparable to a numbered list -- such as a grocery list, a class roster, or a set of numbered drawers. They are used to store multiple instances of anything, as long as they are all of the same kind (i.e., all numbers, all letters, all images, all books, etc). Imagine these things being in some sort of order (i.e., we have a first thing, a last thing, and some number of things in between). The members of (or entries in) the array are called **elements**.
+
+> **Definition:** An array is a collection of similar pieces of data stored in contiguous memory locations. Contiguous memory locations means that the data is stored in memory locations that are next to each other.
+
+```
+        Contiguous memory locations
+ ┌────────┬────────┬────────┬────────┬────────┬────────┬─────┬──────────┬────────┐
+ │ item 1 │ item 2 │ item 3 │ item 4 │ item 5 │ item 6 │ ... │ item n-1 │ item n │
+ └────────┴────────┴────────┴────────┴────────┴────────┴─────┴──────────┴────────┘
+```
+
+The order in which elements are stored in an array is important. This is because very often a programmer needs to access a specific element of an array, and in order to do that, its position relative to the first element of the array must be known. The position of an element is also referred to as its **address**, and the relative address (how far away from the first element it is) is called its **index**. We say that a value is stored at an index of the array.
+
+### Value vs. index
+
+The distinction between a value and its index is one that must be emphasized. In this context, the following definition holds:
+
+> **Definition:** A value refers to a piece of data stored in an array, and its index is the position in the array where that value is stored. This means the index represents *where* an element is, whereas the value represents *what* the element is.
+
+While the two are related, each of them will be of different importance to us depending on the scenario we are trying to solve. For example, if you misplaced your favorite jacket at home, its location would be more important than its value (i.e., its index would be more important than the fact that it is a jacket). In contrast, when you get feedback on a test you did in class, the value of your score is more important. While dealing with arrays, it is important to understand the distinction between index and value.

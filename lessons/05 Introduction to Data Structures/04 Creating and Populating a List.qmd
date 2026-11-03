@@ -1,0 +1,152 @@
+---
+title: "Creating and Populating a List"
+---
+
+::: {.callout-important title="Activity 1: Creating and populating an array (actually, a Python list)" collapse=true}
+In this activity, you will write a Python program to create a list of 20 random integers.
+:::
+
+### Creating the list
+
+Create an empty list named `numbers` using a simple assignment statement:
+
+```python
+numbers = []
+```
+
+Currently, the list is empty (i.e., its length is 0). In fact, this can be confirmed using one of the list methods shown in the previous section:
+
+```python
+print(len(numbers))
+```
+
+### Populating the list with random integers
+
+Let's populate the list with 20 random integers. While it is possible (albeit tedious) to populate the list by adding each value individually, instead we are going to create a short program to make the population process automated.
+
+Because the population process calls for a specific task (i.e., the addition of an item to the list) to be repeated over and over again, let's use the `while` loop with a counter (initialized to 0). Let's now declare the counter:
+
+```python
+numbers = []
+counter = 0
+```
+
+Because our task is going to be done 20 times (in order to fill the list with 20 values), we can structure the `while` loop as follows:
+
+```python
+numbers = []
+counter = 0
+
+while (counter < 20):
+    # add a random number to the list
+    counter += 1
+```
+
+Note that the comment (beginning with `#`) will be replaced later. It is just informative at this point. Notice how the counter is incremented at the end of the `while` loop. This is necessary because it allows it to progress from 0 to 20, guaranteeing that the condition in the `while` loop will eventually be false (i.e., `counter` will be greater than or equal to 20). This stops the repetition, allowing control to continue past the `while` loop.
+
+Now, what number will we actually be adding to the list? Well, we want to add 20 randomly selected numbers to the list. To generate random numbers, we can make use of a Python library called `random`; specifically, a function in the library called `randint`. Libraries and how to import them in Python programs will be discussed in more detail in a later lesson. For now, we'll simply show how to import the `randint` function from the `random` library:
+
+```python
+from random import randint
+
+numbers = []
+counter = 0
+while (counter < 20):
+    # add a random number to the list
+    counter += 1
+```
+
+Next, let's generate a random integer from 1 to 99:
+
+```python
+from random import randint
+
+numbers = []
+counter = 0
+while (counter < 20):
+    num = randint(1, 99)
+    counter += 1
+```
+
+Note that the `randint` function takes two parameters: a lower bound and an upper bound. The function returns a random integer from the lower bound to the upper bound, inclusive. So far, we've just generated 20 random numbers from 1 to 99. We're not actually adding them to the list! Let's do this now using the `append` list function shown previously:
+
+```python
+from random import randint
+
+numbers = []
+counter = 0
+while (counter < 20):
+    num = randint(1, 99)
+    numbers.append(num)
+    counter += 1
+```
+
+You have now created a list (which we called `numbers`) and filled it with 20 random integers. If any of the following activities require a list filled with random numbers, you can easily refer to the above steps and create one. If you require a larger or smaller array, it's just a matter of changing the value in the `while` loop. If you require values in a different range (perhaps numbers between 100 and 1000), it's just a matter of changing the values in the `randint` function.
+
+The generated list can be displayed as follows:
+
+```python
+from random import randint
+
+numbers = []
+counter = 0
+while (counter < 20):
+    num = randint(1, 99)
+    numbers.append(num)
+    counter += 1
+
+print(numbers)
+```
+
+The output generated will look something like this (of course, your list will look different):
+
+```
+[82, 17, 85, 8, 2, 7, 33, 13, 24, 89, 49, 37, 61, 72, 83, 39, 23, 58, 45, 31]
+```
+
+### Simplifying the program
+
+You may wonder why we store a randomly generated integer in the variable `num` in the program above. It's not used for anything other than being added to the list. In fact, the variable `num` is actually not necessary. The algorithm above can be modified without changing its behavior as follows:
+
+```python
+from random import randint
+
+numbers = []
+counter = 0
+while (counter < 20):
+    numbers.append(randint(1, 99))
+    counter += 1
+print(numbers)
+```
+
+The randomly generated integer is generated and immediately added to the list!
+
+As a last observation, it is often good practice to use **constants** to specify target or desired values. For example, using a constant to specify the list's desired size can be useful. Any point in the program that needs the list's target size can refer to the constant. If it needs to be changed at a later time, the constant value simply needs to be changed, and all references to it through the constant won't have to also be updated. Here's a modification of the above program that implements this:
+
+```python
+from random import randint
+
+SIZE = 20
+numbers = []
+counter = 0
+while (counter < SIZE):
+    numbers.append(randint(1, 99))
+    counter += 1
+
+print(numbers)
+```
+
+Finally, recall that one of the list methods shown previously returns the list's size. We can use it instead of a counter to repeatedly insert integers into the list until it has reached the desired size:
+
+```python
+from random import randint
+
+SIZE = 20
+numbers = []
+while (len(numbers) < SIZE):
+    numbers.append(randint(1, 99))
+
+print(numbers)
+```
+
+Note that all statements referring to the variable `counter` have been removed. As integers are inserted into the list, its length increases. Therefore, `len(numbers)`, initially 0, increases by one each time an integer is inserted into the list. Eventually, `len(numbers)` will be 20, and control will continue past the `while` loop.

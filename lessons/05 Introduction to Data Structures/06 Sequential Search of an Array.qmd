@@ -1,0 +1,72 @@
+---
+title: "Sequential Search of an Array"
+---
+
+::: {.callout-important title="Activity 2: Sequential search of the largest value in an array" collapse=true}
+This activity involves implementing a sequential search on the list that was created in the first activity. We will use the sequential search to find the largest value in the list. We need to use our knowledge of the sequential search algorithm to implement it using the tools available to us in Python.
+:::
+
+Just to jog your memory, the sequential search algorithm begins by assuming that the largest value is the value stored in the first position of the list. We then check through every position, one by one, to see if there is a value greater than what is currently stored as `largest`. If a larger value is found, then the `largest` is replaced with the value in the current position. Otherwise, we just move on to the next position. This process is repeated until the end of the list is reached.
+
+The first thing to do is to create a variable called `largest` and assign it the value in the first position of the list:
+
+```python
+largest = numbers[0]
+```
+
+Now that we have initialized the variable `largest`, we need to compare it with each value in the list. This sounds like we'll need another loop construct (to do the comparison 20 times: one comparison for each of the values in the list). Technically, we really only need to do the comparison 19 times: one comparison for each of the remaining values in the list. Let's use a `for` loop for this.
+
+Recall that the sequential search algorithm dictates that if the value we are comparing with in the list is greater than `largest`, then we change the value of `largest` to store the current value in the list. We then keep on comparing it with the remaining values in the list.
+
+To compare the variable `largest` with individual elements in the list, we will need to know the indexes of each of the values in the list. That is, we will need to start with the second index (why not the first?), compare it with `largest`, go to the third, and so on. The strategy will be to use a counter to iterate through the range of indexes in the list and update the variable `largest` as necessary. Recall that the first index in the list is 0. Since we assume that the largest value is currently there, we can begin searching at index 1:
+
+```python
+largest = numbers[0]
+for index in range(1, 20):
+    if (numbers[index] > largest):
+        largest = numbers[index]
+```
+
+The function `range(1, 20)` generates the sequence 1 through 19 that the variable `index` will iterate through (i.e., take on the value 1, followed by 2, and so on). We can therefore use the variable `index` to refer to specific locations in the list and access each element in the list. The benefit of using a variable instead of an explicit number is that a variable can change at any point in our algorithm.
+
+The last step is to display the largest value:
+
+```python
+largest = numbers[0]
+for index in range(1, 20):
+    if (numbers[index] > largest):
+        largest = numbers[index]
+print(largest)
+```
+
+Perhaps a more meaningful output statement is better:
+
+```python
+largest = numbers[0]
+
+for index in range(1, 20):
+    if (numbers[index] > largest):
+        largest = numbers[index]
+
+print("The largest value is: {}".format(largest))
+```
+
+The entire program, including generating the list, is shown here for completeness:
+
+```python
+from random import randint
+
+numbers = []
+while (len(numbers) < 20):
+    numbers.append(randint(1, 99))
+
+print(numbers)
+
+largest = numbers[0]
+
+for index in range(1, 20):
+    if (numbers[index] > largest):
+        largest = numbers[index]
+
+print("The largest value is: {}".format(largest))
+```
